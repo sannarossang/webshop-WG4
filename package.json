@@ -3,6 +3,7 @@
     "parcel": "^2.8.2"
   },
   "dependencies": {
+    "@parcel/transformer-typescript-tsc": "^2.8.2",
     "@parcel/validator-typescript": "^2.8.2"
   }
 }
