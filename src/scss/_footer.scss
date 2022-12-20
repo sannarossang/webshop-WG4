@@ -1,0 +1,11 @@
+footer{
+    display: flex;
+    align-items: center;
+    background-color: pink;
+    justify-content: space-around;
+    padding: 30px;
+    p{
+        display: flex;
+        flex-direction: row;
+    }
+}
