@@ -1,3 +1,5 @@
+@use "mixins";
+
 header{
     background-color: pink;
     display: flex;
@@ -9,19 +11,51 @@ header{
     a{
         text-decoration: none;
         color: black;
-        margin-left: 40px;
-        margin-right: 40px;
+        @include mixins.desktop{
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+    }
+
+    nav{
+        a{
+            display: none;
+            @include mixins.desktop{
+             display: inline;
+            }
+        }
     }
 }
 
 #shoppingcart{
     display: flex;
     position: absolute;
-    top: 50px;
-    right: 50px;
+    top: 30px;
+    right: 30px;
+    @include mixins.desktop{
+        top: 50px;
+        right: 50px;
+    }
+
     #cartButton{
+     background-color: pink;
+     border: none;
+     font-size: 25pt;
+     cursor: pointer;
+    }
+}
+
+#burgerMenu{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    @include mixins.desktop{
+        display: none;
+    }
+
+    #mobileMenu{
         background-color: pink;
-        border: none;
+        border: 0;
         font-size: 25pt;
         cursor: pointer;
     }

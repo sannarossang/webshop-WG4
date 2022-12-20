@@ -4,3 +4,10 @@ export function openCart() {
     alert("du klickade på varukorgen!");
   });
 }
+
+export function openMobileMenu() {
+  let menu = document.getElementById("mobileMenu");
+  menu?.addEventListener("click", () => {
+    alert("du öppnade menyn");
+  });
+}

@@ -1,3 +1,4 @@
-import { openCart } from "./startpage";
+import { openCart, openMobileMenu } from "./startpage";
 
 openCart();
+openMobileMenu();
