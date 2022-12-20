@@ -3,10 +3,6 @@ body {
     padding: 0;
 }
 
-h1{
-    margin: 0;
-}
-
 header{
     background-color: pink;
     display: flex;
@@ -14,11 +10,25 @@ header{
     align-items: center;
     padding: 30px;
     line-height: 40px;
+
     a{
         text-decoration: none;
         color: black;
         margin-left: 40px;
         margin-right: 40px;
+    }
+}
+
+#shoppingcart{
+    display: flex;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    #cartButton{
+        background-color: pink;
+        border: none;
+        font-size: 25pt;
+        cursor: pointer;
     }
 }
 
@@ -40,3 +50,5 @@ footer{
         flex-direction: row;
     }
 }
+
+

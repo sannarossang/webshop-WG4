@@ -5,6 +5,10 @@
   },
   "dependencies": {
     "@parcel/transformer-typescript-tsc": "^2.8.2",
-    "@parcel/validator-typescript": "^2.8.2"
+    "@parcel/validator-typescript": "^2.8.2",
+    "bootstrap-icons": "^1.10.2"
+  },
+  "scripts": {
+    "index.html": "npx parcel src/index.html src/html/products.html src/html/checkout.html"
   }
 }
