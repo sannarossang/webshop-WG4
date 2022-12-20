@@ -1,0 +1,66 @@
+@use "mixins";
+
+header{
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    line-height: 40px;
+
+    #logo{
+        font-size: 25pt;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+        @include mixins.desktop{
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+    }
+
+    nav{
+        a{
+            display: none;
+            @include mixins.desktop{
+             display: inline;
+            }
+        }
+    }
+}
+
+#shoppingcart{
+    display: flex;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    @include mixins.desktop{
+        top: 50px;
+        right: 50px;
+    }
+
+    #cartButton{
+     background-color: pink;
+     border: none;
+     font-size: 25pt;
+     cursor: pointer;
+    }
+}
+
+#burgerMenu{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    @include mixins.desktop{
+        display: none;
+    }
+
+    #mobileMenu{
+        background-color: pink;
+        border: 0;
+        font-size: 25pt;
+        cursor: pointer;
+    }
+}

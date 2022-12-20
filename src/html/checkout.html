@@ -15,10 +15,21 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <script defer src="../ts/main.ts" type="module"></script>
   </head>
   <body>
     <header>
-      <a href="../index.html">LOGGA</a>
+      <a href="../index.html" id="logo">LOGGA</a>
+      <div id="shoppingcart">
+        <button id="cartButton">
+          <i class="fa-regular fa-bag-shopping"></i>
+        </button>
+      </div>
+      <div id="burgerMenu">
+        <button id="mobileMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
       <nav>
         <a href="../index.html">Hem</a>
         <a href="./products.html">Produkter</a>

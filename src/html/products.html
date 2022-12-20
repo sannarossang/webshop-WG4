@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produktsida</title>
+    <link href="../scss/_products.scss" rel="stylesheet" />
+    <script src="../ts/products.ts" type="module"></script>
     <link rel="stylesheet" href="../scss/main.scss" />
     <script
       src="https://kit.fontawesome.com/918165918f.js"
@@ -15,17 +17,31 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <!-- <script defer src="../ts/main.ts" type="module"></script> -->
   </head>
   <body>
     <header>
-      <a href="../index.html">LOGGA</a>
+      <a href="../index.html" id="logo">LOGGA</a>
+      <div id="shoppingcart">
+        <button id="cartButton">
+          <i class="fa-regular fa-bag-shopping"></i>
+        </button>
+      </div>
+      <div id="burgerMenu">
+        <button id="mobileMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
       <nav>
         <a href="../index.html">Hem</a>
         <a href="./products.html">Produkter</a>
         <a href="./checkout.html">Kassa</a>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <h2>Vilken tapet väljer du idag?</h2>
+      <div id="productsContainer"></div>
+    </main>
     <footer>
       <p>Sociala medier</p>
       <p>Om oss</p>
