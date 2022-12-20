@@ -5,20 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webbshop Grupp 4</title>
-    <link rel="stylesheet" href="scss/main.scss" />
+    <link rel="stylesheet" href="./scss/main.scss" />
+    <script
+      src="https://kit.fontawesome.com/918165918f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="../src/ts/main.ts" type="module"></script>
   </head>
   <body>
     <header>
-      <a href="index.html">LOGGA</a>
+      <a href="index.html" id="logo">LOGGA</a>
+      <div id="shoppingcart">
+        <button id="cartButton">
+          <i class="fa-regular fa-bag-shopping"></i>
+        </button>
+      </div>
+      <div id="burgerMenu">
+        <button id="mobileMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
       <nav>
-        <a href="index.html">Hem</a>
-        <a href="html/products.html">Produkter</a>
-        <a href="html/checkout.html">Kassa</a>
+        <a href="./index.html">Hem</a>
+        <a href="./html/products.html">Produkter</a>
+        <a href="./html/checkout.html">Kassa</a>
       </nav>
     </header>
     <main>
       <div id="startpageImage">
-        <p>Välkommen till oss</p>
+        <h1>Välkommen till oss</h1>
       </div>
     </main>
     <footer>
