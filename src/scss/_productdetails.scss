@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+div {
+    padding: 25px;
+    background-color: aqua;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside {
+    padding: 25px;
+    background-color: pink;
+    width: 50%;
+    text-align: center;
+}
+
+img {
+    width: 20%;
+    height: 20%;
+}
