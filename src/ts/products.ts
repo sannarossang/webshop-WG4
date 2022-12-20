@@ -17,8 +17,8 @@ let wallpaper1 = new Product(
 );
 
 let wallpaper2 = new Product(
-  "wallpaper 1",
-  429,
+  "wallpaper 2",
+  430,
   "romantic",
   "flowers",
   "boråstapeter",
@@ -28,8 +28,8 @@ let wallpaper2 = new Product(
 );
 
 let wallpaper3 = new Product(
-  "wallpaper 1",
-  429,
+  "wallpaper 3",
+  431,
   "romantic",
   "flowers",
   "boråstapeter",
@@ -40,7 +40,7 @@ let wallpaper3 = new Product(
 
 let products: Product[] = [wallpaper1, wallpaper2, wallpaper3];
 
-function createHTML(products: Product[]) {
+export function createHTML(products: Product[]) {
   let productsContainer = document.getElementById(
     "productsContainer"
   ) as HTMLDivElement;
