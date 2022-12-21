@@ -162,8 +162,7 @@ function createHTML(products: Product[]) {
   }
 
   function addProductToCart(clickedProduct: Product) {
-    console.log("Du klickade på:", clickedProduct);
     addToCart(clickedProduct, 1);
-    getCart(clickedProduct, 1);
+    let myCart = getCart();
   }
 }
