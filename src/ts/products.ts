@@ -12,7 +12,7 @@ let wallpaper1 = new Product(
   "flowers",
   "boråstapeter",
   "unnizetterling",
-  "src/assets/wallpaper1.png",
+  "https://colorama.cdn.storm.io/9f8000a2-a43e-4a1f-8046-5ea963f72056?width=700&mode=crop&heightratio=1&height=700&quality=80",
   "lite info om produkten"
 );
 
@@ -23,7 +23,7 @@ let wallpaper2 = new Product(
   "flowers",
   "boråstapeter",
   "unnizetterling",
-  "src/assets/wallpaper2.png",
+  "https://colorama.cdn.storm.io/9f8000a2-a43e-4a1f-8046-5ea963f72056?width=700&mode=crop&heightratio=1&height=700&quality=80",
   "lite info om produkten"
 );
 
@@ -34,7 +34,7 @@ let wallpaper3 = new Product(
   "flowers",
   "boråstapeter",
   "unnizetterling",
-  "/Users/sannarossang/Documents/Medieinstitutet/webshop-WG4/src/assets/wallpaper10.png",
+  "https://colorama.cdn.storm.io/9f8000a2-a43e-4a1f-8046-5ea963f72056?width=700&mode=crop&heightratio=1&height=700&quality=80",
   "lite info om produkten"
 );
 
@@ -61,7 +61,8 @@ export function createHTML(products: Product[]) {
     description.className = "product__description";
     price.className = "product__price";
 
-    img.innerHTML = products[i].img;
+    //img.innerHTML = products[i].img;
+    img.src = products[i].img;
     title.innerHTML = products[i].productname;
     description.innerHTML = products[i].description;
     price.innerHTML += products[i].price;
