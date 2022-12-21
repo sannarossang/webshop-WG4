@@ -7,7 +7,7 @@ export function addToCart(product: Product, quantity: number) {
   localStorage.setItem("myCartObject", JSON.stringify(cartObj));
 }
 
-function getCart(product: Product, quantity: number) {
+export function getCart(product: Product, quantity: number) {
   console.log("getCart");
   let cartObjFromLS = localStorage.getItem("myCartObject") || "{}";
   let cartObjLS = JSON.parse(cartObjFromLS);

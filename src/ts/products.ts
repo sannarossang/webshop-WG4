@@ -8,7 +8,7 @@ import imagewallpaper6 from "../assets/imagewallpaper6.png";
 import imagewallpaper7 from "../assets/imagewallpaper7.png";
 import imagewallpaper8 from "../assets/imagewallpaper8.png";
 import { Cart } from "./models/Cart";
-import { addToCart } from "./cart";
+import { addToCart, getCart } from "./cart";
 
 window.onload = function () {
   console.log("onload");
@@ -164,5 +164,6 @@ function createHTML(products: Product[]) {
   function addProductToCart(clickedProduct: Product) {
     console.log("Du klickade på:", clickedProduct);
     addToCart(clickedProduct, 1);
+    getCart(clickedProduct, 1);
   }
 }
