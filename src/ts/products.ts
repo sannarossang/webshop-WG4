@@ -7,6 +7,8 @@ import imagewallpaper5 from "../assets/imagewallpaper5.png";
 import imagewallpaper6 from "../assets/imagewallpaper6.png";
 import imagewallpaper7 from "../assets/imagewallpaper7.png";
 import imagewallpaper8 from "../assets/imagewallpaper8.png";
+import { Cart } from "./models/Cart";
+import { addToCart } from "./cart";
 
 window.onload = function () {
   console.log("onload");
@@ -155,11 +157,12 @@ function createHTML(products: Product[]) {
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
-      addToCart(products[i]);
+      addProductToCart(products[i]);
     });
   }
 
-  function addToCart(clickedProduct: Product) {
+  function addProductToCart(clickedProduct: Product) {
     console.log("Du klickade på:", clickedProduct);
+    addToCart(clickedProduct, 1);
   }
 }
