@@ -74,4 +74,21 @@ export function createHTML(products: Product[]) {
 
     productsContainer.appendChild(container);
   }
-}
+
+  // ----------
+
+    //open productdetails page
+    const button = document.createElement("button");
+    button.setAttribute("id", "hello-button")
+    const helloButton: any = document.getElementById("hello-button");
+    div.append(button)
+    helloButton.addEventListener("click", sayHello); 
+
+    function sayHello(){
+    let a = document.createElement("a");
+    a.innerText = "./productdetails.ts";
+    img.appendChild(a)
+    }
+    
+  }
+
