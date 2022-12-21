@@ -1,4 +1,3 @@
-import { myFunction, openCart } from "./startpage";
+import { myFunction } from "./startpage";
 
-openCart();
 myFunction();
