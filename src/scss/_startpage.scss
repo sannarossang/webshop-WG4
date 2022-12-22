@@ -6,6 +6,17 @@ body {
 }
 
 main {
+  height: 500px;
+
+  h1{
+    color: white;
+  }
+}
+
+#startpageImage{
+  background-image: url(../assets/herowallpaper.jpg);
+  background-size: cover;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;

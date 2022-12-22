@@ -1,7 +1,9 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
+import { Cart } from "./models/Cart";
+import { addToCart, getCart } from "./cart";
 
-  createHTML(products);
+createHTML(products);
 
 export function createHTML(products: Product[]) {
   let productsContainer = document.getElementById(
@@ -46,17 +48,17 @@ export function createHTML(products: Product[]) {
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
-      addToCart(products[i]);
+      addProductToCart(products[i]);
     });
 
-    container.addEventListener("click", ()=> {
-      console.log("clickhändelse funkar")
+    container.addEventListener("click", () => {
+      console.log("clickhändelse funkar");
       location.href = "../html/productdetails.html?id=" + products[i].id;
-    })
+    });
   }
 
-  function addToCart(clickedProduct: Product) {
-    console.log("Du klickade på:", clickedProduct);
+  function addProductToCart(clickedProduct: Product) {
+    addToCart(clickedProduct, 1);
+    let myCart = getCart();
   }
-  }
-
+}

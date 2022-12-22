@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webbshop Grupp 4</title>
     <link rel="stylesheet" href="./scss/main.scss" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/brands.css" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/solid.css" />
     <script
       src="https://kit.fontawesome.com/918165918f.js"
       crossorigin="anonymous"
@@ -18,16 +21,24 @@
     <script defer src="../src/ts/main.ts" type="module"></script>
   </head>
   <body>
-    <header>
+    <header id="header">
+      <div class="navbar">
+        <div class="dropdown">
+          <button id="menu" class="dropbtn" onclick="myFunction()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="dropdown-content" id="myDropdown">
+            <a href="./index.html">Hem</a>
+            <a href="./html/products.html">Produkter</a>
+            <a href="./html/checkout.html">Kassa</a>
+          </div>
+        </div>
+      </div>
+
       <a href="index.html" id="logo">LOGGA</a>
       <div id="shoppingcart">
         <button id="cartButton">
-          <i class="fa-regular fa-bag-shopping"></i>
-        </button>
-      </div>
-      <div id="burgerMenu">
-        <button id="mobileMenu">
-          <i class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
         </button>
       </div>
       <nav>
@@ -36,6 +47,7 @@
         <a href="./html/checkout.html">Kassa</a>
       </nav>
     </header>
+
     <main>
       <div id="startpageImage">
         <h1>Välkommen till oss</h1>
