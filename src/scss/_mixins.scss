@@ -3,3 +3,42 @@
     @content;
   }
 }
+
+//fontawesome
+
+@mixin fa-icon {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+@mixin fa-icon-solid($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-solid;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
+
+@mixin fa-icon-regular($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-regular;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
+
+@mixin fa-icon-brands($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-brands;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
