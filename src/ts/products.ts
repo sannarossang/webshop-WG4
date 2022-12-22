@@ -62,3 +62,10 @@ export function createHTML(products: Product[]) {
     let myCart = getCart();
   }
 }
+
+let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
+backButton.addEventListener("click", backaWindow);
+
+function backaWindow() {
+  history.back();
+}
