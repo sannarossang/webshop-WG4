@@ -21,26 +21,23 @@ import { createHTML } from "../ts/products";
 // aside.append(p)
 
 // let div= document.getElementsByClassName("product");
-console.log("Start");
 
 function searchById() {
-  const paramSearch: URLSearchParams = new Proxy(
-    new URLSearchParams(window.location.search),
-    {
-      get: (searchParams, id) => searchParams.get(id.toString()),
-    }
+  const paramSearch: URLSearchParams = new URLSearchParams(
+    window.location.search
   );
-
   let id = paramSearch.get("id");
-
-  console.log(id);
+  return id;
 }
 
 function createHTMLForItem(products: Product[]) {
-  if (searchById === null) {
+  let id = searchById();
+  if (id === null) {
     alert("Du har gjort fel");
-  } else {
-    for (let i = 0; i < products.length; i++) {
+  }
+
+  for (let i = 0; i < products.length; i++) {
+    if (id === products[i].id) {
       let container: HTMLDivElement = document.createElement("div");
 
       let img: HTMLImageElement = document.createElement("img");
