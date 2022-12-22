@@ -1,7 +1,6 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
 import { createHTML } from "../ts/products";
-import { myFunction } from "./cart";
 
 // const wrapper = document.getElementById("wrapper") as HTMLElement;
 // const div = document.createElement("div");
