@@ -73,4 +73,11 @@ function createHTMLForItem(products: Product[]) {
   }
 }
 
+let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
+backButton.addEventListener("click", backaWindow);
+
+function backaWindow() {
+  history.back();
+}
+
 createHTMLForItem(products);
