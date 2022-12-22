@@ -22,3 +22,25 @@ window.onclick = function (e) {
     myDropdown.classList.remove("show");
   }
 };
+
+let modal = document.getElementById("myModal");
+let btn = document.getElementById("cartButton");
+let span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+function closeSpan() {
+  span.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+
+closeSpan();
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
