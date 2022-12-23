@@ -51,19 +51,15 @@ function checkOut() {}
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
-let span = document.getElementsByClassName("close")[0];
+let closeBtn = document.getElementById("closeButton");
 
 btn.onclick = function () {
   modal.style.display = "block";
 };
 
-function closeSpan() {
-  span.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-}
-
-closeSpan();
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
 window.onclick = function (event) {
   if (event.target == modal) {
