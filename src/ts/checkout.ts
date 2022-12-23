@@ -41,10 +41,10 @@ window.onclick = function (event) {
 };
 
 let modal = document.getElementById("myModal");
-let btn = document.getElementById("cartButton");
+let button = document.getElementById("cartButton");
 let closeBtn = document.getElementById("closeButton");
 
-btn.onclick = function () {
+button.onclick = function () {
   modal.style.display = "block";
 };
 
