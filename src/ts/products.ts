@@ -1,6 +1,6 @@
 import { Product } from "./models/Products";
-import { products } from "./models/Products";
 import { addToCart } from "./cart";
+import { products } from "./models/Products";
 
 createHTML(products);
 
@@ -18,10 +18,6 @@ export function createHTML(products: Product[]): void {
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
     let button: HTMLButtonElement = document.createElement("button");
-
-    // container.addEventListener("click", () => {
-    //   handleClick(products[i])
-    // });
 
     // container.setAttribute("fa-light fa-cart-circle-plus", "XX")
 

@@ -1,9 +1,7 @@
 import * as functions from "./cart";
-import { Product } from "./models/Products";
-import { products } from "./models/Products";
-import { addToCart } from "../ts/cart";
 import { getCartItems } from "../ts/cart";
 import { CartItem } from "./models/Cart";
+import { products } from "./models/Products";
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
 backButton.addEventListener("click", backaWindow);
@@ -48,9 +46,9 @@ button.onclick = function () {
   modal.style.display = "block";
 };
 
-closeBtn.onclick = function () {
-  modal.style.display = "none";
-};
+// closeBtn.onclick = function () {
+//   modal.style.display = "none";
+// };
 
 window.onclick = function (event) {
   if (event.target == modal) {
