@@ -1,5 +1,5 @@
 import { CartItem } from "./models/Cart";
-import { Product, products } from "./models/Products";
+import { Product } from "./models/Products";
 
 export function addToCart(product: Product, quantity: number) {
   if (Object.keys(getCartItems()).length === 0) {
