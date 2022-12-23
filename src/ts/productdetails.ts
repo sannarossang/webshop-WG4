@@ -1,7 +1,6 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
 import { createHTML } from "../ts/products";
-import { myFunction } from "./cart";
 
 // const wrapper = document.getElementById("wrapper") as HTMLElement;
 // const div = document.createElement("div");
@@ -12,7 +11,6 @@ import { myFunction } from "./cart";
 // div.append(img)
 
 // //lägger till produktbeskrivning
-// const aside = document.createElement("aside");
 // let h1 = document.createElement("h1");
 // let p = document.createElement("p");
 // h1.innerText = "Varm sommar";
@@ -39,36 +37,37 @@ function createHTMLForItem(products: Product[]) {
 
   for (let i = 0; i < products.length; i++) {
     if (id === products[i].id) {
-      let container: HTMLDivElement = document.createElement("div");
-
+      //DIV
+      const container: HTMLDivElement = document.createElement("div");
       let img: HTMLImageElement = document.createElement("img");
-      let title: HTMLHeadingElement = document.createElement("h3");
-      let description: HTMLSpanElement = document.createElement("span");
-      let price: HTMLSpanElement = document.createElement("span");
-      let button: HTMLButtonElement = document.createElement("button");
 
-      container.className = "product";
+      container.className = "productImage";
       img.className = "product__image";
-      title.className = "product__title";
-      description.className = "product__description";
-      price.className = "product__price";
-      button.className = "product__button";
-
       img.src = products[i].img;
-      title.innerHTML = products[i].productname;
-      description.innerHTML = products[i].description;
-      price.innerHTML += products[i].price;
 
       container.appendChild(img);
-      container.appendChild(title);
-      container.appendChild(description);
-      container.appendChild(price);
-      container.appendChild(button);
+
+      //ASIDE
+      const aside = document.createElement("aside");
+      let h1 = document.createElement("h1");
+      let p = document.createElement("p");
+      let span = document.createElement("span");
+      h1.innerText = products[i].productname;
+      p.innerText = products[i].description;
+      span.innerHTML += products[i].price;
+      const button = document.createElement("button");
+
+      aside.append(h1);
+      aside.append(p);
+      aside.className = "productDetails";
+      aside.append(span);
+      aside.append(button);
 
       const productDetailContainer = document.getElementById(
         "productDetailContainer"
       ) as HTMLElement;
       productDetailContainer.appendChild(container);
+      productDetailContainer.appendChild(aside);
     }
   }
 }
