@@ -1,11 +1,11 @@
 import { Product } from "./Products";
 
-export class Cart {
-  products: Product[];
+export class CartItem {
+  product: Product;
   quantity: number;
 
-  constructor(products: Product[], quantity: number) {
-    this.products = products;
+  constructor(product: Product, quantity: number) {
+    this.product = product;
     this.quantity = quantity;
   }
 }
