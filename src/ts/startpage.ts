@@ -2,45 +2,35 @@ import { Product } from "./models/Products";
 import { createHTML } from "./products";
 import * as products from "./products";
 
-/*export function openCart() {
-  let cart = document.getElementById("cartButton");
-  cart?.addEventListener("click", () => {
-    createHTML;
-  });
-} */
-
-export function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (e) {
-  const { target } = event;
-  if (target) (target as HTMLButtonElement).matches(".dropbtn");
-  var myDropdown = document.getElementById("myDropdown");
-  if (myDropdown.classList.contains("show")) {
-    myDropdown.classList.remove("show");
-  }
-};
-
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
-let span = document.getElementsByClassName("close")[0];
+let closeBtn = document.getElementById("closeButton");
 
 btn.onclick = function () {
   modal.style.display = "block";
 };
 
-function closeSpan() {
-  span.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-}
-
-closeSpan();
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+};
+
+//burgermenu modal
+
+let burgerBtn = document.getElementById("burgerMenu");
+let burgerModal = document.getElementById("burgerModal");
+
+burgerBtn.onclick = function () {
+  burgerModal.style.display = "block";
+};
+
+window.onclick = function (event) {
+  if (event.target == burgerModal) {
+    burgerModal.style.display = "none";
   }
 };

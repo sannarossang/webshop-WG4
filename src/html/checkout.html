@@ -15,7 +15,7 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
-    <script defer src="../ts/main.ts" type="module"></script>
+    <script defer src="../ts/checkout.ts" type="module"></script>
   </head>
   <body>
     <header>
@@ -34,10 +34,16 @@
           </div>
         </div>
       </div>
-      <div id="burgerMenu">
-        <button id="mobileMenu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+      <button id="burgerMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div id="burgerModal" class="modal">
+        <!-- Modal content -->
+        <div class="burger-modal-content">
+          <a class="burgerLink" href="../index.html">Hem</a>
+          <a class="burgerLink" href="./products.html">Produkter</a>
+          <a class="burgerLink" href="./checkout.html">Kassa</a>
+        </div>
       </div>
       <nav>
         <a href="../index.html">Hem</a>
@@ -45,7 +51,86 @@
         <a href="./checkout.html">Kassa</a>
       </nav>
     </header>
-    <main></main>
+    <button type="button" id="backaKnapp">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <main>
+      <div id="payment">
+        <h4 class="payment__title">Fyll i dina betalningsuppgifter</h4>
+        <label for="payment__name">Förnamn</label>
+        <form class="payment__form">
+          <input
+            type="name"
+            name="name"
+            id="form-name"
+            class="payment__name"
+            required
+          />
+        </form>
+        <label for="payment__lastname">Efternamn</label>
+        <form class="payment__form">
+          <input
+            type="lastname"
+            name="lastname"
+            id="form-lastname"
+            class="payment__lastname"
+            required
+          />
+        </form>
+        <label for="payment__email">Email</label>
+        <form class="payment__form">
+          <input
+            type="email"
+            name="email"
+            id="form-email"
+            class="payment__email"
+            required
+          />
+        </form>
+        <label for="payment__card">Kortnummer</label>
+        <form class="payment__form">
+          <input
+            type="number"
+            name="cartnumber"
+            id="form-card"
+            class="payment__cart"
+            required
+          />
+        </form>
+        <label for="payment__mmyy">MM/YY</label>
+        <form class="payment__form">
+          <input
+            type="number"
+            name="mmyy"
+            id="form-mmyy"
+            class="payment__mmyy"
+            required
+          />
+        </form>
+        <label for="payment__cvc">CVC</label>
+        <form class="payment__form">
+          <input
+            type="number"
+            name="cvc"
+            id="form-cvc"
+            class="payment__cvc"
+            required
+          />
+        </form>
+        <label for="payment__nameoncart">Namn på kortet</label>
+        <form class="payment__form">
+          <input
+            type="name"
+            name="nameoncard"
+            id="form-nameoncard"
+            class="payment__nameoncard"
+            required
+          />
+        </form>
+        <button type="button" class="payButton">Klicka för att betala</button>
+      </div>
+    </main>
+
     <footer>
       <p>Sociala medier</p>
       <p>Om oss</p>

@@ -35,10 +35,16 @@
           </div>
         </div>
       </div>
-      <div id="burgerMenu">
-        <button id="mobileMenu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+      <button id="burgerMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div id="burgerModal" class="modal">
+        <!-- Modal content -->
+        <div class="burger-modal-content">
+          <a class="burgerLink" href="../index.html">Hem</a>
+          <a class="burgerLink" href="./products.html">Produkter</a>
+          <a class="burgerLink" href="./checkout.html">Kassa</a>
+        </div>
       </div>
       <nav>
         <a href="../index.html">Hem</a>
@@ -46,6 +52,9 @@
         <a href="./checkout.html">Kassa</a>
       </nav>
     </header>
+    <button type="button" id="backaKnapp">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
     <main id="productDetailMain">
       <div id="productDetailContainer"></div>
     </main>

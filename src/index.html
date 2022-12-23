@@ -18,20 +18,19 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
-    <script defer src="../src/ts/main.ts" type="module"></script>
+    <script defer src="../src/ts/startpage.ts" type="module"></script>
   </head>
   <body>
     <header id="header">
-      <div class="navbar">
-        <div class="dropdown">
-          <button id="menu" class="dropbtn" onclick="myFunction()">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <div class="dropdown-content" id="myDropdown">
-            <a href="./index.html">Hem</a>
-            <a href="./html/products.html">Produkter</a>
-            <a href="./html/checkout.html">Kassa</a>
-          </div>
+      <button id="burgerMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div id="burgerModal" class="modal">
+        <!-- Modal content -->
+        <div class="burger-modal-content">
+          <a class="burgerLink" href="./index.html">Hem</a>
+          <a class="burgerLink" href="./html/products.html">Produkter</a>
+          <a class="burgerLink" href="./html/checkout.html">Kassa</a>
         </div>
       </div>
 
@@ -43,7 +42,7 @@
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
-            <span class="close">&times;</span>
+            <button id="closeButton" class="close">&times;</button>
             <h2>Din varukorg</h2>
             <p id="sumProducts">Summera produkter</p>
             <a href="./html/checkout.html"><button>Gå till kassan</button></a>

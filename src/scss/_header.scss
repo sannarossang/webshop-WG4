@@ -53,16 +53,16 @@ header{
     position: absolute;
     top: 30px;
     left: 30px;
+    background-color: pink;
+    font-size: 25pt;
+    border: none;
     @include mixins.desktop{
         display: none;
     }
+}
 
-    #mobileMenu{
-        background-color: pink;
-        border: 0;
-        font-size: 25pt;
-        cursor: pointer;
-    }
+#burgerMenu::after{
+    background-color: white;
 }
 
 .modal {
@@ -84,10 +84,29 @@ header{
     padding: 20px;
     border: 1px solid #888;
     width: 40%;
-    height: 100%;
+    height: 60%;
     position: absolute;
     top: 0px;
     right: 0px;
+}
+
+.burger-modal-content{
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 20%;
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    a{
+        display: block;
+        padding: 5px;
+    }
+}
+
+.burgerLink:hover{
+    background-color: rgb(212, 212, 212);
 }
   
 /* The Close Button */
@@ -106,6 +125,12 @@ header{
 }
 
 #sumProducts{
-    border: 1px solid black;
     padding: 15px;
+    background-color: lightgray;
 }
+
+#closeButton, #closeBurger{
+    border: none;
+    background-color: white;
+}
+
