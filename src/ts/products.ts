@@ -1,7 +1,6 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
-import { Cart } from "./models/Cart";
-import { addToCart, getCart } from "./cart";
+import { addToCart } from "./cart";
 
 createHTML(products);
 
@@ -51,7 +50,7 @@ export function createHTML(products: Product[]) {
       addProductToCart(products[i]);
     });
 
-    container.addEventListener("click", () => {
+    img.addEventListener("click", () => {
       console.log("clickhändelse funkar");
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
@@ -59,7 +58,6 @@ export function createHTML(products: Product[]) {
 
   function addProductToCart(clickedProduct: Product) {
     addToCart(clickedProduct, 1);
-    let myCart = getCart();
   }
 }
 
