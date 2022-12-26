@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produktdetaljer</title>
-    <link rel="stylesheet" href="../scss/_productdetails.scss" />
+    <!--<link rel="stylesheet" href="../scss/_productdetails.scss" /> -->
     <link rel="stylesheet" href="../scss/main.scss" />
     <script defer src="../ts/productdetails.ts" type="module"></script>
-    <script>
-      src = "https://kit.fontawesome.com/918165918f.js";
-      crossorigin = "anonymous";
-    </script>
+    <script
+      src="https://kit.fontawesome.com/918165918f.js"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
@@ -20,21 +20,6 @@
   </head>
   <body>
     <header>
-      <a href="../index.html" id="logo">LOGGA</a>
-      <div id="shoppingcart">
-        <button id="cartButton">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </button>
-        <div id="myModal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Din varukorg</h2>
-            <p id="sumProducts">Summera produkter</p>
-            <a href="../html/checkout.html"><button>Gå till kassan</button></a>
-          </div>
-        </div>
-      </div>
       <button id="burgerMenu">
         <i class="fa-solid fa-bars"></i>
       </button>
@@ -44,6 +29,25 @@
           <a class="burgerLink" href="../index.html">Hem</a>
           <a class="burgerLink" href="./products.html">Produkter</a>
           <a class="burgerLink" href="./checkout.html">Kassa</a>
+        </div>
+      </div>
+
+      <a href="../index.html" id="logo">LOGGA</a>
+      <div id="shoppingcart">
+        <button id="cartButton">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <button id="closeButton" class="close">&times;</button>
+            <h2>Din varukorg</h2>
+            <div id="cartItemListIndex"></div>
+            <p id="sumProducts">Summera produkter</p>
+            <a href="./checkout.html"
+              ><button id="paymentBtn">Gå till kassan</button></a
+            >
+          </div>
         </div>
       </div>
       <nav>

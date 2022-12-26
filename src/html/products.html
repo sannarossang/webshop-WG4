@@ -21,23 +21,33 @@
   </head>
   <body>
     <header>
+      <button id="burgerMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div id="burgerModal" class="modal">
+        <!-- Modal content -->
+        <div class="burger-modal-content">
+          <a class="burgerLink" href="../index.html">Hem</a>
+          <a class="burgerLink" href="./products.html">Produkter</a>
+          <a class="burgerLink" href="./checkout.html">Kassa</a>
+        </div>
+      </div>
+
       <a href="../index.html" id="logo">LOGGA</a>
       <div id="shoppingcart">
         <button id="cartButton">
           <i class="fa-solid fa-cart-shopping"></i>
         </button>
-      </div>
-      <div>
-        <button id="burgerMenu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
-            <span class="close">&times;</span>
+            <button id="closeButton" class="close">&times;</button>
             <h2>Din varukorg</h2>
+            <div id="cartItemListIndex"></div>
             <p id="sumProducts">Summera produkter</p>
-            <a href="../html/checkout.html"><button>Gå till kassan</button></a>
+            <a href="./checkout.html"
+              ><button id="paymentBtn">Gå till kassan</button></a
+            >
           </div>
         </div>
       </div>
