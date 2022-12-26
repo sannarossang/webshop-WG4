@@ -1,6 +1,5 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
-import { createHTML } from "../ts/products";
 
 function searchById() {
   const paramSearch: URLSearchParams = new URLSearchParams(
@@ -70,9 +69,9 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-closeBtn.onclick = function () {
-  modal.style.display = "none";
-};
+// closeBtn.onclick = function () {
+//   modal.style.display = "none";
+// };
 
 window.onclick = function (event) {
   if (event.target == modal) {

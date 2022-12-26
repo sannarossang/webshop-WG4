@@ -1,6 +1,4 @@
-import { Product } from "./models/Products";
-import { createHTML } from "./products";
-import * as products from "./products";
+import { createHTMLforCartItemList } from "./main";
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
@@ -34,3 +32,5 @@ window.onclick = function (event) {
     burgerModal.style.display = "none";
   }
 };
+
+createHTMLforCartItemList("modalCartItemList");

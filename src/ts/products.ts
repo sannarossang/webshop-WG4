@@ -1,10 +1,11 @@
 import { Product } from "./models/Products";
 import { addToCart } from "./cart";
 import { products } from "./models/Products";
+import { createHTMLforCartItemList } from "./main";
 
-createHTML(products);
+createHTMLforProducts(products);
 
-export function createHTML(products: Product[]): void {
+export function createHTMLforProducts(products: Product[]): void {
   let productsContainer = document.getElementById(
     "productsContainer"
   ) as HTMLDivElement;
@@ -43,11 +44,12 @@ export function createHTML(products: Product[]): void {
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
+      console.log("knapptryckning funkar");
       addProductToCart(products[i]);
     });
 
     img.addEventListener("click", () => {
-      console.log("clickhändelse funkar");
+      console.log("trycka på bilde funkar");
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
@@ -94,3 +96,5 @@ window.onclick = function (event) {
     burgerModal.style.display = "none";
   }
 };
+
+createHTMLforCartItemList("modalCartItemList");

@@ -1,11 +1,10 @@
+import { getCartItems } from "./cart";
+import { CartItem } from "./models/CartItem";
 import { products } from "./models/Products";
-import { getCartItems } from "../ts/cart";
-import { CartItem } from "./models/Cart";
 
-function createHTMLforCartItemList(customerCartItems: CartItem[]) {
-  let cartItemContainer = document.getElementById(
-    "cartItemListIndex"
-  ) as HTMLDivElement;
+export function createHTMLforCartItemList(htmlId: string) {
+  let customerCartItems: CartItem[] = getCartItems();
+  let cartItemContainer = document.getElementById(htmlId) as HTMLDivElement;
 
   cartItemContainer.innerHTML = "";
 
@@ -39,5 +38,3 @@ function createHTMLforCartItemList(customerCartItems: CartItem[]) {
     cartItemContainer.appendChild(container);
   }
 }
-
-createHTMLforCartItemList(getCartItems());

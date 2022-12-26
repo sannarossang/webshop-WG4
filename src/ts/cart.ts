@@ -1,24 +1,30 @@
-import { CartItem } from "./models/Cart";
+import { CartItem } from "./models/CartItem";
 import { Product } from "./models/Products";
 
+// funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
-  if (Object.keys(getCartItems()).length === 0) {
-    //carten finns inte, skapa en ny
+  // i första if-satsen kollar vi om det finns produkter i kundens varukorg, finns det hoppar den till else men finns den inte skapar den en ny.
+  if (getCartItems().length === 0) {
     let cartObj = new CartItem(product, quantity);
     let cartItems: CartItem[] = [cartObj];
+    // i båda fallen uppdateras localStorage.
     localStorage.setItem("myCartItems", JSON.stringify(cartItems));
+    // i else-satsen vet vi att det finns produkter i varukorgen sedan tidigare, så vi hämtar den (let customerCartItems: CartItem[] = getCartItems())
   } else {
     let customerCartItems: CartItem[] = getCartItems();
+    // hämtar den produkt kunden klickat på från kundens varukorg
     let customerCartItem: CartItem = getCustomerCartItem(
       customerCartItems,
       product
     );
+    //kollar om den hämtade produkten redan finns i listan, om den redan finns plussar den bara antal
     if (customerCartItem !== null) {
       customerCartItem.quantity++;
     } else {
+      //om den inte finns lägger den till produkten i listan
       let newCartItem: CartItem = new CartItem(product, quantity);
       customerCartItems.push(newCartItem);
-    }
+    } //det sista som händer är att localStorage uppdateras med rätt värden (produkter, antal)
     localStorage.setItem("myCartItems", JSON.stringify(customerCartItems));
   }
 }
