@@ -9,6 +9,7 @@
   align-items: center;
   margin-left: 300px;
   margin-right: 300px;
+  height: fit-content;
   @include mixins.desktop {
     flex-direction: column;
   }
@@ -38,6 +39,7 @@
   flex-wrap: wrap;
   justify-items: center;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   @include mixins.desktop {
     width: 25%;
   }
