@@ -73,3 +73,14 @@
     //@include mixins.fa-icon-solid($fa-var-cart-plus);
   }
 }
+
+.product__button, .productInCart__button{
+  width: fit-content;
+  border: none;
+  background-color: white;
+  padding: 10px;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 15pt;
+  height: 40px;
+}

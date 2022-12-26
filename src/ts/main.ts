@@ -36,5 +36,7 @@ export function createHTMLforCartItemList(htmlId: string) {
     container.appendChild(button);
 
     cartItemContainer.appendChild(container);
+
+    button.innerHTML = "<i class='fa-regular fa-trash-can'></i>";
   }
 }

@@ -48,6 +48,8 @@ export function createHTMLforProducts(products: Product[]): void {
       addProductToCart(products[i]);
     });
 
+    button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
+
     img.addEventListener("click", () => {
       console.log("trycka på bilde funkar");
       location.href = "../html/productdetails.html?id=" + products[i].id;
