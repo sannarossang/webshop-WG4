@@ -1,4 +1,4 @@
-import { CartItem } from "./models/CartItem";
+import { CartItem } from "../ts/models/CartItem";
 import { Product } from "./models/Products";
 
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.

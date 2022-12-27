@@ -5,7 +5,9 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
   let modalContainer = document.getElementById(
     "modalContainer"
   ) as HTMLDivElement;
+
   modalContainer.innerHTML = "";
+
   console.log("i createHTMLformodal");
 
   for (let i = 0; i < getCartItems.length; i++) {
