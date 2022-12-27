@@ -21,7 +21,7 @@ export function createHTMLforCartItemList(htmlId: string) {
     img.className = "productInCart__image";
     title.className = "productInCart__title";
     description.className = "productInCart__description";
-    price.className = "producInCart__price";
+    price.className = "productInCart__price";
     button.className = "productInCart__button";
 
     img.src = products[i].img;
