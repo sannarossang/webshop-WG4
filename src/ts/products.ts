@@ -1,9 +1,7 @@
 import { Product } from "./models/Products";
-import { addToCart } from "./cart";
+import { addToCart, getCartItems } from "./cart";
 import { products } from "./models/Products";
-import { createHTMLforCartItemList } from "./main";
-
-createHTMLforProducts(products);
+import { createHTMLforModal } from "./createhtml";
 
 export function createHTMLforProducts(products: Product[]): void {
   let productsContainer = document.getElementById(
@@ -99,4 +97,5 @@ window.onclick = function (event) {
   }
 };
 
-createHTMLforCartItemList("modalCartItemList");
+createHTMLforProducts(products);
+createHTMLforModal(getCartItems());

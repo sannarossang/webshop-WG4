@@ -1,4 +1,5 @@
-import { createHTMLforCartItemList } from "./main";
+import { getCartItems } from "./cart";
+import { createHTMLforModal } from "./createhtml";
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
@@ -33,4 +34,4 @@ window.onclick = function (event) {
   }
 };
 
-createHTMLforCartItemList("modalCartItemList");
+createHTMLforModal(getCartItems());

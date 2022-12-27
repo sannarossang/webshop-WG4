@@ -1,6 +1,5 @@
-import * as functions from "./cart";
-import { getCartItems } from "../ts/cart";
-import { createHTMLforCartItemList } from "./main";
+import { getCartItems } from "./cart";
+import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
 backButton.addEventListener("click", backaWindow);
@@ -9,14 +8,14 @@ function backaWindow() {
   history.back();
 }
 
-//structure for pop-up
+//structure for pop-up not working atm
 const div = document.createElement("div");
 const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
 
 const modalId = document.getElementById("modalId") as HTMLElement;
 
-modalId.append(div);
+modalId?.append(div);
 div.append(h1);
 
 //pop-up onlick
@@ -45,9 +44,9 @@ button.onclick = function () {
   modal.style.display = "block";
 };
 
-// closeBtn.onclick = function () {
-//   modal.style.display = "none";
-// };
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
 window.onclick = function (event) {
   if (event.target == modal) {
@@ -68,5 +67,5 @@ window.onclick = function (event) {
   }
 };
 
-createHTMLforCartItemList("modalCartItemList");
-createHTMLforCartItemList("checkoutCartItemList");
+createHTMLforCheckout(getCartItems());
+createHTMLforModal(getCartItems());
