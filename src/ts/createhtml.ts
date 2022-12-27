@@ -102,6 +102,10 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
       console.log("knapptryckning för checkout funkar");
       addProductToCart(getCartItems[i].product);
     });
+
+    let sum = totalPrice(getCartItems).toString();
+    let totalSum = document.getElementById("sumProducts");
+    totalSum.innerHTML = "Total summa: " + sum;
   }
 }
 

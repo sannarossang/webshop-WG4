@@ -45,6 +45,7 @@ function createHTMLforProducts(products: Product[]): void {
     button.addEventListener("click", function () {
       console.log("knapptryckning funkar");
       addProductToCart(products[i]);
+      location.reload();
     });
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
