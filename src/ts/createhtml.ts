@@ -2,6 +2,15 @@ import { addToCart, getCartItems } from "./cart";
 import { CartItem } from "./models/CartItem";
 import { Product, products } from "./models/Products";
 
+export const totalPrice = (getCartItems: CartItem[]) => {
+  let sum: number = 0;
+
+  for (let i = 0; i < getCartItems.length; i++) {
+    sum += getCartItems[i].product.price;
+  }
+  return sum;
+};
+
 export function createHTMLforModal(getCartItems: CartItem[]) {
   let modalContainer = document.getElementById(
     "modalContainer"
@@ -16,25 +25,29 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
     let modalButton: HTMLButtonElement = document.createElement("button");
+    let quantity: HTMLSpanElement = document.createElement("span");
 
     container.className = "productInModal";
 
     img.className = "productInModal__image";
     title.className = "productInModal__title";
     description.className = "productInModal__description";
-    price.className = "producInModal__price";
+    price.className = "productInModal__price";
     modalButton.className = "product__button";
+    quantity.className = "product__quantity";
 
     img.src = getCartItems[i].product.img;
     title.innerHTML = getCartItems[i].product.productname;
     description.innerHTML = getCartItems[i].product.description;
     price.innerHTML += getCartItems[i].product.price;
+    quantity.innerHTML += getCartItems[i].quantity;
 
     container.appendChild(img);
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(price);
     container.appendChild(modalButton);
+    container.appendChild(quantity);
 
     modalContainer.appendChild(container);
 
@@ -43,12 +56,9 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
       addProductToCart(getCartItems[i].product);
     });
 
-    /*let totalSumContainer = document.getElementById("sumProducts");
-    let cartTotal = products[i].price;
-    totalSumContainer.innerHTML += cartTotal; */
-
-    (getCartItems[i].quantity * getCartItems[i].product.price).toString() +
-      " sek";
+    let sum = totalPrice(getCartItems).toString();
+    let totalSum = document.getElementById("sumProducts");
+    totalSum.innerHTML = "Total summa: " + sum;
   }
 }
 

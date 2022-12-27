@@ -1,7 +1,8 @@
 import { Product } from "./models/Products";
 import { addToCart, getCartItems } from "./cart";
 import { products } from "./models/Products";
-import { createHTMLforModal } from "./createhtml";
+import { totalPrice, createHTMLforModal } from "./createhtml";
+import { CartItem } from "./models/CartItem";
 
 function createHTMLforProducts(products: Product[]): void {
   let productsContainer = document.getElementById(
@@ -100,3 +101,6 @@ window.onclick = function (event) {
 
 createHTMLforProducts(products);
 createHTMLforModal(getCartItems());
+function updateCartTotal() {
+  throw new Error("Function not implemented.");
+}
