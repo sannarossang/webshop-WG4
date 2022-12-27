@@ -1,5 +1,14 @@
 import { CartItem } from "../ts/models/CartItem";
-import { Product } from "./models/Products";
+import { Product, products } from "./models/Products";
+
+export const totalPrice = (clickedProduct: Product[]) => {
+  let sum: number = 0;
+
+  for (let i = 0; i < clickedProduct.length; i++) {
+    sum += clickedProduct[i].price;
+  }
+  return sum;
+};
 
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
@@ -34,6 +43,15 @@ function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
     if (customerCartItems[i].product.id === product.id) {
       return customerCartItems[i];
     }
+    /*(
+      customerCartItems[i].quantity * customerCartItems[i].product.price
+    ).toString() + " sek"; */
+    let sum = 0;
+    let totalSum =
+      sum + customerCartItems[i].quantity * customerCartItems[i].product.price;
+
+    let totalSumContainer = document.getElementById("sumProducts");
+    totalSumContainer.innerHTML += totalSum;
   }
   return null;
 }

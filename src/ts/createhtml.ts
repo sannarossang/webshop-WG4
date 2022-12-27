@@ -1,5 +1,6 @@
+import { addToCart, getCartItems } from "./cart";
 import { CartItem } from "./models/CartItem";
-import { products } from "./models/Products";
+import { Product, products } from "./models/Products";
 
 export function createHTMLforModal(getCartItems: CartItem[]) {
   let modalContainer = document.getElementById(
@@ -29,7 +30,7 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     img.src = products[i].img;
     title.innerHTML = products[i].productname;
     description.innerHTML = products[i].description;
-    price.innerHTML += products[i].price;
+    price.innerHTML += JSON.stringify(products[i].price) + ":-";
 
     container.appendChild(img);
     container.appendChild(title);
@@ -37,6 +38,13 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     container.appendChild(price);
 
     modalContainer.appendChild(container);
+
+    /*let totalSumContainer = document.getElementById("sumProducts");
+    let cartTotal = products[i].price;
+    totalSumContainer.innerHTML += cartTotal; */
+
+    (getCartItems[i].quantity * getCartItems[i].product.price).toString() +
+      " sek";
   }
 }
 
