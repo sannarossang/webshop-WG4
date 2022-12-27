@@ -1,14 +1,15 @@
 import { CartItem } from "../ts/models/CartItem";
-import { Product, products } from "./models/Products";
+import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
+import { Product } from "./models/Products";
 
-export const totalPrice = (clickedProduct: Product[]) => {
-  let sum: number = 0;
-
-  for (let i = 0; i < clickedProduct.length; i++) {
-    sum += clickedProduct[i].price;
+function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
+  for (let i = 0; i < customerCartItems.length; i++) {
+    if (customerCartItems[i].product.id === product.id) {
+      return customerCartItems[i];
+    }
   }
-  return sum;
-};
+  return null;
+}
 
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
@@ -38,24 +39,6 @@ export function addToCart(product: Product, quantity: number) {
   }
 }
 
-function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
-  for (let i = 0; i < customerCartItems.length; i++) {
-    if (customerCartItems[i].product.id === product.id) {
-      return customerCartItems[i];
-    }
-    /*(
-      customerCartItems[i].quantity * customerCartItems[i].product.price
-    ).toString() + " sek"; */
-    let sum = 0;
-    let totalSum =
-      sum + customerCartItems[i].quantity * customerCartItems[i].product.price;
-
-    let totalSumContainer = document.getElementById("sumProducts");
-    totalSumContainer.innerHTML += totalSum;
-  }
-  return null;
-}
-
 export function getCartItems() {
   let cartItems: CartItem[] = [];
   let cartItemsFromLS: string = localStorage.getItem("myCartItems") || "[]";
@@ -69,6 +52,14 @@ export function getCartItems() {
   }
   return cartItems;
 }
+
+// function clearCart(product: CartItem[]) {
+//   let cart = [];
+// if (product !== 0)
+
+//   createHTMLforCheckout(getCartItems());
+//   createHTMLforModal(getCartItems());
+// }
 
 function confirm() {}
 function checkOut() {}

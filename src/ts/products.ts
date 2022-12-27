@@ -3,7 +3,7 @@ import { addToCart, getCartItems } from "./cart";
 import { products } from "./models/Products";
 import { createHTMLforModal } from "./createhtml";
 
-export function createHTMLforProducts(products: Product[]): void {
+function createHTMLforProducts(products: Product[]): void {
   let productsContainer = document.getElementById(
     "productsContainer"
   ) as HTMLDivElement;
@@ -53,10 +53,11 @@ export function createHTMLforProducts(products: Product[]): void {
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
+}
 
-  function addProductToCart(clickedProduct: Product) {
-    addToCart(clickedProduct, 1);
-  }
+function addProductToCart(clickedProduct: Product) {
+  addToCart(clickedProduct, 1);
+  console.log(clickedProduct);
 }
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;

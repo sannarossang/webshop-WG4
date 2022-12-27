@@ -9,16 +9,13 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
 
   modalContainer.innerHTML = "";
 
-  console.log("i createHTMLformodal");
-
   for (let i = 0; i < getCartItems.length; i++) {
-    console.log("i loopen createHTMLforModal");
-
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
+    let modalButton: HTMLButtonElement = document.createElement("button");
 
     container.className = "productInModal";
 
@@ -26,18 +23,25 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     title.className = "productInModal__title";
     description.className = "productInModal__description";
     price.className = "producInModal__price";
+    modalButton.className = "product__button";
 
-    img.src = products[i].img;
-    title.innerHTML = products[i].productname;
-    description.innerHTML = products[i].description;
-    price.innerHTML += JSON.stringify(products[i].price) + ":-";
+    img.src = getCartItems[i].product.img;
+    title.innerHTML = getCartItems[i].product.productname;
+    description.innerHTML = getCartItems[i].product.description;
+    price.innerHTML += getCartItems[i].product.price;
 
     container.appendChild(img);
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(price);
+    container.appendChild(modalButton);
 
     modalContainer.appendChild(container);
+
+    modalButton.addEventListener("click", function () {
+      console.log("knapptryckning för modal funkar");
+      addProductToCart(getCartItems[i].product);
+    });
 
     /*let totalSumContainer = document.getElementById("sumProducts");
     let cartTotal = products[i].price;
@@ -61,7 +65,7 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
-    let button: HTMLButtonElement = document.createElement("button");
+    let productButton: HTMLButtonElement = document.createElement("button");
 
     container.className = "productInCheckout";
 
@@ -69,19 +73,29 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     title.className = "productInCheckout__title";
     description.className = "productInCheckout__description";
     price.className = "productInCheckout__price";
-    button.className = "productInCheckout__button";
+    productButton.className = "productInCheckout__button";
 
-    img.src = products[i].img;
-    title.innerHTML = products[i].productname;
-    description.innerHTML = products[i].description;
-    price.innerHTML += products[i].price;
+    img.src = getCartItems[i].product.img;
+    title.innerHTML = getCartItems[i].product.productname;
+    description.innerHTML = getCartItems[i].product.description;
+    price.innerHTML += getCartItems[i].product.price;
 
     container.appendChild(img);
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(price);
-    container.appendChild(button);
+    container.appendChild(productButton);
 
     checkoutContainer.appendChild(container);
+
+    productButton.addEventListener("click", function () {
+      console.log("knapptryckning för checkout funkar");
+      addProductToCart(getCartItems[i].product);
+    });
   }
+}
+
+function addProductToCart(clickedProduct: Product) {
+  addToCart(clickedProduct, 1);
+  console.log(clickedProduct);
 }
