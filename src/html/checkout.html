@@ -42,7 +42,7 @@
           <div class="modal-content">
             <button id="closeButton" class="close">&times;</button>
             <h2>Din varukorg</h2>
-            <div id="modalCartItemList"></div>
+            <div id="modalContainer"></div>
             <p id="sumProducts">Summera produkter</p>
             <a href="./checkout.html"
               ><button id="paymentBtn">Gå till kassan</button></a
@@ -60,7 +60,8 @@
       <i class="fa-solid fa-chevron-left"></i>
     </button>
     <main>
-      <div id="checkoutCartItemList"></div>
+      <div id="checkoutContainer"></div>
+
       <div id="payment">
         <h4 class="payment__title">Fyll i dina betalningsuppgifter</h4>
         <label for="payment__name">Förnamn</label>
@@ -133,7 +134,7 @@
             required
           />
         </form>
-        <!-- Modal -->
+        <!-- Modal for confirming payment not working -->
         <button type="button" id="payButton">Klicka för att betala</button>
         <div id="paymentSuccess" class="checkoutModal">
           <div id="modalId"></div>

@@ -43,98 +43,98 @@ class Product {
 }
 
 let wallpaper1 = new Product(
-  "wallpaper 1",
-  429,
-  "romantic",
-  "flowers",
+  "Tulip Infusion",
+  299,
+  "bohemic flowers",
+  "tulips",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper1,
-  "lite info om produkten",
+  "Tulip Infusion är ett av våra mest älskade tapetmönster. Låt vårens blomsterglädje pryda hemmets väggar för glädje hemma - året om.",
   "1"
 );
 
 let wallpaper2 = new Product(
-  "wallpaper 2",
-  430,
-  "romantic",
+  "Almost Amaryllis",
+  199,
+  "bohemic flowers",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper2,
-  "lite info om produkten",
+  "Almost Amaryllis är julblomman som tagit de svenska hemmen med storm - även uppåt väggarna. En klassiker som aldrig går ur tiden.",
   "2"
 );
 
 let wallpaper3 = new Product(
-  "wallpaper 3",
-  431,
+  "Dahlia Mix",
+  399,
   "romantic",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper3,
-  "lite info om produkten",
+  "Dahlia Mix är en vacker kombinationstapet med grå botten som gör sig väl i all från vardagsrum til barnrum och kök. Ett säkert kort - helt enkelt!",
   "3"
 );
 
 let wallpaper4 = new Product(
-  "wallpaper 4",
-  431,
-  "romantic",
+  "Sweet Pea",
+  399,
+  "bohemic flowers",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper4,
-  "lite info om produkten",
+  "Sweet Pea är vår stormönstrade tapet med luktärtor till skillnad från Minimalistic Sweet Pea som är ett mer avskalat mönster.",
   "4"
 );
 
 let wallpaper5 = new Product(
-  "wallpaper 5",
+  "Poppy",
   429,
-  "romantic",
+  "bohemic flowers",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper5,
-  "lite info om produkten",
+  "Poppy är ett av våra mest sålda mönster. Med tapetens mörka botten skapas romantik och dramatik på ett välkomponerat sätt. ",
   "5"
 );
 
 let wallpaper6 = new Product(
-  "wallpaper 6",
-  430,
-  "romantic",
+  "Classic Eucalyptus",
+  499,
+  "bohemic flowers",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper6,
-  "lite info om produkten",
+  "Classic Eucalyptus är ett blomstermix-mönster som tack vare sin ljusa botten funkar i hemmets alla rum.",
   "6"
 );
 
 let wallpaper7 = new Product(
-  "wallpaper 7",
-  431,
-  "romantic",
+  "Minimalistic Sweet Pea",
+  399,
+  "bohemic flowers",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper7,
-  "lite info om produkten",
+  "Minimalistic Sweet Pea är uppföljaren till Sweet Pea - för den som föredrar en mer minimalistisk tappning på vår storsäljare.",
   "7"
 );
 
 let wallpaper8 = new Product(
-  "wallpaper 8",
-  431,
-  "romantic",
+  "Romantic Tulip",
+  299,
+  "bohemic flowers",
   "flowers",
   "boråstapeter",
-  "unnizetterling",
+  "Unni Zetterling design",
   imagewallpaper8,
-  "lite info om produkten",
+  "Romantic Tulip är en av våra mest älskade tapeter med sin ljusblå botten och smutsrosa tulpan i magisk kombination med yviga ängsblommor.",
   "8"
 );
 

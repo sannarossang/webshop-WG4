@@ -1,5 +1,7 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
+import { createHTMLforModal } from "./createhtml";
+import { getCartItems } from "./cart";
 
 function searchById() {
   const paramSearch: URLSearchParams = new URLSearchParams(
@@ -69,9 +71,9 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-// closeBtn.onclick = function () {
-//   modal.style.display = "none";
-// };
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
 window.onclick = function (event) {
   if (event.target == modal) {
@@ -91,3 +93,5 @@ window.onclick = function (event) {
     burgerModal.style.display = "none";
   }
 };
+
+createHTMLforModal(getCartItems());
