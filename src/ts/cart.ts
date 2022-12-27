@@ -1,5 +1,15 @@
 import { CartItem } from "../ts/models/CartItem";
-import { Product } from "./models/Products";
+import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
+import { Product, products } from "./models/Products";
+
+function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
+  for (let i = 0; i < customerCartItems.length; i++) {
+    if (customerCartItems[i].product.id === product.id) {
+      return customerCartItems[i];
+    }
+  }
+  return null;
+}
 
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
@@ -29,15 +39,6 @@ export function addToCart(product: Product, quantity: number) {
   }
 }
 
-function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
-  for (let i = 0; i < customerCartItems.length; i++) {
-    if (customerCartItems[i].product.id === product.id) {
-      return customerCartItems[i];
-    }
-  }
-  return null;
-}
-
 export function getCartItems() {
   let cartItems: CartItem[] = [];
   let cartItemsFromLS: string = localStorage.getItem("myCartItems") || "[]";
@@ -52,6 +53,14 @@ export function getCartItems() {
   return cartItems;
 }
 
+// function clearCart(product: CartItem[]) {
+//   let cart = [];
+// if (product !== 0)
+
+//   createHTMLforCheckout(getCartItems());
+//   createHTMLforModal(getCartItems());
+// }
+
 function confirm() {}
 function checkOut() {}
 
@@ -63,9 +72,9 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-// closeBtn.onclick = function () {
-//   modal.style.display = "none";
-// };
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
 window.onclick = function (event) {
   if (event.target == modal) {

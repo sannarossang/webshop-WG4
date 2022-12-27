@@ -1,9 +1,10 @@
 import { Product } from "./models/Products";
 import { addToCart, getCartItems } from "./cart";
 import { products } from "./models/Products";
-import { createHTMLforModal } from "./createhtml";
+import { totalPrice, createHTMLforModal } from "./createhtml";
+import { CartItem } from "./models/CartItem";
 
-export function createHTMLforProducts(products: Product[]): void {
+function createHTMLforProducts(products: Product[]): void {
   let productsContainer = document.getElementById(
     "productsContainer"
   ) as HTMLDivElement;
@@ -44,6 +45,7 @@ export function createHTMLforProducts(products: Product[]): void {
     button.addEventListener("click", function () {
       console.log("knapptryckning funkar");
       addProductToCart(products[i]);
+      location.reload();
     });
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
@@ -53,10 +55,11 @@ export function createHTMLforProducts(products: Product[]): void {
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
+}
 
-  function addProductToCart(clickedProduct: Product) {
-    addToCart(clickedProduct, 1);
-  }
+function addProductToCart(clickedProduct: Product) {
+  addToCart(clickedProduct, 1);
+  console.log(clickedProduct);
 }
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
@@ -99,3 +102,6 @@ window.onclick = function (event) {
 
 createHTMLforProducts(products);
 createHTMLforModal(getCartItems());
+function updateCartTotal() {
+  throw new Error("Function not implemented.");
+}
