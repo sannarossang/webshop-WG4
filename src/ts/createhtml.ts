@@ -36,6 +36,50 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     container.appendChild(description);
     container.appendChild(price);
 
+    //product counter + and -
+    let productCounter = document.createElement("div");
+    let span1 = document.createElement("span");
+    let input = document.createElement("input");
+    let span2 = document.createElement("span");
+
+    productCounter.className = "counter";
+    span1.className = "down";
+    span1.innerText = "-";
+    span1.onclick = function () {
+      decreaseCount(event, this);
+    };
+    input.type = "text";
+    input.value = "1";
+    span2.className = "up";
+    span2.innerText = "+";
+    span1.onclick = function () {
+      increaseCount(event, this);
+    };
+    container.appendChild(productCounter);
+    productCounter.appendChild(span1);
+    productCounter.appendChild(input);
+    productCounter.appendChild(span2);
+
+    function increaseCount(a: any, b: any) {
+      var input = b.previousElementSibling;
+      var value = parseInt(input.value, 10);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      input.value = value;
+    }
+
+    function decreaseCount(a: any, b: any) {
+      var input = b.nextElementSibling;
+      var value = parseInt(input.value, 10);
+      if (value > 1) {
+        value = isNaN(value) ? 0 : value;
+        value--;
+        input.value = value;
+      }
+    }
+
+    //-------
+
     modalContainer.appendChild(container);
   }
 }
