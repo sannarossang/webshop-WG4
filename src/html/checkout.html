@@ -47,9 +47,7 @@
             <a href="./checkout.html"
               ><button id="paymentBtn">Gå till kassan</button></a
             >
-            <button className="clearCart" onclick="{clearCart}">
-              Töm varukorgen
-            </button>
+            <button id="clearCartinModal">Töm varukorgen</button>
           </div>
         </div>
       </div>
@@ -65,9 +63,7 @@
     <main>
       <div id="checkoutContainer"></div>
       <p id="sumProducts">Summera produkter</p>
-      <button className="clearCart" onclick="{clearCart}">
-        Töm varukorgen
-      </button>
+      <button id="clearCartinCheckout">Töm varukorgen</button>
 
       <div id="payment">
         <h4 class="payment__title">Fyll i dina betalningsuppgifter</h4>
@@ -141,7 +137,7 @@
             required
           />
         </form>
-        <!-- Modal for confirming payment not working -->
+        <!-- Modal for confirming payment-->
         <button type="button" id="payButton">Klicka för att betala</button>
         <div id="paymentSuccess" class="checkoutModal">
           <div id="modalId"></div>
