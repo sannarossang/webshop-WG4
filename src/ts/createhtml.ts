@@ -101,6 +101,18 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
   }
 }
 
+function productCounterDecrease(cartItem: CartItem) {
+  cartItem.quantity -= 1;
+  addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
+}
+
+function productCounterIncrease(cartItem: CartItem) {
+  cartItem.quantity += 1;
+  addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
+}
+
 export function createHTMLforCheckout(cartItems: CartItem[]) {
   let checkoutContainer = document.getElementById(
     "checkoutContainer"

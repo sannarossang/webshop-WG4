@@ -45,7 +45,7 @@ function createHTMLforProducts(products: Product[]): void {
     button.addEventListener("click", function () {
       console.log("knapptryckning funkar");
       addProductToCart(products[i]);
-      //location.reload();
+      location.reload();
     });
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
@@ -102,6 +102,7 @@ window.onclick = function (event) {
 
 createHTMLforProducts(products);
 createHTMLforModal(getCartItems());
+
 function updateCartTotal() {
   throw new Error("Function not implemented.");
 }
