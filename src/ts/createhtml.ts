@@ -15,15 +15,20 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
+
     let modalButton: HTMLButtonElement = document.createElement("button");
+    let clearCartinModalButton: HTMLButtonElement =
+      document.createElement("button");
 
     container.className = "productInModal";
 
     img.className = "productInModal__image";
     title.className = "productInModal__title";
     description.className = "productInModal__description";
-    price.className = "producInModal__price";
-    modalButton.className = "product__button";
+    price.className = "productInModal__price";
+
+    modalButton.className = "productinModal__button";
+    clearCartinModalButton.className = "productinModal__clearCartModalButton";
 
     img.src = getCartItems[i].product.img;
     title.innerHTML = getCartItems[i].product.productname;
@@ -34,13 +39,19 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(price);
+
     container.appendChild(modalButton);
+    container.appendChild(clearCartinModalButton);
 
     modalContainer.appendChild(container);
 
     modalButton.addEventListener("click", function () {
       console.log("knapptryckning för modal funkar");
       addProductToCart(getCartItems[i].product);
+    });
+
+    clearCartinModalButton.addEventListener("click", function () {
+      console.log("knapptryckning funkar");
     });
   }
 }
@@ -59,6 +70,8 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
     let productButton: HTMLButtonElement = document.createElement("button");
+    let clearCartinCheckoutButton: HTMLButtonElement =
+      document.createElement("button");
 
     container.className = "productInCheckout";
 
@@ -66,7 +79,10 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     title.className = "productInCheckout__title";
     description.className = "productInCheckout__description";
     price.className = "productInCheckout__price";
+
     productButton.className = "productInCheckout__button";
+    clearCartinCheckoutButton.className =
+      "productinModal__clearCartinCheckoutButton";
 
     img.src = getCartItems[i].product.img;
     title.innerHTML = getCartItems[i].product.productname;
@@ -77,13 +93,19 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(price);
+
     container.appendChild(productButton);
+    container.appendChild(clearCartinCheckoutButton);
 
     checkoutContainer.appendChild(container);
 
     productButton.addEventListener("click", function () {
       console.log("knapptryckning för checkout funkar");
       addProductToCart(getCartItems[i].product);
+    });
+
+    clearCartinCheckoutButton.addEventListener("click", function () {
+      console.log("knapptryckning funkar");
     });
   }
 }

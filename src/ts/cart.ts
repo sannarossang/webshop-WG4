@@ -53,16 +53,10 @@ export function getCartItems() {
   return cartItems;
 }
 
-// function clearCart(product: CartItem[]) {
-//   let cart = [];
-// if (product !== 0)
-
-//   createHTMLforCheckout(getCartItems());
-//   createHTMLforModal(getCartItems());
-// }
-
-function confirm() {}
-function checkOut() {}
+export function clearCart() {
+  let cart: string = "[]";
+  localStorage.setItem("myCartItems", cart);
+}
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
