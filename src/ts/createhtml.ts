@@ -170,7 +170,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     });
 
     let sum = totalPrice(cartItems).toString();
-    let totalSum = document.getElementById("sumProducts");
+    let totalSum = document.getElementById("sumProductsCheckout");
     totalSum.innerHTML = "Total summa: " + sum;
 
     //clearCart
