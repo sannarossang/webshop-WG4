@@ -70,32 +70,12 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     counterControls.appendChild(increase);
 
     decrease.addEventListener("click", function () {
-      productCounterDecrease();
+      productCounterDecrease(getCartItems[i]);
     });
 
     increase.addEventListener("click", function () {
-      productCounterIncrease();
+      productCounterIncrease(getCartItems[i]);
     });
-
-    function productCounterDecrease() {
-      getCartItems[i].quantity -= 1;
-      let minus = getCartItems[i].quantity;
-      quantity.innerHTML = "" + minus;
-      localStorage.setItem(
-        "myCartItems",
-        JSON.stringify(getCartItems[i].quantity)
-      );
-    }
-
-    function productCounterIncrease() {
-      getCartItems[i].quantity += 1;
-      let plus = getCartItems[i].quantity;
-      quantity.innerHTML = "" + plus;
-      localStorage.setItem(
-        "myCartItems",
-        JSON.stringify(getCartItems[i].quantity)
-      );
-    }
 
     //-------
     container.appendChild(clearCartinModalButton);
@@ -173,6 +153,18 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
       console.log("knapptryckning funkar");
     });
   }
+}
+
+function productCounterDecrease(cartItem: CartItem) {
+  cartItem.quantity -= 1;
+  addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
+}
+
+function productCounterIncrease(cartItem: CartItem) {
+  cartItem.quantity += 1;
+  addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
 }
 
 function addProductToCart(clickedProduct: Product) {
