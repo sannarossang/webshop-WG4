@@ -28,9 +28,9 @@ export function addToCart(product: Product, quantity: number) {
       customerCartItems,
       product
     );
-    //kollar om den hämtade produkten redan finns i listan, om den redan finns plussar den bara antal
+    //kollar om den hämtade produkten redan finns i listan, om den redan finns uppdaterar vi quantity
     if (customerCartItem !== null) {
-      customerCartItem.quantity++;
+      customerCartItem.quantity = quantity;
     } else {
       //om den inte finns lägger den till produkten i listan
       let newCartItem: CartItem = new CartItem(product, quantity);
