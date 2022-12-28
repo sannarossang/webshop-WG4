@@ -1,6 +1,6 @@
 import { CartItem } from "../ts/models/CartItem";
 import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
-import { Product } from "./models/Products";
+import { Product, products } from "./models/Products";
 
 function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
   for (let i = 0; i < customerCartItems.length; i++) {
@@ -66,9 +66,9 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-// closeBtn.onclick = function () {
-//   modal.style.display = "none";
-// };
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
 window.onclick = function (event) {
   if (event.target == modal) {

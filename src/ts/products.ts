@@ -1,7 +1,8 @@
 import { Product } from "./models/Products";
 import { addToCart, getCartItems } from "./cart";
 import { products } from "./models/Products";
-import { createHTMLforModal } from "./createhtml";
+import { totalPrice, createHTMLforModal } from "./createhtml";
+import { CartItem } from "./models/CartItem";
 
 function createHTMLforProducts(products: Product[]): void {
   let productsContainer = document.getElementById(
@@ -44,6 +45,7 @@ function createHTMLforProducts(products: Product[]): void {
     button.addEventListener("click", function () {
       console.log("knapptryckning funkar");
       addProductToCart(products[i]);
+      location.reload();
     });
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
@@ -100,3 +102,6 @@ window.onclick = function (event) {
 
 createHTMLforProducts(products);
 createHTMLforModal(getCartItems());
+function updateCartTotal() {
+  throw new Error("Function not implemented.");
+}
