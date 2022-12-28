@@ -2,7 +2,10 @@ import { CartItem } from "../ts/models/CartItem";
 import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
 import { Product, products } from "./models/Products";
 
-function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
+export function getCustomerCartItem(
+  customerCartItems: CartItem[],
+  product: Product
+) {
   for (let i = 0; i < customerCartItems.length; i++) {
     if (customerCartItems[i].product.id === product.id) {
       return customerCartItems[i];
