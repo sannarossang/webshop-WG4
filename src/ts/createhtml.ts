@@ -1,4 +1,4 @@
-import { addToCart, getCartItems } from "./cart";
+import { addToCart, clearCart, getCartItems } from "./cart";
 import { CartItem } from "./models/CartItem";
 import { Product, products } from "./models/Products";
 
@@ -25,10 +25,8 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
 
-    let modalButton: HTMLButtonElement = document.createElement("button");
+    let modalDeleteButton: HTMLButtonElement = document.createElement("button");
     let quantity: HTMLSpanElement = document.createElement("span");
-    let clearCartinModalButton: HTMLButtonElement =
-      document.createElement("button");
 
     container.className = "productInModal";
 
@@ -37,9 +35,8 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     description.className = "productInModal__description";
     price.className = "producttInModal__price";
 
-    modalButton.className = "productinModal__button";
+    modalDeleteButton.className = "productinModal__button";
     quantity.className = "product__quantity";
-    clearCartinModalButton.className = "productinModal__clearCartModalButton";
 
     img.src = getCartItems[i].product.img;
     title.innerHTML = getCartItems[i].product.productname;
@@ -52,8 +49,10 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     container.appendChild(description);
     container.appendChild(price);
 
-    container.appendChild(modalButton);
+    container.appendChild(modalDeleteButton);
     container.appendChild(quantity);
+
+    modalContainer.appendChild(container);
 
     //product counter + and -
     let productCounter = document.createElement("div");
@@ -98,33 +97,38 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     }
 
     //-------
-    container.appendChild(clearCartinModalButton);
-
-    modalContainer.appendChild(container);
-
-    modalButton.addEventListener("click", function () {
-      console.log("knapptryckning för modal funkar");
-      addProductToCart(getCartItems[i].product);
-    });
 
     let sum = totalPrice(getCartItems).toString();
     let totalSum = document.getElementById("sumProducts");
     totalSum.innerHTML = "Total summa: " + sum;
 
-    clearCartinModalButton.addEventListener("click", function () {
+    //clearCart
+
+    let clearCartinModal = document.getElementById(
+      "clearCartinModal"
+    ) as HTMLButtonElement;
+
+    clearCartinModal.addEventListener("click", function () {
       console.log("knapptryckning funkar");
+      emptyCart();
     });
+
+    // //clearOneProduct
+    // modalDeleteButton.addEventListener("click", function () {
+    //   console.log("knapptryckning funkar");
+    //   deleteCartItem();
+    // });
   }
 }
 
-export function createHTMLforCheckout(getCartItems: CartItem[]) {
+export function createHTMLforCheckout(cartItems: CartItem[]) {
   let checkoutContainer = document.getElementById(
     "checkoutContainer"
   ) as HTMLDivElement;
 
   checkoutContainer.innerHTML = "";
 
-  for (let i = 0; i < getCartItems.length; i++) {
+  for (let i = 0; i < cartItems.length; i++) {
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
@@ -145,10 +149,10 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     clearCartinCheckoutButton.className =
       "productinModal__clearCartinCheckoutButton";
 
-    img.src = getCartItems[i].product.img;
-    title.innerHTML = getCartItems[i].product.productname;
-    description.innerHTML = getCartItems[i].product.description;
-    price.innerHTML += getCartItems[i].product.price;
+    img.src = cartItems[i].product.img;
+    title.innerHTML = cartItems[i].product.productname;
+    description.innerHTML = cartItems[i].product.description;
+    price.innerHTML += cartItems[i].product.price;
 
     container.appendChild(img);
     container.appendChild(title);
@@ -162,15 +166,20 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
 
     productButton.addEventListener("click", function () {
       console.log("knapptryckning för checkout funkar");
-      addProductToCart(getCartItems[i].product);
+      addProductToCart(cartItems[i].product);
     });
 
-    let sum = totalPrice(getCartItems).toString();
+    let sum = totalPrice(cartItems).toString();
     let totalSum = document.getElementById("sumProducts");
     totalSum.innerHTML = "Total summa: " + sum;
 
-    clearCartinCheckoutButton.addEventListener("click", function () {
-      console.log("knapptryckning funkar");
+    //clearCart
+    let clearCartinCheckout = document.getElementById(
+      "clearCartinCheckout"
+    ) as HTMLButtonElement;
+
+    clearCartinCheckout.addEventListener("click", function () {
+      emptyCart();
     });
   }
 }
@@ -179,3 +188,15 @@ function addProductToCart(clickedProduct: Product) {
   addToCart(clickedProduct, 1);
   console.log(clickedProduct);
 }
+
+function emptyCart() {
+  clearCart();
+  createHTMLforCheckout(getCartItems());
+  createHTMLforModal(getCartItems());
+}
+
+// function deleteCartItem() {
+//   clearOneProductinCart();
+//   createHTMLforCheckout(getCartItems());
+//   createHTMLforModal(getCartItems());
+// }

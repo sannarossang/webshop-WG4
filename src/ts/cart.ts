@@ -1,5 +1,4 @@
 import { CartItem } from "../ts/models/CartItem";
-import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
 import { Product, products } from "./models/Products";
 
 function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
@@ -10,7 +9,6 @@ function getCustomerCartItem(customerCartItems: CartItem[], product: Product) {
   }
   return null;
 }
-
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
   // i första if-satsen kollar vi om det finns produkter i kundens varukorg, finns det hoppar den till else men finns den inte skapar den en ny.
@@ -54,9 +52,19 @@ export function getCartItems() {
 }
 
 export function clearCart() {
-  let cart: string = "[]";
-  localStorage.setItem("myCartItems", cart);
+  let emptyCart: string = "[]";
+  localStorage.setItem("myCartItems", emptyCart);
 }
+
+// export function removeProductFromCart(removedProduct: Product) {
+//   ta bort den klickade produkten från varukorgen
+//   pos=i;
+//   getCartItems().splice(pos, 1)
+//   localStorage.getItem
+// .-
+//   let emptyOneProduct: string = "object";
+//   localStorage.setItem("myCartItems", emptyOneProduct);
+// }
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");

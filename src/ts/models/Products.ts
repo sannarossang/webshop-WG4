@@ -10,36 +10,17 @@ import imagewallpaper7 from "../../assets/imagewallpaper7.png";
 import imagewallpaper8 from "../../assets/imagewallpaper8.png";
 
 class Product {
-  productname: string;
-  price: number;
-  style: string;
-  pattern: string;
-  trademark: string;
-  collection: string;
-  img: string;
-  description: string;
-  id: string;
   constructor(
-    productname: string,
-    price: number,
-    style: string,
-    pattern: string,
-    trademark: string,
-    collection: string,
-    img: string,
-    description: string,
-    id: string
-  ) {
-    this.productname = productname;
-    this.price = price;
-    this.style = style;
-    this.pattern = pattern;
-    this.trademark = trademark;
-    this.collection = collection;
-    this.img = img;
-    this.description = description;
-    this.id = id;
-  }
+    public productname: string,
+    public price: number,
+    public style: string,
+    public pattern: string,
+    public trademark: string,
+    public collection: string,
+    public img: string,
+    public description: string,
+    public id: string
+  ) {}
 }
 
 let wallpaper1 = new Product(
