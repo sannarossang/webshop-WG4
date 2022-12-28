@@ -162,7 +162,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     });
 
     let sum = totalPrice(cartItems).toString();
-    let totalSum = document.getElementById("sumProducts");
+    let totalSum = document.getElementById("sumProductsCheckout");
     totalSum.innerHTML = "Total summa: " + sum;
 
     //clearCart
@@ -174,6 +174,18 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
       emptyCart();
     });
   }
+}
+
+function productCounterDecrease(cartItem: CartItem) {
+  cartItem.quantity -= 1;
+  addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
+}
+
+function productCounterIncrease(cartItem: CartItem) {
+  cartItem.quantity += 1;
+  addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
 }
 
 function addProductToCart(clickedProduct: Product) {
