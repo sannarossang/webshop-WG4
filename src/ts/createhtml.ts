@@ -104,7 +104,7 @@ export function createHTMLforCheckout(getCartItems: CartItem[]) {
     });
 
     let sum = totalPrice(getCartItems).toString();
-    let totalSum = document.getElementById("sumProducts");
+    let totalSum = document.getElementById("sumProductsCheckout");
     totalSum.innerHTML = "Total summa: " + sum;
   }
 }
