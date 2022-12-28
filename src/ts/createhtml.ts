@@ -84,14 +84,14 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
 
     //clearCart
 
-    let clearCartinModal = document.getElementById(
-      "clearCartinModal"
-    ) as HTMLButtonElement;
+    // let clearCartinModal = document.getElementById(
+    //   "clearCartinModal"
+    // ) as HTMLButtonElement;
 
-    clearCartinModal.addEventListener("click", function () {
-      console.log("knapptryckning funkar");
-      emptyCart();
-    });
+    // clearCartinModal.addEventListener("click", function () {
+    //   console.log("knapptryckning funkar");
+    //   emptyCart();
+    // });
 
     // //clearOneProduct
     // modalDeleteButton.addEventListener("click", function () {
@@ -154,13 +154,13 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     totalSum.innerHTML = "Total summa: " + sum;
 
     //clearCart
-    let clearCartinCheckout = document.getElementById(
-      "clearCartinCheckout"
-    ) as HTMLButtonElement;
+    // let clearCartinCheckout = document.getElementById(
+    //   "clearCartinCheckout"
+    // ) as HTMLButtonElement;
 
-    clearCartinCheckout.addEventListener("click", function () {
-      emptyCart();
-    });
+    // clearCartinCheckout.addEventListener("click", function () {
+    //   emptyCart();
+    // });
   }
 }
 
