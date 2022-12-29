@@ -8,6 +8,9 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
   ) as HTMLDivElement;
 
   modalContainer.innerHTML = "";
+  let sum = 0;
+
+  let productsTotalSum = 0;
 
   let productsTotalSum = 0;
 
@@ -153,15 +156,6 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     // });
   }
 }
-
-// export const totalPrice = (getCartItems: CartItem[]) => {
-//   let sum: number = 0;
-
-//   for (let i = 0; i < getCartItems.length; i++) {
-//     sum += getCartItems[i].product.price;
-//   }
-//   return sum;
-// };
 
 function productCounterDecrease(cartItem: CartItem) {
   cartItem.quantity -= 1;

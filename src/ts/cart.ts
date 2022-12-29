@@ -1,4 +1,5 @@
 import { CartItem } from "../ts/models/CartItem";
+//import { totalPrice } from "./createhtml";
 import { Product, products } from "./models/Products";
 
 export function getCustomerCartItem(
@@ -16,7 +17,12 @@ export function getCustomerCartItem(
 export function addToCart(product: Product, quantity: number) {
   // i första if-satsen kollar vi om det finns produkter i kundens varukorg, finns det hoppar den till else men finns den inte skapar den en ny.
   if (getCartItems().length === 0) {
-    let cartObj = new CartItem(product, quantity, quantity * product.price);
+    let cartObj = new CartItem(
+      product,
+      quantity,
+      quantity * product.price,
+      quantity * product.price
+    );
     let cartItems: CartItem[] = [cartObj];
     // i båda fallen uppdateras localStorage.
     localStorage.setItem("myCartItems", JSON.stringify(cartItems));
@@ -42,7 +48,9 @@ export function addToCart(product: Product, quantity: number) {
       let newCartItem: CartItem = new CartItem(
         product,
         quantity,
-        quantity * product.price
+
+        quantity,
+        quantity * product.price * product.price
       );
       customerCartItems.push(newCartItem);
     } //det sista som händer är att localStorage uppdateras med rätt värden (produkter, antal)
@@ -58,6 +66,7 @@ export function getCartItems() {
     let cartItem: CartItem = new CartItem(
       cartItemsObjects[i].product,
       cartItemsObjects[i].quantity,
+      cartItemsObjects[i].totalPrice,
       cartItemsObjects[i].totalPrice
     );
     cartItems.push(cartItem);
