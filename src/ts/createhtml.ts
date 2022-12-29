@@ -1,6 +1,7 @@
-import { addToCart, clearCart, getCartItems } from "./cart";
+import { addToCart, getCartItems } from "./cart";
+// import { clearCart } from "./cart";
 import { CartItem } from "./models/CartItem";
-import { Product, products } from "./models/Products";
+import { Product } from "./models/Products";
 
 export function createHTMLforModal(getCartItems: CartItem[]) {
   let modalContainer = document.getElementById(
@@ -8,9 +9,6 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
   ) as HTMLDivElement;
 
   modalContainer.innerHTML = "";
-  let sum = 0;
-
-  let productsTotalSum = 0;
 
   let productsTotalSum = 0;
 
@@ -75,14 +73,14 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     productsTotalSum += getCartItems[i].totalPrice;
 
     //clearCart
-    let clearCartinModal = document.getElementById(
-      "clearCartinModal"
-    ) as HTMLButtonElement;
+    // let clearCartinModal = document.getElementById(
+    //   "clearCartinModal"
+    // ) as HTMLButtonElement;
 
-    clearCartinModal?.addEventListener("click", function () {
-      console.log("knapptryckning funkar");
-      emptyCart();
-    });
+    // clearCartinModal?.addEventListener("click", function () {
+    //   console.log("knapptryckning funkar");
+    //   emptyCart();
+    // });
 
     // //clearOneProduct
     // modalDeleteButton.addEventListener("click", function () {
@@ -174,11 +172,11 @@ function addProductToCart(clickedProduct: Product) {
   console.log(clickedProduct);
 }
 
-function emptyCart() {
-  clearCart();
-  createHTMLforCheckout(getCartItems());
-  createHTMLforModal(getCartItems());
-}
+// function emptyCart() {
+//   clearCart();
+//   createHTMLforCheckout(getCartItems());
+//   createHTMLforModal(getCartItems());
+// }
 
 // function deleteCartItem() {
 //   clearOneProductinCart();
