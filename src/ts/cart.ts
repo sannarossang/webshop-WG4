@@ -1,6 +1,5 @@
 import { CartItem } from "../ts/models/CartItem";
-//import { totalPrice } from "./createhtml";
-import { Product, products } from "./models/Products";
+import { Product } from "./models/Products";
 
 export function getCustomerCartItem(
   customerCartItems: CartItem[],
@@ -13,6 +12,7 @@ export function getCustomerCartItem(
   }
   return null;
 }
+
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
   // i första if-satsen kollar vi om det finns produkter i kundens varukorg, finns det hoppar den till else men finns den inte skapar den en ny.
@@ -29,6 +29,12 @@ export function addToCart(product: Product, quantity: number) {
       customerCartItems,
       product
     );
+    //om quantity blir mindre än 1 tar vi bort produkten
+    if (quantity < 1) {
+      let index = customerCartItems.indexOf(customerCartItem);
+      customerCartItems.splice(index, 1);
+      return;
+    }
     //kollar om den hämtade produkten redan finns i listan, om den redan finns uppdaterar vi quantity
     if (customerCartItem !== null) {
       if (quantity == 1) {
@@ -36,7 +42,6 @@ export function addToCart(product: Product, quantity: number) {
       } else {
         customerCartItem.quantity = quantity;
       }
-
       customerCartItem.totalPrice = customerCartItem.quantity * product.price;
     } else {
       //om den inte finns lägger den till produkten i listan
@@ -76,7 +81,6 @@ export function getCartItems() {
 //   pos=i;
 //   getCartItems().splice(pos, 1)
 //   localStorage.getItem
-// .-
 //   let emptyOneProduct: string = "object";
 //   localStorage.setItem("myCartItems", emptyOneProduct);
 // }
