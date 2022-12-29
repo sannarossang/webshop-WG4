@@ -17,6 +17,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
+    let title_description: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
 
     let modalDeleteButton: HTMLButtonElement = document.createElement("button");
@@ -25,22 +26,25 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     container.className = "productInModal";
 
     img.className = "productInModal__image";
+    title_description.className = "productInModal__article";
     title.className = "productInModal__title";
     description.className = "productInModal__description";
     price.className = "producttInModal__price";
 
-    modalDeleteButton.className = "productinModal__button";
+    modalDeleteButton.className = "productInModal__button";
     quantity.className = "product__quantity";
 
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
     description.innerHTML = cartItems[i].product.description;
-    price.innerHTML += cartItems[i].product.price;
+    price.innerHTML += cartItems[i].product.price + ":-";
     quantity.innerHTML += cartItems[i].quantity;
 
+    title_description.appendChild(title);
+    title_description.appendChild(description);
+
     container.appendChild(img);
-    container.appendChild(title);
-    container.appendChild(description);
+    container.appendChild(title_description);
     container.appendChild(price);
 
     container.appendChild(modalDeleteButton);
@@ -108,6 +112,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
+    let title_description: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
     let productButton: HTMLButtonElement = document.createElement("button");
     let clearCartinCheckoutButton: HTMLButtonElement =
@@ -118,6 +123,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     img.className = "productInCheckout__image";
     title.className = "productInCheckout__title";
     description.className = "productInCheckout__description";
+    title_description.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
 
     productButton.className = "productInCheckout__button";
@@ -127,12 +133,14 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
     description.innerHTML = cartItems[i].product.description;
-    price.innerHTML += cartItems[i].product.price;
+    price.innerHTML += cartItems[i].product.price + ":-";
+
+    title_description.appendChild(title);
+    title_description.appendChild(description);
     // quantity.innerHTML += cartItems[i].quantity;
 
     container.appendChild(img);
-    container.appendChild(title);
-    container.appendChild(description);
+    container.appendChild(title_description);
     container.appendChild(price);
 
     container.appendChild(productButton);

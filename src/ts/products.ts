@@ -32,7 +32,7 @@ function createHTMLforProducts(products: Product[]): void {
     img.src = products[i].img;
     title.innerHTML = products[i].productname;
     description.innerHTML = products[i].description;
-    price.innerHTML += products[i].price;
+    price.innerHTML += products[i].price + ":-";
 
     container.appendChild(img);
     container.appendChild(title);
