@@ -95,7 +95,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     // });
   }
   let totalSum = document.getElementById("sumProducts");
-  totalSum.innerHTML = "Total summa: " + productsTotalSum;
+  totalSum.innerHTML = "Total summa: " + productsTotalSum + ":-";
 }
 
 export function createHTMLforCheckout(cartItems: CartItem[]) {
@@ -189,7 +189,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     // });
   }
   let totalSum = document.getElementById("sumProductsCheckout");
-  totalSum.innerHTML = "Total summa: " + productsTotalSum;
+  totalSum.innerHTML = "Total summa: " + productsTotalSum + ":-";
 }
 
 function productCounterDecrease(cartItem: CartItem) {
