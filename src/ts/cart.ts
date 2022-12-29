@@ -36,13 +36,14 @@ export function addToCart(product: Product, quantity: number) {
       } else {
         customerCartItem.quantity = quantity;
       }
+
       customerCartItem.totalPrice = customerCartItem.quantity * product.price;
     } else {
       //om den inte finns lägger den till produkten i listan
       let newCartItem: CartItem = new CartItem(
         product,
         quantity,
-        quantity * product.price
+        quantity * product.price * product.price
       );
       customerCartItems.push(newCartItem);
     } //det sista som händer är att localStorage uppdateras med rätt värden (produkter, antal)
@@ -65,10 +66,10 @@ export function getCartItems() {
   return cartItems;
 }
 
-export function clearCart() {
-  let emptyCart: string = "[]";
-  localStorage.setItem("myCartItems", emptyCart);
-}
+// export function clearCart() {
+//   let emptyCart: string = "[]";
+//   localStorage.setItem("myCartItems", emptyCart);
+// }
 
 // export function removeProductFromCart(removedProduct: Product) {
 //   ta bort den klickade produkten från varukorgen
