@@ -32,7 +32,7 @@
   }
 
   &__article{
-   padding: 20px;
+   width: 190px;
   }
   
   &__image {
@@ -45,13 +45,13 @@
   &__title {
     font-size: 16px;
     padding-top: 20px;
-    margin-left: 30px;
+    margin-left: 10px;
     
   }
 
   &__price {
     font-size: 16px;
-    margin-left: 30px;
+    margin-left: 10px;
     margin-top: 10px;
   }
 
@@ -64,13 +64,23 @@
   }
 
   &__button {
-    font-size: 16px;
     height: 20px;
     width: 20px;
+    margin: 0;
+    border: none;
+    background-color: white;
+    font-size: 15pt;
+    cursor: pointer;
+    padding: 20px;
+  }
+  &__divContainer{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
   }
 }
 
-.product__button, .productInModal__button, #backaKnapp{
+.productInModal__button, #backaKnapp{
   width: fit-content;
   border: none;
   background-color: white;
@@ -83,6 +93,7 @@
 
 #backaKnapp{
   position: absolute;
+  margin: 10px;
 }
 
 .productInModal{
@@ -108,3 +119,6 @@
   }
 }
 
+.product__button{
+  display: flex;
+}
