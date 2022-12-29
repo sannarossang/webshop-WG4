@@ -2,7 +2,6 @@
 @use "variables";
 
 main{
-  height: fit-content;
   margin: 0;
 }
 
@@ -12,6 +11,7 @@ main{
   flex-direction: column;
   display: inline;
   margin: 0;
+  height: fit-content;
 }
 
 
@@ -132,11 +132,11 @@ main{
 
 .modal-body {
   position: absolute;
-  left: 40%;
+  left: 5%;
   top: 30%;
   display: flex;
-  width: 20%;
-  height: 20%;
+  width: 80%;
+  height: 30%;
   padding: 20px;
   flex-direction: column;
   align-items: center;
@@ -144,10 +144,25 @@ main{
   border: 1px solid black;
   color: #333;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  @include mixins.desktop {
+    width: 50%;
+    left: 25%;
+    height: 40%;
+    top: 30%;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .modal-body button {
   width: 30px;
+}
+
+.pTagInCheckoutModal{
+  font-size: 25pt;
+  padding: 20px;
 }
 
 @-webkit-keyframes animatetop {

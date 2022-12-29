@@ -82,13 +82,18 @@ header{
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 80%;
     height: fit-content;
     position: absolute;
     top: 0px;
     right: 0px;
+    h2{
+        padding: 20px;
+    }
+    @include mixins.desktop {
+        width: 40%;
+    }
 }
 
 .burger-modal-content{
@@ -126,8 +131,20 @@ header{
 }
 
 #sumProducts{
-    padding: 15px;
     background-color: lightgray;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    margin: 0;
+    @include mixins.desktop{
+        width: 577px;
+        padding: 15px;
+    }
+    
+}
+
+#checkoutBtn{
+    margin: 0;
 }
 
 #closeButton, #closeBurger{
@@ -139,7 +156,12 @@ header{
     background-color: pink;
     border: none;
     cursor: pointer;
+    font-size: 10pt;
+    width: 100%;
     padding: 15px;
+    @include mixins.desktop{
+        padding: 20px;
+    }
 
 }
 

@@ -17,7 +17,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
-    let title_description: HTMLElement = document.createElement("article");
+    let articleInModal: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
 
     let modalDeleteButton: HTMLButtonElement = document.createElement("button");
@@ -26,10 +26,10 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     container.className = "productInModal";
 
     img.className = "productInModal__image";
-    title_description.className = "productInModal__article";
+    articleInModal.className = "productInModal__article";
     title.className = "productInModal__title";
     description.className = "productInModal__description";
-    price.className = "producttInModal__price";
+    price.className = "productInModal__price";
 
     modalDeleteButton.className = "productInModal__button";
     quantity.className = "product__quantity";
@@ -40,12 +40,12 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     price.innerHTML += cartItems[i].product.price + ":-";
     quantity.innerHTML += cartItems[i].quantity;
 
-    title_description.appendChild(title);
-    title_description.appendChild(description);
+    articleInModal.appendChild(title);
+    articleInModal.appendChild(description);
+    articleInModal.appendChild(price);
 
     container.appendChild(img);
-    container.appendChild(title_description);
-    container.appendChild(price);
+    container.appendChild(articleInModal);
 
     container.appendChild(modalDeleteButton);
     container.appendChild(quantity);
