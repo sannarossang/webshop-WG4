@@ -2,14 +2,14 @@ import { addToCart, clearCart, getCartItems } from "./cart";
 import { CartItem } from "./models/CartItem";
 import { Product, products } from "./models/Products";
 
-export const totalPrice = (getCartItems: CartItem[]) => {
+/*export const totalPrice = (getCartItems: CartItem[]) => {
   let sum: number = 0;
 
   for (let i = 0; i < getCartItems.length; i++) {
     sum += getCartItems[i].product.price;
   }
   return sum;
-};
+}; */
 
 export function createHTMLforModal(getCartItems: CartItem[]) {
   let modalContainer = document.getElementById(
@@ -17,6 +17,7 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
   ) as HTMLDivElement;
 
   modalContainer.innerHTML = "";
+  let sum = 0;
 
   for (let i = 0; i < getCartItems.length; i++) {
     let container: HTMLDivElement = document.createElement("div");
@@ -78,9 +79,8 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
 
     //-------
 
-    let sum = totalPrice(getCartItems).toString();
-    let totalSum = document.getElementById("sumProducts");
-    totalSum.innerHTML = "Total summa: " + sum;
+    //let sum = totalPrice(getCartItems).toString();
+    sum += getCartItems[i].totalPrice;
 
     //clearCart
 
@@ -99,6 +99,8 @@ export function createHTMLforModal(getCartItems: CartItem[]) {
     //   deleteCartItem();
     // });
   }
+  let totalSum = document.getElementById("sumProducts");
+  totalSum.innerHTML = "Total summa: " + sum;
 }
 
 export function createHTMLforCheckout(cartItems: CartItem[]) {
@@ -149,9 +151,9 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
       addProductToCart(cartItems[i].product);
     });
 
-    let sum = totalPrice(cartItems).toString();
+    /*let sum = totalPrice(cartItems).toString();
     let totalSum = document.getElementById("sumProductsCheckout");
-    totalSum.innerHTML = "Total summa: " + sum;
+    totalSum.innerHTML = "Total summa: " + sum; */
 
     //clearCart
     // let clearCartinCheckout = document.getElementById(

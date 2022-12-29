@@ -1,4 +1,5 @@
 import { CartItem } from "../ts/models/CartItem";
+//import { totalPrice } from "./createhtml";
 import { Product, products } from "./models/Products";
 
 export function getCustomerCartItem(
@@ -16,7 +17,7 @@ export function getCustomerCartItem(
 export function addToCart(product: Product, quantity: number) {
   // i första if-satsen kollar vi om det finns produkter i kundens varukorg, finns det hoppar den till else men finns den inte skapar den en ny.
   if (getCartItems().length === 0) {
-    let cartObj = new CartItem(product, quantity);
+    let cartObj = new CartItem(product, quantity, quantity * product.price);
     let cartItems: CartItem[] = [cartObj];
     // i båda fallen uppdateras localStorage.
     localStorage.setItem("myCartItems", JSON.stringify(cartItems));
@@ -30,10 +31,19 @@ export function addToCart(product: Product, quantity: number) {
     );
     //kollar om den hämtade produkten redan finns i listan, om den redan finns uppdaterar vi quantity
     if (customerCartItem !== null) {
-      customerCartItem.quantity = quantity;
+      if (quantity == 1) {
+        customerCartItem.quantity++;
+      } else {
+        customerCartItem.quantity = quantity;
+      }
+      customerCartItem.totalPrice = customerCartItem.quantity * product.price;
     } else {
       //om den inte finns lägger den till produkten i listan
-      let newCartItem: CartItem = new CartItem(product, quantity);
+      let newCartItem: CartItem = new CartItem(
+        product,
+        quantity,
+        quantity * product.price
+      );
       customerCartItems.push(newCartItem);
     } //det sista som händer är att localStorage uppdateras med rätt värden (produkter, antal)
     localStorage.setItem("myCartItems", JSON.stringify(customerCartItems));
@@ -47,7 +57,8 @@ export function getCartItems() {
   for (let i = 0; i < cartItemsObjects.length; i++) {
     let cartItem: CartItem = new CartItem(
       cartItemsObjects[i].product,
-      cartItemsObjects[i].quantity
+      cartItemsObjects[i].quantity,
+      cartItemsObjects[i].totalPrice
     );
     cartItems.push(cartItem);
   }
