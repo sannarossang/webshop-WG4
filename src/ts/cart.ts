@@ -33,22 +33,17 @@ export function addToCart(product: Product, quantity: number) {
     if (quantity < 1) {
       let index = customerCartItems.indexOf(customerCartItem);
       customerCartItems.splice(index, 1);
-      return;
     }
     //kollar om den hämtade produkten redan finns i listan, om den redan finns uppdaterar vi quantity
     if (customerCartItem !== null) {
-      if (quantity == 1) {
-        customerCartItem.quantity++;
-      } else {
-        customerCartItem.quantity = quantity;
-      }
+      customerCartItem.quantity = quantity;
       customerCartItem.totalPrice = customerCartItem.quantity * product.price;
     } else {
       //om den inte finns lägger den till produkten i listan
       let newCartItem: CartItem = new CartItem(
         product,
         quantity,
-        quantity * product.price * product.price
+        quantity * product.price
       );
       customerCartItems.push(newCartItem);
     } //det sista som händer är att localStorage uppdateras med rätt värden (produkter, antal)

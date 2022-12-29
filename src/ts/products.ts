@@ -1,5 +1,5 @@
 import { Product } from "./models/Products";
-import { addToCart, getCartItems } from "./cart";
+import { addToCart, getCartItems, getCustomerCartItem } from "./cart";
 import { products } from "./models/Products";
 import { createHTMLforModal } from "./createhtml";
 import { CartItem } from "./models/CartItem";
@@ -43,9 +43,16 @@ function createHTMLforProducts(products: Product[]): void {
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
-      console.log("knapptryckning funkar");
-      addProductToCart(products[i]);
-      //location.reload();
+      //om varan redan finns pluss kvantitet.. annars lägg till qty: 1
+      let cartItem: CartItem = getCustomerCartItem(getCartItems(), products[i]);
+      if (cartItem != null) {
+        let increasedQty: number = cartItem.quantity + 1;
+        console.log(increasedQty);
+        addToCart(products[i], increasedQty);
+      } else {
+        addToCart(products[i], 1);
+      }
+      createHTMLforModal(getCartItems());
     });
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
@@ -55,11 +62,6 @@ function createHTMLforProducts(products: Product[]): void {
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
-}
-
-function addProductToCart(clickedProduct: Product) {
-  addToCart(clickedProduct, 1);
-  console.log(clickedProduct);
 }
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;

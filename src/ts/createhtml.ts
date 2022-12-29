@@ -118,6 +118,8 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     let clearCartinCheckoutButton: HTMLButtonElement =
       document.createElement("button");
 
+    let quantity: HTMLSpanElement = document.createElement("span");
+
     container.className = "productInCheckout";
 
     img.className = "productInCheckout__image";
@@ -134,10 +136,10 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     title.innerHTML = cartItems[i].product.productname;
     description.innerHTML = cartItems[i].product.description;
     price.innerHTML += cartItems[i].product.price + ":-";
+    quantity.innerHTML += cartItems[i].quantity;
 
     title_description.appendChild(title);
     title_description.appendChild(description);
-    // quantity.innerHTML += cartItems[i].quantity;
 
     container.appendChild(img);
     container.appendChild(title_description);
@@ -169,12 +171,10 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
 
     decrease.addEventListener("click", function () {
       productCounterDecrease(cartItems[i]);
-      createHTMLforCheckout(getCartItems());
     });
 
     increase.addEventListener("click", function () {
       productCounterIncrease(cartItems[i]);
-      createHTMLforCheckout(getCartItems());
     });
 
     productsTotalSum += cartItems[i].totalPrice;
@@ -193,20 +193,20 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
 }
 
 function productCounterDecrease(cartItem: CartItem) {
-  cartItem.quantity--;
-  console.log(cartItem.quantity);
+  cartItem.quantity -= 1;
   addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
 }
 
 function productCounterIncrease(cartItem: CartItem) {
-  cartItem.quantity++;
+  cartItem.quantity += 1;
   addToCart(cartItem.product, cartItem.quantity);
+  createHTMLforModal(getCartItems());
 }
 
 function addProductToCart(clickedProduct: Product) {
   addToCart(clickedProduct, 1);
   createHTMLforModal(getCartItems());
-  createHTMLforCheckout(getCartItems());
 }
 
 // function reduceCart(getCartItems: CartItem[], cartItem: CartItem) {
