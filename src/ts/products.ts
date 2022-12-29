@@ -1,7 +1,7 @@
 import { Product } from "./models/Products";
 import { addToCart, getCartItems } from "./cart";
 import { products } from "./models/Products";
-import { totalPrice, createHTMLforModal } from "./createhtml";
+import { createHTMLforModal } from "./createhtml";
 import { CartItem } from "./models/CartItem";
 
 function createHTMLforProducts(products: Product[]): void {
