@@ -1,5 +1,5 @@
 import { CartItem } from "../ts/models/CartItem";
-import { Product } from "./models/Products";
+import { Product, products } from "./models/Products";
 
 export function getCustomerCartItem(
   customerCartItems: CartItem[],
@@ -71,14 +71,13 @@ export function clearCart() {
   localStorage.setItem("myCartItems", emptyCart);
 }
 
-// export function removeProductFromCart(removedProduct: Product) {
-//   ta bort den klickade produkten från varukorgen
-//   pos=i;
-//   getCartItems().splice(pos, 1)
-//   localStorage.getItem
-//   let emptyOneProduct: string = "object";
-//   localStorage.setItem("myCartItems", emptyOneProduct);
-// }
+export function removeProductFromCart(product: Product) {
+  let customerCartItems: CartItem[] = getCartItems();
+  let removeProduct: CartItem = getCustomerCartItem(customerCartItems, product);
+  let removeProductIndex = customerCartItems.indexOf(removeProduct);
+  customerCartItems.splice(removeProductIndex, 1);
+  localStorage.setItem("myCartItems", JSON.stringify(customerCartItems));
+}
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");

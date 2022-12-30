@@ -1,7 +1,7 @@
 import { addToCart, getCartItems } from "./cart";
-import { clearCart } from "./cart";
+import { clearCart, removeProductFromCart } from "./cart";
 import { CartItem } from "./models/CartItem";
-import { Product } from "./models/Products";
+import { Product, products } from "./models/Products";
 
 export function createHTMLforModal(cartItems: CartItem[]) {
   let modalContainer = document.getElementById(
@@ -67,32 +67,40 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     counterControls.appendChild(increase);
 
     decrease.addEventListener("click", function () {
-      productCounterDecrease(cartItems[i]);
+      productCounterDecrease(cartItems[i], false);
       createHTMLforModal(getCartItems());
     });
 
     increase.addEventListener("click", function () {
-      productCounterIncrease(cartItems[i]);
+      productCounterIncrease(cartItems[i], false);
       createHTMLforModal(getCartItems());
     });
 
     productsTotalSum += cartItems[i].totalPrice;
 
-    clearCart;
+    //deletebutton
+    let deleteDiv = document.createElement("div");
+    let checkoutDeletebutton: HTMLButtonElement =
+      document.createElement("button");
+    checkoutDeletebutton.innerHTML = "Ta bort vara";
+    container.appendChild(deleteDiv);
+    deleteDiv.appendChild(checkoutDeletebutton);
+
+    //clearOneProduct
+    checkoutDeletebutton.addEventListener("click", function () {
+      deleteCartItem(cartItems[i].product, false);
+    });
+    //
+
+    //clearCart
     let clearCartinModal = document.getElementById(
       "clearCartinModal"
     ) as HTMLButtonElement;
 
     clearCartinModal.addEventListener("click", function () {
-      console.log("knapptryckning funkar");
-      emptyCart();
+      emptyCart(false);
     });
-
-    // //clearOneProduct
-    // modalDeleteButton.addEventListener("click", function () {
-    //   console.log("knapptryckning funkar");
-    //   deleteCartItem();
-    // });
+    //
   }
   let totalSum = document.getElementById("sumProducts");
   totalSum.innerHTML = "Total summa: " + productsTotalSum + ":-";
@@ -114,9 +122,6 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let articleInCheckout: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
-    let productButton: HTMLButtonElement = document.createElement("button");
-    let clearCartinCheckoutButton: HTMLButtonElement =
-      document.createElement("button");
 
     let quantity: HTMLSpanElement = document.createElement("span");
 
@@ -127,10 +132,6 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     description.className = "productInCheckout__description";
     articleInCheckout.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
-
-    productButton.className = "productInCheckout__button";
-    clearCartinCheckoutButton.className =
-      "productinModal__clearCartinCheckoutButton";
 
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
@@ -145,15 +146,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     container.appendChild(img);
     container.appendChild(articleInCheckout);
 
-    container.appendChild(productButton);
-    container.appendChild(clearCartinCheckoutButton);
-
     checkoutContainer.appendChild(container);
-
-    productButton.addEventListener("click", function () {
-      console.log("knapptryckning för checkout funkar");
-      addProductToCart(cartItems[i].product);
-    });
 
     //product counter + and -
 
@@ -170,14 +163,28 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     counterControls.appendChild(increase);
 
     decrease.addEventListener("click", function () {
-      productCounterDecrease(cartItems[i]);
+      productCounterDecrease(cartItems[i], true);
     });
 
     increase.addEventListener("click", function () {
-      productCounterIncrease(cartItems[i]);
+      productCounterIncrease(cartItems[i], true);
     });
 
     productsTotalSum += cartItems[i].totalPrice;
+
+    //deletebutton
+    let deleteDiv = document.createElement("div");
+    let checkoutDeletebutton: HTMLButtonElement =
+      document.createElement("button");
+    checkoutDeletebutton.innerHTML = "Ta bort vara";
+    container.appendChild(deleteDiv);
+    deleteDiv.appendChild(checkoutDeletebutton);
+
+    //clearOneProduct
+    checkoutDeletebutton.addEventListener("click", function () {
+      deleteCartItem(cartItems[i].product, true);
+    });
+    //
 
     //clearCart
     let clearCartinCheckout = document.getElementById(
@@ -185,41 +192,44 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     ) as HTMLButtonElement;
 
     clearCartinCheckout.addEventListener("click", function () {
-      emptyCart();
+      emptyCart(true);
     });
+    //
   }
   let totalSum = document.getElementById("sumProductsCheckout");
   totalSum.innerHTML = "Total summa: " + productsTotalSum + ":-";
 }
 
-function productCounterDecrease(cartItem: CartItem) {
+function productCounterDecrease(cartItem: CartItem, inCheckOut: boolean) {
   cartItem.quantity -= 1;
   addToCart(cartItem.product, cartItem.quantity);
   createHTMLforModal(getCartItems());
-  createHTMLforCheckout(getCartItems());
+  if (inCheckOut) {
+    createHTMLforCheckout(getCartItems());
+  }
 }
 
-function productCounterIncrease(cartItem: CartItem) {
+function productCounterIncrease(cartItem: CartItem, inCheckOut: boolean) {
   cartItem.quantity += 1;
   addToCart(cartItem.product, cartItem.quantity);
   createHTMLforModal(getCartItems());
-  createHTMLforCheckout(getCartItems());
+  if (inCheckOut) {
+    createHTMLforCheckout(getCartItems());
+  }
 }
 
-function addProductToCart(clickedProduct: Product) {
-  addToCart(clickedProduct, 1);
-  createHTMLforModal(getCartItems());
-  createHTMLforCheckout(getCartItems());
-}
-
-function emptyCart() {
+function emptyCart(inCheckOut: boolean) {
   clearCart();
-  createHTMLforCheckout(getCartItems());
   createHTMLforModal(getCartItems());
+  if (inCheckOut) {
+    createHTMLforCheckout(getCartItems());
+  }
 }
 
-// function deleteCartItem() {
-//   clearOneProductinCart();
-//   createHTMLforCheckout(getCartItems());
-//   createHTMLforModal(getCartItems());
-// }
+function deleteCartItem(deleteProduct: Product, inCheckOut: boolean) {
+  removeProductFromCart(deleteProduct);
+  createHTMLforModal(getCartItems());
+  if (inCheckOut) {
+    createHTMLforCheckout(getCartItems());
+  }
+}
