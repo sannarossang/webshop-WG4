@@ -1,7 +1,7 @@
 @use "mixins";
 
 header{
-    background-color: pink;
+    background-color: rgb(153, 147, 153);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +42,7 @@ header{
     }
 
     #cartButton{
-     background-color: pink;
+     background-color: rgb(153, 147, 153);
      border: none;
      font-size: 25pt;
      cursor: pointer;
@@ -53,7 +53,7 @@ header{
     position: absolute;
     top: 30px;
     left: 30px;
-    background-color: pink;
+    background-color: rgb(153, 147, 153);
     font-size: 25pt;
     border: none;
     cursor: pointer;
@@ -98,16 +98,15 @@ header{
 
 .burger-modal-content{
     background-color: #fefefe;
-    padding: 20px;
     border: 1px solid #888;
     width: 30%;
-    height: 20%;
+    height: 25%;
     position: absolute;
     top: 80px;
     left: 30px;
     a{
         display: block;
-        padding: 5px;
+        padding: 10px;
     }
 }
 
@@ -153,7 +152,7 @@ header{
 }
 
 #paymentBtn{
-    background-color: pink;
+    background-color: rgb(153, 147, 153);
     border: none;
     cursor: pointer;
     font-size: 10pt;
