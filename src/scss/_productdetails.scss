@@ -12,7 +12,6 @@
 #productDetailMain h1 {
   color: black;
   text-align: start;
-  margin-bottom: 30px;
   margin-top: 10px;
 }
 
@@ -61,4 +60,11 @@ aside {
     width: 40%;
     padding: 30px;
   }
+}
+
+.productDetails__artist{
+  font-size: 13px;
+  color: rgb(165, 165, 165);
+  font-weight: lighter;
+  margin-bottom: 30px;
 }
