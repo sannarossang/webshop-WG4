@@ -19,6 +19,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let articleInModal: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
+    let span: HTMLSpanElement = document.createElement("span");
 
     let quantity: HTMLSpanElement = document.createElement("span");
 
@@ -29,6 +30,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     title.className = "productInModal__title";
     description.className = "productInModal__description";
     price.className = "productInModal__price";
+    span.className = "product__plusMinus";
 
     quantity.className = "product__quantity";
 
@@ -45,8 +47,6 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     container.appendChild(img);
     container.appendChild(articleInModal);
 
-    container.appendChild(quantity);
-
     modalContainer.appendChild(container);
 
     //product counter + and -
@@ -58,10 +58,14 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     counterControls.className = "counter-controls";
     decrease.innerHTML = "-";
     increase.innerHTML = "+";
+    decrease.className = "decrease";
+    increase.className = "increase";
 
     container.appendChild(counterControls);
-    counterControls.appendChild(decrease);
-    counterControls.appendChild(increase);
+    counterControls.appendChild(quantity);
+    span.appendChild(increase);
+    span.appendChild(decrease);
+    counterControls.appendChild(span);
 
     decrease.addEventListener("click", function () {
       productCounterDecrease(cartItems[i], false);
@@ -79,7 +83,8 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let deleteDiv = document.createElement("div");
     let checkoutDeletebutton: HTMLButtonElement =
       document.createElement("button");
-    checkoutDeletebutton.innerHTML = "Ta bort vara";
+    checkoutDeletebutton.innerHTML = "<i class='fa-regular fa-trash-can'></i>";
+    checkoutDeletebutton.className = "checkoutDeleteBtn";
     container.appendChild(deleteDiv);
     deleteDiv.appendChild(checkoutDeletebutton);
 
@@ -119,6 +124,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let articleInCheckout: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
+    let span: HTMLSpanElement = document.createElement("span");
 
     let quantity: HTMLSpanElement = document.createElement("span");
 
@@ -129,6 +135,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     description.className = "productInCheckout__description";
     articleInCheckout.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
+    span.className = "product__plusMinus";
 
     quantity.className = "product__quantity";
 
@@ -145,8 +152,6 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     container.appendChild(img);
     container.appendChild(articleInCheckout);
 
-    container.appendChild(quantity);
-
     checkoutContainer.appendChild(container);
 
     //product counter + and -
@@ -158,10 +163,14 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     counterControls.className = "counter-controls";
     decrease.innerHTML = "-";
     increase.innerHTML = "+";
+    decrease.className = "decrease";
+    increase.className = "increase";
 
     container.appendChild(counterControls);
-    counterControls.appendChild(decrease);
-    counterControls.appendChild(increase);
+    counterControls.appendChild(quantity);
+    span.appendChild(increase);
+    span.appendChild(decrease);
+    counterControls.appendChild(span);
 
     decrease.addEventListener("click", function () {
       productCounterDecrease(cartItems[i], true);
@@ -177,9 +186,10 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     let deleteDiv = document.createElement("div");
     let checkoutDeletebutton: HTMLButtonElement =
       document.createElement("button");
-    checkoutDeletebutton.innerHTML = "Ta bort vara";
+    checkoutDeletebutton.innerHTML = "<i class='fa-regular fa-trash-can'></i>";
     container.appendChild(deleteDiv);
     deleteDiv.appendChild(checkoutDeletebutton);
+    checkoutDeletebutton.className = "checkoutDeleteBtn";
 
     //clearOneProduct
     checkoutDeletebutton.addEventListener("click", function () {

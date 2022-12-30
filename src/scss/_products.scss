@@ -80,7 +80,7 @@
   }
 }
 
-.productInModal__button, #backaKnapp{
+.productInModal__button, #backaKnapp, .checkoutDeleteBtn{
   width: fit-content;
   border: none;
   background-color: white;
@@ -126,4 +126,35 @@
 
 .product__button{
   display: flex;
+}
+
+.counter-controls{
+  border: 1px solid black;
+  width: 50px;
+  display: flex;
+  height: 39px;
+}
+
+.product__plusMinus{
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid black;
+  width: 30px;
+}
+
+.product__quantity{
+  padding: 10px;
+}
+
+.decrease{
+  background-color: white;
+  border: none;
+}
+
+.increase{
+  border-bottom: 1px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: white;
 }
