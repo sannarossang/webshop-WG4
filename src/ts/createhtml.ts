@@ -1,7 +1,7 @@
 import { addToCart, getCartItems } from "./cart";
 import { clearCart, removeProductFromCart } from "./cart";
 import { CartItem } from "./models/CartItem";
-import { Product, products } from "./models/Products";
+import { Product } from "./models/Products";
 
 export function createHTMLforModal(cartItems: CartItem[]) {
   let modalContainer = document.getElementById(
@@ -20,7 +20,6 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let articleInModal: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
 
-    let modalDeleteButton: HTMLButtonElement = document.createElement("button");
     let quantity: HTMLSpanElement = document.createElement("span");
 
     container.className = "productInModal";
@@ -31,7 +30,6 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     description.className = "productInModal__description";
     price.className = "productInModal__price";
 
-    modalDeleteButton.className = "productInModal__button";
     quantity.className = "product__quantity";
 
     img.src = cartItems[i].product.img;
@@ -47,7 +45,6 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     container.appendChild(img);
     container.appendChild(articleInModal);
 
-    container.appendChild(modalDeleteButton);
     container.appendChild(quantity);
 
     modalContainer.appendChild(container);
@@ -133,6 +130,8 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     articleInCheckout.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
 
+    quantity.className = "product__quantity";
+
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
     description.innerHTML = cartItems[i].product.description;
@@ -145,6 +144,8 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
 
     container.appendChild(img);
     container.appendChild(articleInCheckout);
+
+    container.appendChild(quantity);
 
     checkoutContainer.appendChild(container);
 
