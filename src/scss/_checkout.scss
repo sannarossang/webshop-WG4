@@ -55,6 +55,10 @@ main{
     }
   }
 
+  #payButton:hover{
+    background-color: rgb(212, 212, 212);
+  }
+
 
   @include mixins.desktop {
     form{

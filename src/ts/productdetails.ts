@@ -24,7 +24,7 @@ function createHTMLForItem(products: Product[]) {
       let img: HTMLImageElement = document.createElement("img");
 
       container.className = "productImage";
-      img.className = "product__image";
+      img.className = "productdetail__image";
       img.src = products[i].img;
 
       container.appendChild(img);
@@ -36,8 +36,9 @@ function createHTMLForItem(products: Product[]) {
       let span = document.createElement("span");
       h1.innerText = products[i].productname;
       p.innerText = products[i].description;
-      span.innerHTML += products[i].price;
+      span.innerHTML += products[i].price + ":-";
       const button = document.createElement("button");
+      button.innerHTML = "Lägg till i varukorgen";
 
       aside.append(h1);
       aside.append(p);
