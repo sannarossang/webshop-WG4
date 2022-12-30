@@ -106,3 +106,97 @@ createHTMLforModal(getCartItems());
 function updateCartTotal() {
   throw new Error("Function not implemented.");
 }
+
+//FILTER
+let btnOne = document.createElement("button");
+let btnTwo = document.createElement("button");
+let btnThree = document.createElement("button");
+
+btnOne.innerHTML = "Alla";
+btnTwo.innerHTML = "Ljusa tapeter";
+btnThree.innerHTML = "Mörka tapeter";
+
+let filter = document.getElementById("filter");
+filter.appendChild(btnOne);
+filter.appendChild(btnTwo);
+filter.appendChild(btnThree);
+
+let selectedFilter: string = "";
+
+btnOne.addEventListener("click", () => {
+  selectedFilter = "Alla";
+  filterAlternatives(products);
+});
+btnTwo.addEventListener("click", () => {
+  selectedFilter = "Ljus";
+  filterAlternatives(products);
+});
+btnThree.addEventListener("click", () => {
+  selectedFilter = "Mörk";
+  filterAlternatives(products);
+});
+
+function filterAlternatives(products: Product[]) {
+  let filteredList = products.filter((wallpapers) => {
+    return wallpapers.primaryColor === selectedFilter;
+  });
+
+  if (selectedFilter === "Alla") {
+    createHTMLforProducts(products);
+  } else {
+    showFilteredProducts(filteredList);
+  }
+}
+
+function showFilteredProducts(filteredList: Product[]) {
+  let productsContainer = document.getElementById(
+    "productsContainer"
+  ) as HTMLDivElement;
+
+  productsContainer.innerHTML = "";
+
+  for (let i = 0; i < filteredList.length; i++) {
+    let container: HTMLDivElement = document.createElement("div");
+    let img: HTMLImageElement = document.createElement("img");
+    let title: HTMLHeadingElement = document.createElement("h3");
+    let description: HTMLSpanElement = document.createElement("span");
+    let price: HTMLSpanElement = document.createElement("span");
+    let button: HTMLButtonElement = document.createElement("button");
+
+    container.className = "product";
+
+    img.className = "product__image";
+    title.className = "product__title";
+    description.className = "product__description";
+    price.className = "product__price";
+    button.className = "product__button";
+
+    img.src = filteredList[i].img;
+    title.innerHTML = filteredList[i].productname;
+    description.innerHTML = filteredList[i].description;
+    price.innerHTML += filteredList[i].price;
+
+    container.appendChild(img);
+    container.appendChild(title);
+    container.appendChild(description);
+    container.appendChild(price);
+    container.appendChild(button);
+
+    productsContainer.appendChild(container);
+
+    button.addEventListener("click", function () {
+      console.log("knapptryckning funkar");
+      addProductToCart(products[i]);
+      //location.reload();
+    });
+
+    button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
+
+    img.addEventListener("click", () => {
+      console.log("trycka på bilde funkar");
+      location.href = "../html/productdetails.html?id=" + products[i].id;
+    });
+  }
+}
+
+//

@@ -19,7 +19,8 @@ class Product {
     public collection: string,
     public img: string,
     public description: string,
-    public id: string
+    public id: string,
+    public primaryColor: string
   ) {}
 }
 
@@ -32,7 +33,8 @@ let wallpaper1 = new Product(
   "Unni Zetterling design",
   imagewallpaper1,
   "Tulip Infusion är ett av våra mest älskade tapetmönster. Låt vårens blomsterglädje pryda hemmets väggar för glädje hemma - året om.",
-  "1"
+  "1",
+  "Ljus"
 );
 
 let wallpaper2 = new Product(
@@ -44,7 +46,8 @@ let wallpaper2 = new Product(
   "Unni Zetterling design",
   imagewallpaper2,
   "Almost Amaryllis är julblomman som tagit de svenska hemmen med storm - även uppåt väggarna. En klassiker som aldrig går ur tiden.",
-  "2"
+  "2",
+  "Mörk"
 );
 
 let wallpaper3 = new Product(
@@ -56,7 +59,8 @@ let wallpaper3 = new Product(
   "Unni Zetterling design",
   imagewallpaper3,
   "Dahlia Mix är en vacker kombinationstapet med grå botten som gör sig väl i all från vardagsrum til barnrum och kök. Ett säkert kort - helt enkelt!",
-  "3"
+  "3",
+  "Ljus"
 );
 
 let wallpaper4 = new Product(
@@ -68,7 +72,8 @@ let wallpaper4 = new Product(
   "Unni Zetterling design",
   imagewallpaper4,
   "Sweet Pea är vår stormönstrade tapet med luktärtor till skillnad från Minimalistic Sweet Pea som är ett mer avskalat mönster.",
-  "4"
+  "4",
+  "Mörk"
 );
 
 let wallpaper5 = new Product(
@@ -80,7 +85,8 @@ let wallpaper5 = new Product(
   "Unni Zetterling design",
   imagewallpaper5,
   "Poppy är ett av våra mest sålda mönster. Med tapetens mörka botten skapas romantik och dramatik på ett välkomponerat sätt. ",
-  "5"
+  "5",
+  "Mörk"
 );
 
 let wallpaper6 = new Product(
@@ -92,7 +98,8 @@ let wallpaper6 = new Product(
   "Unni Zetterling design",
   imagewallpaper6,
   "Classic Eucalyptus är ett blomstermix-mönster som tack vare sin ljusa botten funkar i hemmets alla rum.",
-  "6"
+  "6",
+  "Ljus"
 );
 
 let wallpaper7 = new Product(
@@ -104,7 +111,8 @@ let wallpaper7 = new Product(
   "Unni Zetterling design",
   imagewallpaper7,
   "Minimalistic Sweet Pea är uppföljaren till Sweet Pea - för den som föredrar en mer minimalistisk tappning på vår storsäljare.",
-  "7"
+  "7",
+  "Mörk"
 );
 
 let wallpaper8 = new Product(
@@ -116,7 +124,8 @@ let wallpaper8 = new Product(
   "Unni Zetterling design",
   imagewallpaper8,
   "Romantic Tulip är en av våra mest älskade tapeter med sin ljusblå botten och smutsrosa tulpan i magisk kombination med yviga ängsblommor.",
-  "8"
+  "8",
+  "Ljus"
 );
 
 export let products: Product[] = [
