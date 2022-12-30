@@ -1,5 +1,5 @@
 import { addToCart, getCartItems } from "./cart";
-// import { clearCart } from "./cart";
+import { clearCart } from "./cart";
 import { CartItem } from "./models/CartItem";
 import { Product } from "./models/Products";
 
@@ -78,15 +78,15 @@ export function createHTMLforModal(cartItems: CartItem[]) {
 
     productsTotalSum += cartItems[i].totalPrice;
 
-    //clearCart
-    // let clearCartinModal = document.getElementById(
-    //   "clearCartinModal"
-    // ) as HTMLButtonElement;
+    clearCart;
+    let clearCartinModal = document.getElementById(
+      "clearCartinModal"
+    ) as HTMLButtonElement;
 
-    // clearCartinModal?.addEventListener("click", function () {
-    //   console.log("knapptryckning funkar");
-    //   emptyCart();
-    // });
+    clearCartinModal.addEventListener("click", function () {
+      console.log("knapptryckning funkar");
+      emptyCart();
+    });
 
     // //clearOneProduct
     // modalDeleteButton.addEventListener("click", function () {
@@ -180,13 +180,13 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     productsTotalSum += cartItems[i].totalPrice;
 
     //clearCart
-    // let clearCartinCheckout = document.getElementById(
-    //   "clearCartinCheckout"
-    // ) as HTMLButtonElement;
+    let clearCartinCheckout = document.getElementById(
+      "clearCartinCheckout"
+    ) as HTMLButtonElement;
 
-    // clearCartinCheckout.addEventListener("click", function () {
-    //   emptyCart();
-    // });
+    clearCartinCheckout.addEventListener("click", function () {
+      emptyCart();
+    });
   }
   let totalSum = document.getElementById("sumProductsCheckout");
   totalSum.innerHTML = "Total summa: " + productsTotalSum + ":-";
@@ -196,34 +196,27 @@ function productCounterDecrease(cartItem: CartItem) {
   cartItem.quantity -= 1;
   addToCart(cartItem.product, cartItem.quantity);
   createHTMLforModal(getCartItems());
+  createHTMLforCheckout(getCartItems());
 }
 
 function productCounterIncrease(cartItem: CartItem) {
   cartItem.quantity += 1;
   addToCart(cartItem.product, cartItem.quantity);
   createHTMLforModal(getCartItems());
+  createHTMLforCheckout(getCartItems());
 }
 
 function addProductToCart(clickedProduct: Product) {
   addToCart(clickedProduct, 1);
   createHTMLforModal(getCartItems());
+  createHTMLforCheckout(getCartItems());
 }
 
-// function reduceCart(getCartItems: CartItem[], cartItem: CartItem) {
-//   cartItem.quantity--;
-//   if (cartItem.quantity < 1) {
-//     let index = getCartItems.indexOf(cartItem);
-//     getCartItems.splice(index, 1);
-//   }
-//   localStorage.setItem("myCartItems", JSON.stringify(getCartItems));
-//   createHTMLforModal(getCartItems);
-// }
-
-// function emptyCart() {
-//   clearCart();
-//   createHTMLforCheckout(getCartItems());
-//   createHTMLforModal(getCartItems());
-// }
+function emptyCart() {
+  clearCart();
+  createHTMLforCheckout(getCartItems());
+  createHTMLforModal(getCartItems());
+}
 
 // function deleteCartItem() {
 //   clearOneProductinCart();

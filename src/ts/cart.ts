@@ -66,10 +66,10 @@ export function getCartItems() {
   return cartItems;
 }
 
-// export function clearCart() {
-//   let emptyCart: string = "[]";
-//   localStorage.setItem("myCartItems", emptyCart);
-// }
+export function clearCart() {
+  let emptyCart: string = "[]";
+  localStorage.setItem("myCartItems", emptyCart);
+}
 
 // export function removeProductFromCart(removedProduct: Product) {
 //   ta bort den klickade produkten från varukorgen

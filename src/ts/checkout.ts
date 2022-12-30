@@ -8,7 +8,7 @@ function backaWindow() {
   history.back();
 }
 
-//structure for pop-up not working atm
+//structure for pop-up
 const div = document.createElement("div");
 const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
