@@ -1,7 +1,9 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
 import { createHTMLforModal } from "./createhtml";
-import { getCartItems } from "./cart";
+import { addToCart, getCartItems, getCustomerCartItem } from "./cart";
+import { clearCart, removeProductFromCart } from "./cart";
+import { CartItem } from "./models/CartItem";
 
 function searchById() {
   const paramSearch: URLSearchParams = new URLSearchParams(
@@ -37,20 +39,40 @@ function createHTMLForItem(products: Product[]) {
       h1.innerText = products[i].productname;
       p.innerText = products[i].description;
       span.innerHTML += products[i].price + ":-";
-      const button = document.createElement("button");
-      button.innerHTML = "Lägg till i varukorgen";
+
+      const quantityOfProduct = document.createElement("input");
+      quantityOfProduct.setAttribute("type", "number");
+      const addInCartbutton = document.createElement("button");
+      addInCartbutton.innerHTML = "Lägg till i varukorgen";
 
       aside.append(h1);
       aside.append(p);
       aside.className = "productDetails";
       aside.append(span);
-      aside.append(button);
+      aside.append(addInCartbutton);
+      aside.append(quantityOfProduct);
 
       const productDetailContainer = document.getElementById(
         "productDetailContainer"
       ) as HTMLElement;
       productDetailContainer.appendChild(container);
       productDetailContainer.appendChild(aside);
+
+      addInCartbutton.addEventListener("click", function () {
+        let amountOfProduct: number = parseInt(quantityOfProduct.value);
+        let cartItem: CartItem = getCustomerCartItem(
+          getCartItems(),
+          products[i]
+        );
+        if (cartItem != null) {
+          let increasedQty: number = cartItem.quantity + amountOfProduct;
+          console.log(increasedQty);
+          addToCart(products[i], increasedQty);
+        } else {
+          addToCart(products[i], amountOfProduct);
+        }
+        createHTMLforModal(getCartItems());
+      });
     }
   }
 }

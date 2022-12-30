@@ -211,7 +211,10 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
   totalSum.innerHTML = "Total summa: " + productsTotalSum + ":-";
 }
 
-function productCounterDecrease(cartItem: CartItem, inCheckOut: boolean) {
+export function productCounterDecrease(
+  cartItem: CartItem,
+  inCheckOut: boolean
+) {
   cartItem.quantity -= 1;
   addToCart(cartItem.product, cartItem.quantity);
   createHTMLforModal(getCartItems());
@@ -220,7 +223,10 @@ function productCounterDecrease(cartItem: CartItem, inCheckOut: boolean) {
   }
 }
 
-function productCounterIncrease(cartItem: CartItem, inCheckOut: boolean) {
+export function productCounterIncrease(
+  cartItem: CartItem,
+  inCheckOut: boolean
+) {
   cartItem.quantity += 1;
   addToCart(cartItem.product, cartItem.quantity);
   createHTMLforModal(getCartItems());
