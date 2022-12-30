@@ -6,56 +6,53 @@
   align-items: center;
   flex-direction: column;
   height: fit-content;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #productsContainer {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  width: 50%;
+  justify-content: space-around;
 
   @include mixins.desktop {
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
   }
 }
 
-.product, .productInCheckout, .productInModal {
+.product {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  justify-items: center;
-  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 20px;
+  line-height: normal;
+  margin-bottom: 50px;
   @include mixins.desktop {
-    width: 25%;
+    //width: 250px;
+    margin: 20px;
   }
 
+  &__article{
+   width: 190px;
+  }
+  
   &__image {
     height: 250px;
     width: 250px;
     @include mixins.desktop {
-      margin: 20px;
     }
   }
 
   &__title {
-    align-items: center;
-    justify-content: center;
     font-size: 16px;
+    padding-top: 20px;
+    margin-left: 10px;
+    
   }
 
   &__price {
-    align-items: center;
-    justify-content: center;
     font-size: 16px;
+    margin-left: 10px;
+    margin-top: 10px;
   }
 
   &__description {
@@ -63,19 +60,27 @@
     justify-content: center;
     font-size: 16px;
     padding: 20px;
+    display: none;
   }
 
   &__button {
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
     height: 20px;
     width: 20px;
-    //@include mixins.fa-icon-solid($fa-var-cart-plus);
+    margin: 0;
+    border: none;
+    background-color: white;
+    font-size: 15pt;
+    cursor: pointer;
+    padding: 20px;
+  }
+  &__divContainer{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
   }
 }
 
-.product__button, .productInModal__button, #backaKnapp{
+.productInModal__button, #backaKnapp{
   width: fit-content;
   border: none;
   background-color: white;
@@ -86,7 +91,39 @@
   height: 40px;
 }
 
+#backaKnapp{
+  position: absolute;
+  margin: 10px;
+}
+
 .productInModal{
-  width: fit-content;
-  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 20px;
+  line-height: normal;
+  &__image{
+    width: 200px;
+    height: 200px;
+    
+  }
+  &__article{
+    padding: 20px;
+  }
+  &__title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  &__description {
+    font-size: 16px;
+    display: none;
+    @include mixins.desktop {
+      //display: contents;
+    }
+  }
+}
+
+.product__button{
+  display: flex;
 }

@@ -1,7 +1,7 @@
 import { Product } from "./models/Products";
-import { addToCart, getCartItems } from "./cart";
+import { addToCart, getCartItems, getCustomerCartItem } from "./cart";
 import { products } from "./models/Products";
-import { totalPrice, createHTMLforModal } from "./createhtml";
+import { createHTMLforModal } from "./createhtml";
 import { CartItem } from "./models/CartItem";
 
 function createHTMLforProducts(products: Product[]): void {
@@ -14,10 +14,12 @@ function createHTMLforProducts(products: Product[]): void {
   for (let i = 0; i < products.length; i++) {
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
+    let articleInProduct: HTMLElement = document.createElement("article");
     let title: HTMLHeadingElement = document.createElement("h3");
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
     let button: HTMLButtonElement = document.createElement("button");
+    let divContainer: HTMLDivElement = document.createElement("div");
 
     // container.setAttribute("fa-light fa-cart-circle-plus", "XX")
 
@@ -28,24 +30,37 @@ function createHTMLforProducts(products: Product[]): void {
     description.className = "product__description";
     price.className = "product__price";
     button.className = "product__button";
+    articleInProduct.className = "product__article";
+    divContainer.className = "product__divContainer";
 
     img.src = products[i].img;
     title.innerHTML = products[i].productname;
     description.innerHTML = products[i].description;
-    price.innerHTML += products[i].price;
+    price.innerHTML += products[i].price + ":-";
 
     container.appendChild(img);
-    container.appendChild(title);
-    container.appendChild(description);
-    container.appendChild(price);
-    container.appendChild(button);
+    container.appendChild(articleInProduct);
+
+    articleInProduct.appendChild(title);
+    articleInProduct.appendChild(description);
+    articleInProduct.appendChild(price);
+    divContainer.appendChild(articleInProduct);
+    divContainer.appendChild(button);
+    container.appendChild(divContainer);
 
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
-      console.log("knapptryckning funkar");
-      addProductToCart(products[i]);
-      //location.reload();
+      //om varan redan finns pluss kvantitet.. annars lägg till qty: 1
+      let cartItem: CartItem = getCustomerCartItem(getCartItems(), products[i]);
+      if (cartItem != null) {
+        let increasedQty: number = cartItem.quantity + 1;
+        console.log(increasedQty);
+        addToCart(products[i], increasedQty);
+      } else {
+        addToCart(products[i], 1);
+      }
+      createHTMLforModal(getCartItems());
     });
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
@@ -55,11 +70,6 @@ function createHTMLforProducts(products: Product[]): void {
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
-}
-
-function addProductToCart(clickedProduct: Product) {
-  addToCart(clickedProduct, 1);
-  console.log(clickedProduct);
 }
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;

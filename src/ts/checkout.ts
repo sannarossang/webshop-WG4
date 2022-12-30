@@ -8,14 +8,17 @@ function backaWindow() {
   history.back();
 }
 
-//structure for pop-up not working atm
+//structure for pop-up
 const div = document.createElement("div");
 const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
+let span = document.createElement("span");
+let pTag = document.createElement("p");
 
 const modalId = document.getElementById("modalId") as HTMLElement;
 
 modalId?.append(div);
+div.append(pTag);
 div.append(h1);
 
 //pop-up onlick
@@ -25,8 +28,12 @@ const btn = document.getElementById("payButton") as HTMLButtonElement; //tar id 
 btn.onclick = function () {
   btn.style.display = "block";
   div.className = "modal-body";
+  pTag.className = "pTagInCheckoutModal";
   h1.innerText = "Tack för ditt köp!";
+  pTag.innerHTML = "<i class='fa-regular fa-circle-check'></i>";
+  div.appendChild(span);
   div.append(btnHome);
+  span.innerHTML = "<a href='./products.html'>Fortsätt handla</a>";
 };
 
 window.onclick = function (event) {

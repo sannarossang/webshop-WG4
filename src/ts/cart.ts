@@ -12,11 +12,12 @@ export function getCustomerCartItem(
   }
   return null;
 }
+
 // funktionen addToCart tar in två parametrar, första är av datatyp Product (vår klass) och den andra är av datatyp number.
 export function addToCart(product: Product, quantity: number) {
   // i första if-satsen kollar vi om det finns produkter i kundens varukorg, finns det hoppar den till else men finns den inte skapar den en ny.
   if (getCartItems().length === 0) {
-    let cartObj = new CartItem(product, quantity);
+    let cartObj = new CartItem(product, quantity, quantity * product.price);
     let cartItems: CartItem[] = [cartObj];
     // i båda fallen uppdateras localStorage.
     localStorage.setItem("myCartItems", JSON.stringify(cartItems));
@@ -28,12 +29,22 @@ export function addToCart(product: Product, quantity: number) {
       customerCartItems,
       product
     );
+    //om quantity blir mindre än 1 tar vi bort produkten
+    if (quantity < 1) {
+      let index = customerCartItems.indexOf(customerCartItem);
+      customerCartItems.splice(index, 1);
+    }
     //kollar om den hämtade produkten redan finns i listan, om den redan finns uppdaterar vi quantity
     if (customerCartItem !== null) {
       customerCartItem.quantity = quantity;
+      customerCartItem.totalPrice = customerCartItem.quantity * product.price;
     } else {
       //om den inte finns lägger den till produkten i listan
-      let newCartItem: CartItem = new CartItem(product, quantity);
+      let newCartItem: CartItem = new CartItem(
+        product,
+        quantity,
+        quantity * product.price
+      );
       customerCartItems.push(newCartItem);
     } //det sista som händer är att localStorage uppdateras med rätt värden (produkter, antal)
     localStorage.setItem("myCartItems", JSON.stringify(customerCartItems));
@@ -47,7 +58,8 @@ export function getCartItems() {
   for (let i = 0; i < cartItemsObjects.length; i++) {
     let cartItem: CartItem = new CartItem(
       cartItemsObjects[i].product,
-      cartItemsObjects[i].quantity
+      cartItemsObjects[i].quantity,
+      cartItemsObjects[i].totalPrice
     );
     cartItems.push(cartItem);
   }
@@ -59,15 +71,13 @@ export function clearCart() {
   localStorage.setItem("myCartItems", emptyCart);
 }
 
-// export function removeProductFromCart(removedProduct: Product) {
-//   ta bort den klickade produkten från varukorgen
-//   pos=i;
-//   getCartItems().splice(pos, 1)
-//   localStorage.getItem
-// .-
-//   let emptyOneProduct: string = "object";
-//   localStorage.setItem("myCartItems", emptyOneProduct);
-// }
+export function removeProductFromCart(product: Product) {
+  let customerCartItems: CartItem[] = getCartItems();
+  let removeProduct: CartItem = getCustomerCartItem(customerCartItems, product);
+  let removeProductIndex = customerCartItems.indexOf(removeProduct);
+  customerCartItems.splice(removeProductIndex, 1);
+  localStorage.setItem("myCartItems", JSON.stringify(customerCartItems));
+}
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");

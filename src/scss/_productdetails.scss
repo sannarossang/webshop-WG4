@@ -1,33 +1,64 @@
+@use "mixins";
+
 * {
   margin: 0;
 }
 
-img {
-  width: 40%;
-}
-
 #productDetailMain {
   height: 30rem;
+  text-align: start;
 }
 
 #productDetailMain h1 {
   color: black;
+  text-align: start;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 #productDetailContainer {
   display: flex;
   flex-direction: row;
-}
-
-.productImage, .productDetails {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30rem;
+  margin-top: 70px;
+  height: 250px;
+  text-align: start;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .productdetail__image{
+    width: 250px;
+    height: 250px;
+  }
+  @include mixins.desktop {
+    width: 70%;
+    margin-left: 15%;
+    height: 400px;
+    .productdetail__image{
+      width: 400px;
+      height: 400px;
+    }
+  }
 }
 
 aside {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  span{
+    margin-top: 20px;
+  }
+  button{
+    width: 50%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: rgb(212, 212, 212);
+  }
+  @include mixins.desktop {
+    width: 40%;
+    padding: 30px;
+  }
 }

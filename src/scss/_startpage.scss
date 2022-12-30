@@ -7,19 +7,19 @@ body {
 }
 
 main {
-  height: 500px;
-
-  #startpageImage h1 {
-    color: white;
-  }
+  min-height: 100vh;
+  height: fit-content;
 }
 
 #startpageImage{
   background-image: url(../assets/herowallpaper.jpg);
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  color: white;
+
+  height: 100vh;
 }
