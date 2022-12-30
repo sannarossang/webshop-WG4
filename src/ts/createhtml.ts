@@ -16,6 +16,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
+    let artist: HTMLHeadElement = document.createElement("h4");
     let description: HTMLSpanElement = document.createElement("span");
     let articleInModal: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
@@ -28,6 +29,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     img.className = "productInModal__image";
     articleInModal.className = "productInModal__article";
     title.className = "productInModal__title";
+    artist.className = "productInModal__artist";
     description.className = "productInModal__description";
     price.className = "productInModal__price";
     span.className = "product__plusMinus";
@@ -36,11 +38,13 @@ export function createHTMLforModal(cartItems: CartItem[]) {
 
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
+    artist.innerHTML = cartItems[i].product.collection;
     description.innerHTML = cartItems[i].product.description;
     price.innerHTML += cartItems[i].product.price + ":-";
     quantity.innerHTML += cartItems[i].quantity;
 
     articleInModal.appendChild(title);
+    articleInModal.appendChild(artist);
     articleInModal.appendChild(description);
     articleInModal.appendChild(price);
 
@@ -121,6 +125,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
+    let artist: HTMLHeadElement = document.createElement("h4");
     let description: HTMLSpanElement = document.createElement("span");
     let articleInCheckout: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
@@ -132,6 +137,7 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
 
     img.className = "productInCheckout__image";
     title.className = "productInCheckout__title";
+    artist.className = "productInModal__artist";
     description.className = "productInCheckout__description";
     articleInCheckout.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
@@ -141,11 +147,13 @@ export function createHTMLforCheckout(cartItems: CartItem[]) {
 
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
+    artist.innerHTML = cartItems[i].product.collection;
     description.innerHTML = cartItems[i].product.description;
     price.innerHTML += cartItems[i].product.price + ":-";
     quantity.innerHTML += cartItems[i].quantity;
 
     articleInCheckout.appendChild(title);
+    articleInCheckout.appendChild(artist);
     articleInCheckout.appendChild(description);
     articleInCheckout.appendChild(price);
 

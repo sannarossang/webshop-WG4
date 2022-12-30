@@ -34,9 +34,11 @@ function createHTMLForItem(products: Product[]) {
       //ASIDE
       const aside = document.createElement("aside");
       let h1 = document.createElement("h1");
+      let artist = document.createElement("h4");
       let p = document.createElement("p");
       let span = document.createElement("span");
       h1.innerText = products[i].productname;
+      artist.innerHTML = products[i].collection;
       p.innerText = products[i].description;
       span.innerHTML += products[i].price + ":-";
 
@@ -46,8 +48,10 @@ function createHTMLForItem(products: Product[]) {
       addInCartbutton.innerHTML = "Lägg till i varukorgen";
 
       aside.append(h1);
+      aside.append(artist);
       aside.append(p);
       aside.className = "productDetails";
+      artist.className = "productDetails__artist";
       aside.append(span);
       aside.append(addInCartbutton);
       aside.append(quantityOfProduct);
