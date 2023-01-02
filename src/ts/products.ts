@@ -16,6 +16,7 @@ function createHTMLforProducts(products: Product[]): void {
     let img: HTMLImageElement = document.createElement("img");
     let articleInProduct: HTMLElement = document.createElement("article");
     let title: HTMLHeadingElement = document.createElement("h3");
+    let artist: HTMLHeadElement = document.createElement("h4");
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
     let button: HTMLButtonElement = document.createElement("button");
@@ -27,6 +28,7 @@ function createHTMLforProducts(products: Product[]): void {
 
     img.className = "product__image";
     title.className = "product__title";
+    artist.className = "product__artist";
     description.className = "product__description";
     price.className = "product__price";
     button.className = "product__button";
@@ -35,6 +37,7 @@ function createHTMLforProducts(products: Product[]): void {
 
     img.src = products[i].img;
     title.innerHTML = products[i].productname;
+    artist.innerHTML = products[i].collection;
     description.innerHTML = products[i].description;
     price.innerHTML += products[i].price + ":-";
 
@@ -42,6 +45,7 @@ function createHTMLforProducts(products: Product[]): void {
     container.appendChild(articleInProduct);
 
     articleInProduct.appendChild(title);
+    articleInProduct.appendChild(artist);
     articleInProduct.appendChild(description);
     articleInProduct.appendChild(price);
     divContainer.appendChild(articleInProduct);
