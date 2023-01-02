@@ -1,166 +1,164 @@
 @use "mixins";
 
-header{
-    background-color: rgb(153, 147, 153);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    line-height: 40px;
+header {
+  background-color: rgb(153, 147, 153);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  line-height: 40px;
 
-    #logo{
-        font-size: 25pt;
-    }
-
-    a{
-        text-decoration: none;
-        color: black;
-        @include mixins.desktop{
-            margin-left: 40px;
-            margin-right: 40px;
-        }
-    }
-
-    nav{
-        a{
-            display: none;
-            @include mixins.desktop{
-             display: inline;
-            }
-        }
-    }
-}
-
-#shoppingcart{
-    display: flex;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    @include mixins.desktop{
-        top: 50px;
-        right: 50px;
-    }
-
-    #cartButton{
-     background-color: rgb(153, 147, 153);
-     border: none;
-     font-size: 25pt;
-     cursor: pointer;
-    }
-}
-
-#burgerMenu{
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    background-color: rgb(153, 147, 153);
+  #logo {
     font-size: 25pt;
-    border: none;
-    cursor: pointer;
-    @include mixins.desktop{
-        display: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    @include mixins.desktop {
+      margin-left: 40px;
+      margin-right: 40px;
     }
+  }
+
+  nav {
+    a {
+      display: none;
+      @include mixins.desktop {
+        display: inline;
+      }
+    }
+  }
 }
 
-#burgerMenu::after{
-    background-color: white;
+#shoppingcart {
+  display: flex;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  @include mixins.desktop {
+    top: 50px;
+    right: 50px;
+  }
+
+  #cartButton {
+    background-color: rgb(153, 147, 153);
+    border: none;
+    font-size: 25pt;
+    cursor: pointer;
+  }
+}
+
+#burgerMenu {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: rgb(153, 147, 153);
+  font-size: 25pt;
+  border: none;
+  cursor: pointer;
+  @include mixins.desktop {
+    display: none;
+  }
+}
+
+#burgerMenu::after {
+  background-color: white;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-  
+
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    border: 1px solid #888;
-    width: 80%;
-    height: fit-content;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    h2{
-        padding: 20px;
-    }
-    @include mixins.desktop {
-        width: 40%;
-    }
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 80%;
+  height: fit-content;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  h2 {
+    padding: 20px;
+  }
+  @include mixins.desktop {
+    width: 40%;
+  }
 }
 
-.burger-modal-content{
-    background-color: #fefefe;
-    border: 1px solid #888;
-    width: 30%;
-    height: 25%;
-    position: absolute;
-    top: 80px;
-    left: 30px;
-    a{
-        display: block;
-        padding: 10px;
-    }
+.burger-modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 30%;
+  height: 25%;
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  a {
+    display: block;
+    padding: 10px;
+  }
 }
 
-.burgerLink:hover{
-    background-color: rgb(212, 212, 212);
+.burgerLink:hover {
+  background-color: rgb(212, 212, 212);
 }
-  
+
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-  
+
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-#sumProducts{
-    background-color: lightgray;
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-    margin: 0;
-    @include mixins.desktop{
-        width: 577px;
-        padding: 15px;
-    }
-    
-}
-
-#checkoutBtn{
-    margin: 0;
-}
-
-#closeButton, #closeBurger{
-    border: none;
-    background-color: white;
-}
-
-#paymentBtn{
-    background-color: rgb(153, 147, 153);
-    border: none;
-    cursor: pointer;
-    font-size: 10pt;
-    width: 100%;
+#sumProducts {
+  background-color: lightgray;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  margin: 0;
+  @include mixins.desktop {
+    width: 577px;
     padding: 15px;
-    @include mixins.desktop{
-        padding: 20px;
-    }
-
+  }
 }
 
+#checkoutBtn {
+  margin: 0;
+}
+
+#closeButton,
+#closeBurger {
+  border: none;
+  background-color: white;
+}
+
+#paymentBtn {
+  background-color: rgb(153, 147, 153);
+  border: none;
+  cursor: pointer;
+  font-size: 10pt;
+  width: 100%;
+  padding: 15px;
+  @include mixins.desktop {
+    padding: 20px;
+  }
+}

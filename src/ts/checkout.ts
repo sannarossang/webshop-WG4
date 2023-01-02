@@ -25,7 +25,10 @@ div.append(h1);
 const paymentSuccess = document.getElementById("paymentSuccess");
 const btn = document.getElementById("payButton") as HTMLButtonElement; //tar id från knappen
 
-btn.onclick = function () {
+let payform = document.getElementById("payform") as HTMLButtonElement;
+payform.addEventListener("submit", (e) => {
+  e.preventDefault();
+
   btn.style.display = "block";
   div.className = "modal-body";
   pTag.className = "pTagInCheckoutModal";
@@ -34,7 +37,7 @@ btn.onclick = function () {
   div.appendChild(span);
   div.append(btnHome);
   span.innerHTML = "<a href='./products.html'>Fortsätt handla</a>";
-};
+});
 
 window.onclick = function (event) {
   if (event.target == paymentSuccess) {

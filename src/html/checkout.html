@@ -35,7 +35,11 @@
       <a href="../index.html" id="logo">LOGGA</a>
       <div id="shoppingcart">
         <button id="cartButton">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <li
+            class="fa-solid fa-cart-shopping"
+            value=""
+            id="addProductCounter"
+          ></li>
         </button>
         <div id="myModal" class="modal">
           <!-- Modal content -->
@@ -64,7 +68,7 @@
         <div id="checkoutContainer"></div>
         <button type="button" id="clearCartinCheckout">Töm varukorgen</button>
         <div id="payment">
-          <form class="payment__form">
+          <form class="payment__form" id="payform">
             <h3>Dina betalningsuppgifter</h3>
             <p>
               <input
@@ -99,9 +103,9 @@
                 required
               />
             </p>
-            <input type="text" placeholder="Kortinnehavare" />
+            <input type="text" placeholder="Kortinnehavare" required />
             <p id="sumProductsCheckout">Summera produkter</p>
-            <button type="button" id="payButton">Betala</button>
+            <button type="submit" id="payButton">Betala</button>
           </form>
           <!-- Modal for confirming payment-->
           <div id="paymentSuccess" class="checkoutModal">

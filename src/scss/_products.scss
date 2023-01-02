@@ -31,10 +31,10 @@
     margin: 20px;
   }
 
-  &__article{
-   width: 190px;
+  &__article {
+    width: 190px;
   }
-  
+
   &__image {
     height: 250px;
     width: 250px;
@@ -46,10 +46,9 @@
     font-size: 18px;
     padding-top: 20px;
     margin-left: 10px;
-    
   }
 
-  &__artist{
+  &__artist {
     margin-left: 10px;
     font-size: 13px;
     color: rgb(165, 165, 165);
@@ -80,14 +79,16 @@
     cursor: pointer;
     padding: 20px;
   }
-  &__divContainer{
+  &__divContainer {
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
   }
 }
 
-.productInModal__button, #backaKnapp, .checkoutDeleteBtn{
+.productInModal__button,
+#backaKnapp,
+.checkoutDeleteBtn {
   width: fit-content;
   border: none;
   background-color: white;
@@ -98,31 +99,30 @@
   height: 40px;
 }
 
-#backaKnapp{
+#backaKnapp {
   position: absolute;
   margin: 10px;
 }
 
-.productInModal{
+.productInModal {
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 20px;
   line-height: normal;
-  &__image{
+  &__image {
     width: 200px;
     height: 200px;
-    
   }
-  &__article{
+  &__article {
     padding: 20px;
   }
   &__title {
     font-size: 16px;
     margin-bottom: 5px;
   }
-  &__artist{
+  &__artist {
     font-size: 13px;
     color: rgb(165, 165, 165);
     font-weight: lighter;
@@ -137,34 +137,34 @@
   }
 }
 
-.product__button{
+.product__button {
   display: flex;
 }
 
-.counter-controls{
+.counter-controls {
   border: 1px solid black;
   width: 50px;
   display: flex;
   height: 39px;
 }
 
-.product__plusMinus{
+.product__plusMinus {
   display: flex;
   flex-direction: column;
   border-left: 1px solid black;
   width: 30px;
 }
 
-.product__quantity{
+.product__quantity {
   padding: 10px;
 }
 
-.decrease{
+.decrease {
   background-color: white;
   border: none;
 }
 
-.increase{
+.increase {
   border-bottom: 1px solid black;
   border-top: none;
   border-left: none;

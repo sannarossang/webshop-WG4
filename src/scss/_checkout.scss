@@ -1,18 +1,17 @@
 @use "mixins";
 @use "variables";
 
-main{
+main {
   margin: 0;
 }
 
-#checkoutContainer{
+#checkoutContainer {
   width: 50vw;
   display: flex;
   flex-direction: column;
   height: fit-content;
   margin-top: 50px;
 }
-
 
 #payment {
   display: flex;
@@ -24,18 +23,18 @@ main{
   margin: 20px;
   padding: 50px;
 
-  form{
+  form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: fit-content;
 
-    p{
+    p {
       width: 350px;
     }
 
-    input{
+    input {
       margin-top: 5px;
       margin-bottom: 5px;
       border: 1px solid black;
@@ -43,10 +42,10 @@ main{
       border-radius: 8px;
       width: 320px;
     }
-    .smallInput{
+    .smallInput {
       width: 150px;
     }
-    #payButton{
+    #payButton {
       border: 1px solid black;
       border-radius: 8px;
       padding: 8px;
@@ -55,13 +54,12 @@ main{
     }
   }
 
-  #payButton:hover{
+  #payButton:hover {
     background-color: rgb(212, 212, 212);
   }
 
-
   @include mixins.desktop {
-    form{
+    form {
       position: absolute;
       top: 35%;
       right: 15%;
@@ -70,7 +68,7 @@ main{
   }
 }
 
-#clearCartinCheckout{
+#clearCartinCheckout {
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;
@@ -79,7 +77,7 @@ main{
   margin-left: 70px;
 }
 
-#clearCartinCheckout:hover{
+#clearCartinCheckout:hover {
   background-color: rgb(212, 212, 212);
 }
 
@@ -100,10 +98,10 @@ main{
   }
 } */
 
-.productInCheckout{
+.productInCheckout {
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 10px;
   line-height: normal;
@@ -111,11 +109,11 @@ main{
   width: 90vw;
   margin-left: 25px;
   margin-top: 10px;
-  &__image{
+  &__image {
     height: 200px;
     width: 200px;
   }
-  &__article{
+  &__article {
     padding: 20px;
   }
   &__title {
@@ -132,7 +130,7 @@ main{
     height: 200px;
     width: 40vw;
     margin-left: 70px;
-    &__image{
+    &__image {
       width: 200px;
       height: 200px;
     }
@@ -153,7 +151,7 @@ main{
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.payment__form{
+.payment__form {
   border: 1px solid black;
   padding: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -179,7 +177,7 @@ main{
     height: 40%;
     top: 30%;
   }
-  a{
+  a {
     text-decoration: none;
     color: black;
   }
@@ -189,7 +187,7 @@ main{
   width: 30px;
 }
 
-.pTagInCheckoutModal{
+.pTagInCheckoutModal {
   font-size: 25pt;
   padding: 20px;
 }

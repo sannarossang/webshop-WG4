@@ -22,7 +22,7 @@
   height: 250px;
   text-align: start;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  .productdetail__image{
+  .productdetail__image {
     width: 250px;
     height: 250px;
   }
@@ -30,7 +30,7 @@
     width: 70%;
     margin-left: 15%;
     height: 400px;
-    .productdetail__image{
+    .productdetail__image {
       width: 400px;
       height: 400px;
     }
@@ -41,10 +41,10 @@ aside {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  span{
+  span {
     margin-top: 20px;
   }
-  button{
+  button {
     width: 50%;
     padding: 10px;
     background-color: white;
@@ -53,7 +53,7 @@ aside {
     margin-top: 15px;
     cursor: pointer;
   }
-  button:hover{
+  button:hover {
     background-color: rgb(212, 212, 212);
   }
   @include mixins.desktop {
@@ -62,7 +62,7 @@ aside {
   }
 }
 
-.productDetails__artist{
+.productDetails__artist {
   font-size: 13px;
   color: rgb(165, 165, 165);
   font-weight: lighter;

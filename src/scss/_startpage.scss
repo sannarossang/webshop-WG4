@@ -11,7 +11,7 @@ main {
   height: fit-content;
 }
 
-#startpageImage{
+#startpageImage {
   background-image: url(../assets/herowallpaper.jpg);
   background-size: cover;
   width: 100%;
@@ -22,4 +22,17 @@ main {
   color: white;
 
   height: 100vh;
+}
+
+#addProductCounter:after {
+  content: attr(value);
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  padding: 5 8px;
+  position: relative;
+  left: -8px;
+  top: -10px;
+  opacity: 0.8;
 }
