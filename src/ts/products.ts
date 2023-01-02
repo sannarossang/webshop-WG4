@@ -200,9 +200,9 @@ function showFilteredProducts(filteredList: Product[]) {
       if (cartItem != null) {
         let increasedQty: number = cartItem.quantity + 1;
         console.log(increasedQty);
-        addToCart(products[i], increasedQty);
+        addToCart(filteredList[i], increasedQty);
       } else {
-        addToCart(products[i], 1);
+        addToCart(filteredList[i], 1);
       }
       createHTMLforModal(getCartItems());
     });
@@ -210,7 +210,7 @@ function showFilteredProducts(filteredList: Product[]) {
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
 
     img.addEventListener("click", () => {
-      location.href = "../html/productdetails.html?id=" + products[i].id;
+      location.href = "../html/productdetails.html?id=" + filteredList[i].id;
     });
   }
 }
