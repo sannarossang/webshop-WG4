@@ -42,9 +42,14 @@ function createHTMLForItem(products: Product[]) {
       p.innerText = products[i].description;
       span.innerHTML += products[i].price + ":-";
 
+      //FORM
+      const quantityForm = document.createElement("form");
       const quantityOfProduct = document.createElement("input");
       quantityOfProduct.setAttribute("type", "number");
+      quantityOfProduct.setAttribute("required", "true");
       const addInCartbutton = document.createElement("button");
+      addInCartbutton.setAttribute("type", "submit");
+      addInCartbutton.setAttribute("required", "true");
       addInCartbutton.innerHTML = "Lägg till i varukorgen";
 
       aside.append(h1);
@@ -54,15 +59,23 @@ function createHTMLForItem(products: Product[]) {
       artist.className = "productDetails__artist";
       aside.append(span);
       aside.append(addInCartbutton);
-      aside.append(quantityOfProduct);
+      aside.append(quantityForm);
+      aside.appendChild(quantityForm);
+      aside.appendChild(quantityOfProduct);
 
       const productDetailContainer = document.getElementById(
         "productDetailContainer"
       ) as HTMLElement;
       productDetailContainer.appendChild(container);
       productDetailContainer.appendChild(aside);
+      productDetailContainer.appendChild(quantityForm);
+      quantityForm.appendChild(quantityOfProduct);
+      quantityForm.appendChild(addInCartbutton);
 
-      addInCartbutton.addEventListener("click", function () {
+      aside.appendChild(quantityForm);
+
+      quantityForm.addEventListener("submit", function (e) {
+        e.preventDefault();
         let amountOfProduct: number = parseInt(quantityOfProduct.value);
         let cartItem: CartItem = getCustomerCartItem(
           getCartItems(),
