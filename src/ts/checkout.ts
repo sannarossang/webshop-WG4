@@ -1,4 +1,4 @@
-import { getCartItems } from "./cart";
+import { clearCart, getCartItems } from "./cart";
 import { createHTMLforCheckout, createHTMLforModal } from "./createhtml";
 
 let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
@@ -37,6 +37,7 @@ payform.addEventListener("submit", (e) => {
   div.appendChild(span);
   div.append(btnHome);
   span.innerHTML = "<a href='./products.html'>Fortsätt handla</a>";
+  clearCart();
 });
 
 window.onclick = function (event) {
