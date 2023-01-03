@@ -128,6 +128,8 @@
   border: none;
   background-color: white;
   font-size: 12pt;
+  position: absolute;
+  right: 5%;
   @include mixins.desktop{
     font-size: 13pt;
   }
@@ -155,6 +157,10 @@
   &__title {
     font-size: 16px;
     margin-bottom: 0;
+    width: 70%;
+    @include mixins.desktop {
+      width: 100%;
+    }
   }
   &__artist {
     font-size: 13px;
@@ -166,9 +172,6 @@
   &__description {
     font-size: 16px;
     display: none;
-    @include mixins.desktop {
-      //display: contents;
-    }
   }
 }
 
@@ -190,6 +193,8 @@
 .modal-counter-controls{
   display: flex;
   width: 50px;
+  position: absolute;
+  right: 12%;
 }
 
 .product__plusMinus {
