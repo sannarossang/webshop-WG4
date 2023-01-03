@@ -12,11 +12,13 @@
 
 #productsContainer {
   display: flex;
-  flex-direction: row;
+  //flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  //justify-content: space-around;
 
   @include mixins.desktop {
+    justify-content: center;
   }
 }
 
