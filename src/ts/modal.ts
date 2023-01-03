@@ -64,7 +64,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     const decrease = document.createElement("button");
     const increase = document.createElement("button");
 
-    counterControls.className = "counter-controls";
+    counterControls.className = "modal-counter-controls";
     decrease.innerHTML = "-";
     increase.innerHTML = "+";
     decrease.className = "decrease";
@@ -93,7 +93,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let checkoutDeletebutton: HTMLButtonElement =
       document.createElement("button");
     checkoutDeletebutton.innerHTML = "<i class='fa-regular fa-trash-can'></i>";
-    checkoutDeletebutton.className = "checkoutDeleteBtn";
+    checkoutDeletebutton.className = "modalDeleteBtn";
     container.appendChild(deleteDiv);
     deleteDiv.appendChild(checkoutDeletebutton);
 

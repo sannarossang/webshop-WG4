@@ -115,7 +115,18 @@
   border: none;
   background-color: white;
   font-size: 12pt;
-  margin-left: 20%;
+  position: absolute;
+  right: 57%;
+  @include mixins.desktop{
+    font-size: 13pt;
+  }
+}
+
+.modalDeleteBtn{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  font-size: 12pt;
   @include mixins.desktop{
     font-size: 13pt;
   }
@@ -168,6 +179,13 @@
   width: 50px;
   display: flex;
   height: 39px;
+  position: absolute;
+  left: 36%;
+}
+
+.modal-counter-controls{
+  display: flex;
+  width: 50px;
 }
 
 .product__plusMinus {
