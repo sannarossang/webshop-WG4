@@ -107,6 +107,7 @@
   border: none;
   background-color: white;
   font-size: 12pt;
+  margin-left: 20%;
   @include mixins.desktop{
     font-size: 13pt;
   }
@@ -177,15 +178,15 @@
   background-color: white;
   border: none;
   cursor: pointer;
+  margin: 0;
 }
 
 .increase {
-  border-bottom: 1px solid black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
   background-color: white;
   cursor: pointer;
+  margin: 0;
+  border-bottom: 1px solid black;
 }
 
 #filter{
