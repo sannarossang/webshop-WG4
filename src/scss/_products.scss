@@ -116,9 +116,10 @@
   background-color: white;
   font-size: 12pt;
   position: absolute;
-  right: 57%;
+  right: 10%;
   @include mixins.desktop{
     font-size: 13pt;
+    right: 57%;
   }
 }
 
@@ -180,7 +181,10 @@
   display: flex;
   height: 39px;
   position: absolute;
-  left: 36%;
+  left: 75%;
+  @include mixins.desktop{
+    left: 36%;
+  }
 }
 
 .modal-counter-controls{
