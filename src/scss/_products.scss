@@ -91,8 +91,7 @@
 }
 
 .productInModal__button,
-#backaKnapp,
-.checkoutDeleteBtn {
+#backaKnapp {
   width: fit-content;
   border: none;
   background-color: white;
@@ -101,6 +100,16 @@
   margin: 20px;
   font-size: 15pt;
   height: 40px;
+}
+
+.checkoutDeleteBtn{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  font-size: 12pt;
+  @include mixins.desktop{
+    font-size: 13pt;
+  }
 }
 
 #backaKnapp {
