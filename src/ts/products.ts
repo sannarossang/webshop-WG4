@@ -1,7 +1,7 @@
 import { Product } from "./models/Products";
-import { addToCart, getCartItems, getCustomerCartItem } from "./cart";
+import { updateCart, getCartItems, getCartItem } from "./cart";
 import { products } from "./models/Products";
-import { createHTMLforModal } from "./createhtml";
+import { createHTMLforModal } from "./modal";
 import { CartItem } from "./models/CartItem";
 
 function createHTMLforProducts(products: Product[]): void {
@@ -55,14 +55,13 @@ function createHTMLforProducts(products: Product[]): void {
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
-      //om varan redan finns pluss kvantitet.. annars lägg till qty: 1
-      let cartItem: CartItem = getCustomerCartItem(getCartItems(), products[i]);
+      let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
       if (cartItem != null) {
         let increasedQty: number = cartItem.quantity + 1;
-        console.log(increasedQty);
-        addToCart(products[i], increasedQty);
+        console.log("ökar med", increasedQty);
+        updateCart(products[i], increasedQty);
       } else {
-        addToCart(products[i], 1);
+        updateCart(products[i], 1);
       }
       createHTMLforModal(getCartItems());
     });
@@ -70,7 +69,6 @@ function createHTMLforProducts(products: Product[]): void {
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
 
     img.addEventListener("click", () => {
-      console.log("trycka på bilde funkar");
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
@@ -214,14 +212,13 @@ function showFilteredProducts(filteredList: Product[]) {
     productsContainer.appendChild(container);
 
     button.addEventListener("click", function () {
-      //om varan redan finns pluss kvantitet.. annars lägg till qty: 1
-      let cartItem: CartItem = getCustomerCartItem(getCartItems(), products[i]);
+      let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
       if (cartItem != null) {
         let increasedQty: number = cartItem.quantity + 1;
         console.log(increasedQty);
-        addToCart(filteredList[i], increasedQty);
+        updateCart(filteredList[i], increasedQty);
       } else {
-        addToCart(filteredList[i], 1);
+        updateCart(filteredList[i], 1);
       }
       createHTMLforModal(getCartItems());
     });
@@ -233,5 +230,3 @@ function showFilteredProducts(filteredList: Product[]) {
     });
   }
 }
-
-//
