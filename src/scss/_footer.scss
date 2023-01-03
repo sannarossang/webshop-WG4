@@ -11,6 +11,10 @@ footer{
         padding: 20px;
     }
 
+    a{
+        color: black;
+    }
+
     @include mixins.desktop{
      justify-content: space-around;
      flex-direction: row;

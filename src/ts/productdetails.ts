@@ -57,6 +57,7 @@ function createHTMLForItem(products: Product[]) {
       aside.append(p);
       aside.className = "productDetails";
       artist.className = "productDetails__artist";
+      quantityOfProduct.className = "productDetails__input";
       aside.append(span);
       aside.append(addInCartbutton);
       aside.append(quantityForm);

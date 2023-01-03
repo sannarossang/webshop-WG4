@@ -47,6 +47,14 @@ header {
     font-size: 25pt;
     cursor: pointer;
   }
+
+  hr{
+    height: 0.5px;
+    background-color: black;
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
 }
 
 #burgerMenu {

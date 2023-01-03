@@ -130,6 +130,10 @@ btnOne.innerHTML = "Alla";
 btnTwo.innerHTML = "Ljusa tapeter";
 btnThree.innerHTML = "Mörka tapeter";
 
+btnOne.className = "filterBtn";
+btnTwo.className = "filterBtn";
+btnThree.className = "filterBtn";
+
 let filter = document.getElementById("filter");
 filter.appendChild(btnOne);
 filter.appendChild(btnTwo);
@@ -172,29 +176,40 @@ function showFilteredProducts(filteredList: Product[]) {
   for (let i = 0; i < filteredList.length; i++) {
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
+    let articleInProduct: HTMLElement = document.createElement("article");
     let title: HTMLHeadingElement = document.createElement("h3");
+    let artist: HTMLHeadElement = document.createElement("h4");
     let description: HTMLSpanElement = document.createElement("span");
     let price: HTMLSpanElement = document.createElement("span");
     let button: HTMLButtonElement = document.createElement("button");
+    let divContainer: HTMLDivElement = document.createElement("div");
 
     container.className = "product";
 
     img.className = "product__image";
     title.className = "product__title";
+    artist.className = "product__artist";
     description.className = "product__description";
     price.className = "product__price";
     button.className = "product__button";
+    articleInProduct.className = "product__article";
+    divContainer.className = "product__divContainer";
 
     img.src = filteredList[i].img;
     title.innerHTML = filteredList[i].productname;
+    artist.innerHTML = filteredList[i].collection;
     description.innerHTML = filteredList[i].description;
-    price.innerHTML += filteredList[i].price;
+    price.innerHTML += filteredList[i].price + ":-";
+
+    articleInProduct.appendChild(title);
+    articleInProduct.appendChild(artist);
+    articleInProduct.appendChild(description);
+    articleInProduct.appendChild(price);
 
     container.appendChild(img);
-    container.appendChild(title);
-    container.appendChild(description);
-    container.appendChild(price);
-    container.appendChild(button);
+    divContainer.appendChild(articleInProduct);
+    divContainer.appendChild(button);
+    container.appendChild(divContainer);
 
     productsContainer.appendChild(container);
 
