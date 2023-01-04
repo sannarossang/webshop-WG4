@@ -29,8 +29,9 @@
   line-height: normal;
   margin-top: 20px;
   margin-bottom: 50px;
+  width: 150px;
   @include mixins.desktop {
-    //width: 250px;
+    width: 250px;
     margin: 20px;
   }
 
@@ -39,25 +40,33 @@
   }
 
   &__image {
-    height: 250px;
-    width: 250px;
+    height: 150px;
+    width: 150px;
     @include mixins.desktop {
+      height: 250px;
+      width: 250px;
     }
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 10px;
     margin-bottom: 0;
+    @include mixins.desktop{
+      font-size: 18px;
+    }
   }
 
   &__artist {
     margin-left: 10px;
-    font-size: 13px;
+    font-size: 12px;
     color: rgb(165, 165, 165);
     font-weight: lighter;
     margin-bottom: 10px;
     margin-top: 0;
+    @include mixins.desktop{
+      font-size: 13px;
+    }
   }
 
   &__price {
@@ -83,7 +92,9 @@
     background-color: white;
     font-size: 15pt;
     cursor: pointer;
-    //padding: 20px;
+    margin-right: 10%;
+    @include mixins.desktop{
+    }
   }
   &__divContainer {
     display: flex;
@@ -249,8 +260,10 @@
 }
 
 #filter {
-  margin-left: 50px;
   margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
 }
 
 .filterBtn {
