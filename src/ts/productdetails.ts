@@ -28,6 +28,7 @@ function createHTMLForItem(products: Product[]) {
       container.className = "productImage";
       img.className = "productdetail__image";
       img.src = products[i].img;
+      img.alt = products[i].alttext;
 
       container.appendChild(img);
 
