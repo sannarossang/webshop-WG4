@@ -129,9 +129,10 @@
   background-color: white;
   font-size: 12pt;
   position: absolute;
-  right: 5%;
+  right: 4%;
   @include mixins.desktop{
     font-size: 13pt;
+    right: 7%;
   }
 }
 
@@ -144,34 +145,52 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  //justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 20px;
+  width: 92%;
   line-height: normal;
+  height: 100px;
+  font-size: 10pt;
   &__image {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    @include mixins.desktop{
+      width: 200px;
+      height: 200px;
+    
+    }
   }
   &__article {
     padding: 20px;
   }
   &__title {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 0;
     width: 70%;
     @include mixins.desktop {
-      width: 100%;
+      width: 150px;
+      font-size: 18pt;
     }
   }
   &__artist {
-    font-size: 13px;
+    font-size: 8pt;
     color: rgb(165, 165, 165);
     font-weight: lighter;
     margin-bottom: 10px;
     margin-top: 0;
+    @include mixins.desktop{
+      font-size: 14pt;
+    }
   }
   &__description {
     font-size: 16px;
     display: none;
+  }
+  @include mixins.desktop{
+    height: 200px;
+    margin-top: 10%;
+    font-size: 14pt;
   }
 }
 
@@ -184,17 +203,24 @@
   display: flex;
   height: 39px;
   position: absolute;
-  left: 75%;
+  left: 85%;
   @include mixins.desktop{
+    width: 50px;
+    height: 39px;
     left: 36%;
   }
 }
 
 .modal-counter-controls{
   display: flex;
-  width: 50px;
+  width: 15px;
   position: absolute;
-  right: 12%;
+  right: 25%;
+  @include mixins.desktop{
+    width: 50px;
+    height: 39px;
+    right: 13%;
+  }
 }
 
 .product__plusMinus {

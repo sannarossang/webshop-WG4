@@ -21,17 +21,18 @@ body {
 #startArticle{
   text-align: center;
   border: 1px solid black;
-  padding-left: 10%;
-  padding-right: 10%;
   padding-top: 5%;
   padding-bottom: 5%;
+  width: 80%;
   margin-top: 40%;
-  font-size: 20pt;
+  font-size: 13pt;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
   background-color: transparentize($color: #ffffff, $amount: 0.7);
 
   @include mixins.desktop{
     margin-top: 15%;
+    width: 50%;
+    font-size: 20pt;
   }
 }
 
