@@ -1,7 +1,8 @@
 @use "mixins";
 
 header {
-  background-color: #937d8a;
+  //background-color: #937d8a;
+  background-color: rgb(197, 192, 184);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +50,7 @@ header {
   }
 
   #cartButton {
-    background-color: #937d8a;
+    background-color: rgb(197, 192, 184);;
     border: none;
     font-size: 25pt;
     cursor: pointer;
@@ -68,7 +69,7 @@ header {
   position: absolute;
   top: 30px;
   left: 30px;
-  background-color: #937d8a;
+  background-color: rgb(197, 192, 184);
   font-size: 25pt;
   border: none;
   cursor: pointer;
@@ -82,17 +83,17 @@ header {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+} 
 
 /* Modal Content/Box */
 .modal-content {
@@ -171,7 +172,8 @@ header {
 }
 
 #paymentBtn{
-  background-color: #937d8a;
+  //background-color: #937d8a;
+  background-color: rgb(197, 192, 184);
   border: none;
   cursor: pointer;
   font-size: 10pt;

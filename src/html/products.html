@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produktsida</title>
-    <link href="../scss/_products.scss" rel="stylesheet" />
     <script defer src="../ts/products.ts" type="module"></script>
     <link rel="stylesheet" href="../scss/main.scss" />
     <script
@@ -20,11 +19,11 @@
   </head>
   <body>
     <header>
-            <!--Ikon för hamburgermeny-->
+      <!--Ikon för hamburgermeny-->
       <button id="burgerMenu">
         <i class="fa-solid fa-bars"></i>
       </button>
-            <!--Hamburgermeny-->
+      <!--Hamburgermeny-->
       <div id="burgerModal" class="modal">
         <div class="burger-modal-content">
           <a class="burgerLink" href="../index.html">Hem</a>
@@ -36,49 +35,48 @@
       <a href="../index.html" id="logo">
         <img src="../assets/upthewall-icon.png" alt="Logo" />
       </a>
-            <!-- Ikon varukorg -->
+      <!-- Ikon varukorg -->
       <div id="shoppingcart">
         <button id="cartButton">
           <li
-          class="fa-solid fa-cart-shopping"
-          value=""
-          id="addProductCounter"
-        ></li>
+            class="fa-solid fa-cart-shopping"
+            value=""
+            id="addProductCounter"
+          ></li>
         </button>
-                <!-- Modal för varukorg -->
+        <!-- Modal för varukorg -->
         <div id="myModal" class="modal">
           <div class="modal-content">
             <button id="closeButton" class="close">&times;</button>
             <h2>Din varukorg</h2>
-            <hr/>
+            <hr />
             <div id="modalContainer"></div>
             <button id="clearCartinModal">Töm varukorgen</button>
             <p id="sumProducts">Summera produkter</p>
             <a id="checkoutBtn" href="./checkout.html"
               ><button id="paymentBtn">Gå till kassan</button></a
             >
-            </a>
           </div>
         </div>
       </div>
-              <!-- Navbar -->
+      <!-- Navbar -->
       <nav>
         <a href="../index.html">Hem</a>
         <a href="./products.html">Produkter</a>
         <a href="./checkout.html">Kassa</a>
       </nav>
     </header>
-        <!-- Backa-knapp -->
+    <!-- Backa-knapp -->
     <button type="button" id="returnButton">
       <i class="fa-solid fa-chevron-left"></i>
     </button>
-        <!-- Filtrering av produkter -->
+    <!-- Filtrering av produkter -->
     <div id="filter"></div>
-        <!-- Container för produkter -->
+    <!-- Container för produkter -->
     <main id="productsMain">
       <div id="productsContainer"></div>
     </main>
-                  <!-- SoMe -->
+    <!-- SoMe -->
     <footer>
       <p>
         <a href="https://www.instagram.com/unnizetterling/"
@@ -91,14 +89,14 @@
           ><i class="fa-brands fa-instagram"></i
         ></a>
       </p>
-       <!-- Info om företaget-->
-       <span
-       >
-       <p>Up The Wall</p>
-       <p>Blomstervägen 8</p>
-       <p>111 21 Stockholm</p></span
-     >
-           <!-- Betalningsalternativ-->
+      <!-- Info om företaget-->
+      <span class="footerContact">
+        <h3>Up The Wall</h3>
+        <p>Blomstervägen 8</p>
+        <p>111 21 Stockholm</p>
+      </span>
+      <!-- Betalningsalternativ-->
+      <p>
         <i class="fa-brands fa-apple-pay"></i>
         <i class="fa-brands fa-cc-mastercard"></i>
         <i class="fa-brands fa-cc-paypal"></i>
