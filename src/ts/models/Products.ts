@@ -20,7 +20,8 @@ class Product {
     public img: string,
     public description: string,
     public id: string,
-    public primaryColor: string
+    public primaryColor: string,
+    public alttext: string
   ) {}
 }
 
@@ -29,12 +30,13 @@ let wallpaper1 = new Product(
   299,
   "bohemic flowers",
   "tulips",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper1,
   "Tulip Infusion är ett av våra mest älskade tapetmönster. Låt vårens blomsterglädje pryda hemmets väggar för glädje hemma - året om.",
   "1",
-  "Ljus"
+  "Ljus",
+  "Tapet med ljus botten med illutrerade tulpaner"
 );
 
 let wallpaper2 = new Product(
@@ -42,12 +44,13 @@ let wallpaper2 = new Product(
   199,
   "bohemic flowers",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper2,
   "Almost Amaryllis är julblomman som tagit de svenska hemmen med storm - även uppåt väggarna. En klassiker som aldrig går ur tiden.",
   "2",
-  "Mörk"
+  "Mörk",
+  "Tapet med mörk botten med illustrerade amaryllis"
 );
 
 let wallpaper3 = new Product(
@@ -55,12 +58,13 @@ let wallpaper3 = new Product(
   399,
   "romantic",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper3,
   "Dahlia Mix är en vacker kombinationstapet med grå botten som gör sig väl i all från vardagsrum til barnrum och kök. Ett säkert kort - helt enkelt!",
   "3",
-  "Ljus"
+  "Ljus",
+  "Tapet med grå botten med illustrerade sommarblommor"
 );
 
 let wallpaper4 = new Product(
@@ -68,12 +72,13 @@ let wallpaper4 = new Product(
   399,
   "bohemic flowers",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper4,
   "Sweet Pea är vår stormönstrade tapet med luktärtor till skillnad från Minimalistic Sweet Pea som är ett mer avskalat mönster.",
   "4",
-  "Mörk"
+  "Mörk",
+  "Tapet med mörk botten med illustrerade luktärtor i olika färger"
 );
 
 let wallpaper5 = new Product(
@@ -81,12 +86,13 @@ let wallpaper5 = new Product(
   429,
   "bohemic flowers",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper5,
   "Poppy är ett av våra mest sålda mönster. Med tapetens mörka botten skapas romantik och dramatik på ett välkomponerat sätt. ",
   "5",
-  "Mörk"
+  "Mörk",
+  "Tapet med mörk botten med illustrerade vallmoblommor"
 );
 
 let wallpaper6 = new Product(
@@ -94,12 +100,13 @@ let wallpaper6 = new Product(
   499,
   "bohemic flowers",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper6,
   "Classic Eucalyptus är ett blomstermix-mönster som tack vare sin ljusa botten funkar i hemmets alla rum.",
   "6",
-  "Ljus"
+  "Ljus",
+  "Tapet med ljus botten med illustrerade mixblommor med eucalyptus"
 );
 
 let wallpaper7 = new Product(
@@ -107,12 +114,13 @@ let wallpaper7 = new Product(
   399,
   "bohemic flowers",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper7,
   "Minimalistic Sweet Pea är uppföljaren till Sweet Pea - för den som föredrar en mer minimalistisk tappning på vår storsäljare.",
   "7",
-  "Mörk"
+  "Mörk",
+  "Tapet med mörk botten med illustrerade med minimalistiska luktärtor"
 );
 
 let wallpaper8 = new Product(
@@ -120,12 +128,13 @@ let wallpaper8 = new Product(
   299,
   "bohemic flowers",
   "flowers",
-  "boråstapeter",
+  "Up The Wall AB",
   "Unni Zetterling",
   imagewallpaper8,
   "Romantic Tulip är en av våra mest älskade tapeter med sin ljusblå botten och smutsrosa tulpan i magisk kombination med yviga ängsblommor.",
   "8",
-  "Ljus"
+  "Ljus",
+  "Tapet med ljus botten med illustrerade tulpaner och ängsblommor"
 );
 
 export let products: Product[] = [

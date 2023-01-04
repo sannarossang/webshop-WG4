@@ -93,21 +93,3 @@ export function totalCartItemsQuantity() {
 function createCartItem(product: Product, quantity: number) {
   return new CartItem(product, quantity, quantity * product.price);
 }
-
-let modal = document.getElementById("myModal");
-let btn = document.getElementById("cartButton");
-let closeBtn = document.getElementById("closeButton");
-
-btn.onclick = function () {
-  modal.style.display = "block";
-};
-
-closeBtn.onclick = function () {
-  modal.style.display = "none";
-};
-
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};

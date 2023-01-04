@@ -18,6 +18,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
   let productsTotalSum = 0;
 
   for (let i = 0; i < cartItems.length; i++) {
+    //produkter
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
@@ -25,8 +26,9 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     let description: HTMLSpanElement = document.createElement("span");
     let articleInModal: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
-    let span: HTMLSpanElement = document.createElement("span");
 
+    //spantag för quantity
+    let span: HTMLSpanElement = document.createElement("span");
     let quantity: HTMLSpanElement = document.createElement("span");
 
     container.className = "productInModal";
@@ -58,8 +60,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
 
     modalContainer.appendChild(container);
 
-    //product counter + and -
-
+    //produkträknare
     const counterControls = document.createElement("div");
     const decrease = document.createElement("button");
     const increase = document.createElement("button");
@@ -124,5 +125,4 @@ export function createHTMLforModal(cartItems: CartItem[]) {
   ) as HTMLLIElement;
 
   productCart.value = totalCartItemsQuantity();
-  //
 }
