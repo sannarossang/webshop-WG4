@@ -35,7 +35,7 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
 
     img.className = "productInCheckout__image";
     title.className = "productInCheckout__title";
-    artist.className = "productInModal__artist";
+    artist.className = "productInCheckout__artist";
     articleInCheckout.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
 
@@ -62,7 +62,7 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
     const decrease = document.createElement("button");
     const increase = document.createElement("button");
 
-    counterControls.className = "counter-controls";
+    counterControls.className = "counter-controls-checkout";
     decrease.innerHTML = "-";
     increase.innerHTML = "+";
     decrease.className = "decrease";
