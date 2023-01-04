@@ -29,10 +29,14 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: fit-content;
+    width: 280px;
+    @include mixins.desktop{
+      width: fit-content;
+    }
 
     h3{
       margin: 0;
+      margin-top: 10px;
     }
 
     p {
@@ -41,14 +45,20 @@ main {
 
     input {
       margin-top: 5px;
-      margin-bottom: 5px;
       border: 1px solid black;
       padding: 8px;
       border-radius: 8px;
-      width: 320px;
+      width: 220px;
+      @include mixins.desktop{
+        width: 320px;
+        margin-bottom: 5px;
+      }
     }
     .smallInput {
-      width: 150px;
+      width: 100px;
+      @include mixins.desktop{
+        width: 150px;
+      }
     }
     #payButton {
       border: 1px solid black;
@@ -80,7 +90,10 @@ main {
   padding: 8px;
   background-color: white;
   cursor: pointer;
-  margin-left: 70px;
+  margin-left: 10px;
+  @include mixins.desktop{
+    margin-left: 70px;
+  }
 }
 
 #clearCartinCheckout:hover {
@@ -111,25 +124,25 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 10px;
   line-height: normal;
-  height: 150px;
+  height: 100px;
   width: 95vw;
   //margin-left: 25px;
   margin-top: 10px;
   &__image {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
   }
   &__article {
     padding: 20px;
   }
   &__title {
-    font-size: 16px;
+    font-size: 13px;
     margin: 0;
     width: 100px;
   }
   &__artist{
     margin: 0;
-    font-size: 13px;
+    font-size: 11px;
     color: rgb(165, 165, 165);
     font-weight: lighter;
     margin-bottom: 10px;
@@ -152,6 +165,10 @@ main {
     }
     &__title{
       width: 300px;
+      font-size: 16px;
+    }
+    &__artist{
+      font-size: 13px;
     }
   }
 }
@@ -161,11 +178,10 @@ main {
   flex-direction: row;
   width: 20px;
   position: absolute;
-  left: 68%;
+  left: 70%;
   @include mixins.desktop{
     left: 35%;
   }
-
 }
 //Successful payment
 #paymentSuccess {
@@ -205,8 +221,11 @@ main {
 
 .payment__form {
   border: 1px solid black;
-  padding: 30px;
+  padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  @include mixins.desktop{
+    padding: 30px;
+  }
 }
 
 .pTagInCheckoutModal {
@@ -220,7 +239,7 @@ main {
   background-color: white;
   font-size: 12pt;
   position: absolute;
-  right: 10%;
+  right: 6%;
   @include mixins.desktop {
     font-size: 13pt;
     right: 58%;
