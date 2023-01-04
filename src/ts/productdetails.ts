@@ -76,7 +76,6 @@ function createHTMLForItem(products: Product[]) {
 
       aside.appendChild(quantityForm);
 
-      //XXX
       quantityForm.addEventListener("submit", function (e) {
         e.preventDefault();
         let amountOfProduct: number = parseInt(quantityOfProduct.value);

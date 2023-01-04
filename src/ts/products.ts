@@ -53,7 +53,6 @@ function createHTMLforProducts(products: Product[]): void {
 
     productsContainer.appendChild(container);
 
-    //XXX
     button.addEventListener("click", function () {
       let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
       if (cartItem != null) {
@@ -214,7 +213,6 @@ function showFilteredProducts(filteredList: Product[]) {
 
     productsContainer.appendChild(container);
 
-    //XXX
     button.addEventListener("click", function () {
       let cartItem: CartItem = getCartItem(getCartItems(), filteredList[i]);
       if (cartItem != null) {
