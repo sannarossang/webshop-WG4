@@ -1,6 +1,6 @@
 # WEBSHOP Up The Wall
 
-Up The Wall är en gruppuppgift som genomförs av Ida Lindgren, Julia Carlberg och Sanna Rossäng i samband med kurserna JavaScript Grundkurs och Agilt projektarbete på Medieinstitutet i Stockholm. Tillsammans som utvecklingsteam har vi utvecklat denna webshop utifrån en kravspecifikation från vår beställare. Vi har utgått från den agila projektstyrningen/metoden Scrum och planeringsverktyget Jira för flexibel progress. Tekniker som används är TypeScript, Parcel och Scss.
+Up The Wall är en gruppuppgift som genomförs av Ida Lindgren, Julia Carlberg och Sanna Rossäng i samband med kurserna JavaScript Grundkurs och Agilt projektarbete på Medieinstitutet i Stockholm. Tillsammans som utvecklingsteam har vi utvecklat denna webshop utifrån en kravspecifikation från vår beställare. Vi har utgått från den agila projektstyrningen/metoden Scrum och planeringsverktyget Jira för flexibel progress. Tekniker som används är TypeScript, Parcel, HTML och Scss.
 
 ## Krav för uppgiften:
 - En landningssida (startsida)
