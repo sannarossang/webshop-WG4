@@ -43,7 +43,7 @@ header {
   display: flex;
   position: absolute;
   top: 30px;
-  right: 30px;
+  right: 5px;
   @include mixins.desktop {
     top: 50px;
     right: 50px;
@@ -68,7 +68,7 @@ header {
 #burgerMenu {
   position: absolute;
   top: 30px;
-  left: 30px;
+  left: 15px;
   background-color: rgb(197, 192, 184);
   font-size: 25pt;
   border: none;
@@ -121,7 +121,6 @@ header {
   background-color: #fefefe;
   border: 1px solid #888;
   width: 30%;
-  height: 25%;
   position: absolute;
   top: 80px;
   left: 30px;

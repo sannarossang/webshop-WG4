@@ -58,7 +58,6 @@ function createHTMLforProducts(products: Product[]): void {
       let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
       if (cartItem != null) {
         let increasedQty: number = cartItem.quantity + 1;
-        console.log("ökar med", increasedQty);
         updateCart(products[i], increasedQty);
       } else {
         updateCart(products[i], 1);
@@ -217,7 +216,7 @@ function showFilteredProducts(filteredList: Product[]) {
 
     //XXX
     button.addEventListener("click", function () {
-      let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
+      let cartItem: CartItem = getCartItem(getCartItems(), filteredList[i]);
       if (cartItem != null) {
         let increasedQty: number = cartItem.quantity + 1;
         console.log(increasedQty);
