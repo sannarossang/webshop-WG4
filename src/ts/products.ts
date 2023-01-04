@@ -12,6 +12,7 @@ function createHTMLforProducts(products: Product[]): void {
   productsContainer.innerHTML = "";
 
   for (let i = 0; i < products.length; i++) {
+    //produkter
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let articleInProduct: HTMLElement = document.createElement("article");
@@ -21,8 +22,6 @@ function createHTMLforProducts(products: Product[]): void {
     let price: HTMLSpanElement = document.createElement("span");
     let button: HTMLButtonElement = document.createElement("button");
     let divContainer: HTMLDivElement = document.createElement("div");
-
-    // container.setAttribute("fa-light fa-cart-circle-plus", "XX")
 
     container.className = "product";
 
@@ -54,6 +53,7 @@ function createHTMLforProducts(products: Product[]): void {
 
     productsContainer.appendChild(container);
 
+    //XXX
     button.addEventListener("click", function () {
       let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
       if (cartItem != null) {
@@ -68,37 +68,44 @@ function createHTMLforProducts(products: Product[]): void {
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
 
+    //klick på bild för att komma till produktdetaljer för vald produkt
     img.addEventListener("click", () => {
       location.href = "../html/productdetails.html?id=" + products[i].id;
     });
   }
 }
 
-let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
+//backa-knapp
+let backButton = document.getElementById("returnButton") as HTMLButtonElement;
 backButton.addEventListener("click", backaWindow);
 
 function backaWindow() {
   history.back();
 }
 
+//modal för varukorg
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
 let closeBtn = document.getElementById("closeButton");
 
+//öppna modal
 btn.onclick = function () {
   modal.style.display = "block";
 };
 
+//stängningskryss för modal
 closeBtn.onclick = function () {
   modal.style.display = "none";
 };
 
+//funktionalitet för att kunna trycka utanför för att stänga – not working atm
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
 
+//hamburgermeny
 let burgerBtn = document.getElementById("burgerMenu");
 let burgerModal = document.getElementById("burgerModal");
 
@@ -106,6 +113,7 @@ burgerBtn.onclick = function () {
   burgerModal.style.display = "block";
 };
 
+//funktionalitet för att kunna trycka utanför för att stänga hamburgermenyn
 window.onclick = function (event) {
   if (event.target == burgerModal) {
     burgerModal.style.display = "none";
@@ -115,11 +123,7 @@ window.onclick = function (event) {
 createHTMLforProducts(products);
 createHTMLforModal(getCartItems());
 
-function updateCartTotal() {
-  throw new Error("Function not implemented.");
-}
-
-//FILTER
+//filtrering för produkter
 let btnOne = document.createElement("button");
 let btnTwo = document.createElement("button");
 let btnThree = document.createElement("button");
@@ -211,6 +215,7 @@ function showFilteredProducts(filteredList: Product[]) {
 
     productsContainer.appendChild(container);
 
+    //XXX
     button.addEventListener("click", function () {
       let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
       if (cartItem != null) {
@@ -225,6 +230,7 @@ function showFilteredProducts(filteredList: Product[]) {
 
     button.innerHTML = "<i class='fa-solid fa-cart-plus'></i>";
 
+    //klick på bild från filtreringen för att komma till vald produkt
     img.addEventListener("click", () => {
       location.href = "../html/productdetails.html?id=" + filteredList[i].id;
     });

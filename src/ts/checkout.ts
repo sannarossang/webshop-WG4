@@ -19,15 +19,16 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
   let productsTotalSum = 0;
 
   for (let i = 0; i < cartItems.length; i++) {
+    //produkter
     let container: HTMLDivElement = document.createElement("div");
     let img: HTMLImageElement = document.createElement("img");
     let title: HTMLHeadingElement = document.createElement("h3");
     let artist: HTMLHeadElement = document.createElement("h4");
-    let description: HTMLSpanElement = document.createElement("span");
     let articleInCheckout: HTMLElement = document.createElement("article");
     let price: HTMLSpanElement = document.createElement("span");
-    let span: HTMLSpanElement = document.createElement("span");
 
+    //spantag för quantity
+    let span: HTMLSpanElement = document.createElement("span");
     let quantity: HTMLSpanElement = document.createElement("span");
 
     container.className = "productInCheckout";
@@ -35,23 +36,20 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
     img.className = "productInCheckout__image";
     title.className = "productInCheckout__title";
     artist.className = "productInModal__artist";
-    description.className = "productInCheckout__description";
     articleInCheckout.className = "productInCheckout__article";
     price.className = "productInCheckout__price";
-    span.className = "product__plusMinus";
 
+    span.className = "product__plusMinus";
     quantity.className = "product__quantity";
 
     img.src = cartItems[i].product.img;
     title.innerHTML = cartItems[i].product.productname;
     artist.innerHTML = cartItems[i].product.collection;
-    description.innerHTML = cartItems[i].product.description;
     price.innerHTML += cartItems[i].product.price + ":-";
     quantity.innerHTML += cartItems[i].quantity;
 
     articleInCheckout.appendChild(title);
     articleInCheckout.appendChild(artist);
-    articleInCheckout.appendChild(description);
     articleInCheckout.appendChild(price);
 
     container.appendChild(img);
@@ -59,8 +57,7 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
 
     checkoutContainer.appendChild(container);
 
-    //product counter + and -
-
+    //produkträknare
     const counterControls = document.createElement("div");
     const decrease = document.createElement("button");
     const increase = document.createElement("button");
@@ -89,7 +86,7 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
 
     productsTotalSum += cartItems[i].totalPrice;
 
-    //deletebutton
+    //deleteButton
     let deleteDiv = document.createElement("div");
     let checkoutDeletebutton: HTMLButtonElement =
       document.createElement("button");
@@ -127,14 +124,7 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
   productCart.value = totalCartItemsQuantity();
 }
 
-let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
-backButton.addEventListener("click", backaWindow);
-
-function backaWindow() {
-  history.back();
-}
-
-//structure for pop-up
+//modal för betalningsbekräftelse
 const div = document.createElement("div");
 const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
@@ -146,7 +136,6 @@ modalId?.append(div);
 div.append(pTag);
 div.append(h1);
 
-//pop-up onlick
 const paymentSuccess = document.getElementById("paymentSuccess");
 const btn = document.getElementById("payButton") as HTMLButtonElement; //tar id från knappen
 
@@ -172,24 +161,29 @@ window.onclick = function (event) {
   }
 };
 
+//modal för varukorg
 let modal = document.getElementById("myModal");
 let button = document.getElementById("cartButton");
 let closeBtn = document.getElementById("closeButton");
 
+//öppna modal
 button.onclick = function () {
   modal.style.display = "block";
 };
 
+//stängningskryss för modal
 closeBtn.onclick = function () {
   modal.style.display = "none";
 };
 
+//funktionalitet för att kunna trycka utanför för att stänga – not working atm
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
 
+//hamburgermeny
 let burgerBtn = document.getElementById("burgerMenu");
 let burgerModal = document.getElementById("burgerModal");
 
@@ -202,6 +196,14 @@ window.onclick = function (event) {
     burgerModal.style.display = "none";
   }
 };
+
+//backa-knapp
+let backButton = document.getElementById("returnButton") as HTMLButtonElement;
+backButton.addEventListener("click", backaWindow);
+
+function backaWindow() {
+  history.back();
+}
 
 createHTMLforCheckout(getCartItems());
 createHTMLforModal(getCartItems());
