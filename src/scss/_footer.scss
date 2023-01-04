@@ -1,7 +1,8 @@
 @use "mixins";
 
 footer{
-    background-color: #937d8a;
+    //background-color: #937d8a;
+    background-color: rgb(199, 196, 192);
     display: flex;
     padding: 30px;
     flex-direction: column;
@@ -13,6 +14,20 @@ footer{
 
     a{
         color: black;
+    }
+
+    .footerContact{
+        p{
+            margin: 0;
+            text-align: center;
+            font-size: 12pt;
+            padding: 3px;
+        }
+        h3{
+            text-align: center;
+            margin: 5px;
+            font-size: 14pt;
+        }
     }
 
     @include mixins.desktop{

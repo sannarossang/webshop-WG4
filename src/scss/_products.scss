@@ -80,17 +80,27 @@
     height: 20px;
     width: 20px;
     margin: 0;
+    margin-top: 20px;
     border: none;
     background-color: white;
     font-size: 15pt;
     cursor: pointer;
-    padding: 20px;
+    //padding: 20px;
   }
   &__divContainer {
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
   }
+}
+
+.product__button:hover{
+  color: rgb(197, 192, 184);
+  //transform: scale(1.2);
+}
+
+.product__button:active{
+  transform: translateY(4px);
 }
 
 .product:hover{
@@ -263,7 +273,7 @@
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;
-  background-color: white;
+  background-color: rgb(204, 201, 199);
   cursor: pointer;
   margin-right: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
