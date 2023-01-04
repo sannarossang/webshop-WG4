@@ -111,13 +111,13 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 10px;
   line-height: normal;
-  height: 200px;
-  width: 90vw;
-  margin-left: 25px;
+  height: 150px;
+  width: 95vw;
+  //margin-left: 25px;
   margin-top: 10px;
   &__image {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
   }
   &__article {
     padding: 20px;
@@ -125,9 +125,15 @@ main {
   &__title {
     font-size: 16px;
     margin: 0;
+    width: 100px;
   }
   &__artist{
     margin: 0;
+    font-size: 13px;
+    color: rgb(165, 165, 165);
+    font-weight: lighter;
+    margin-bottom: 10px;
+    margin-top: 0;
   }
   &__description {
     font-size: 16px;
@@ -144,7 +150,22 @@ main {
       width: 200px;
       height: 200px;
     }
+    &__title{
+      width: 300px;
+    }
   }
+}
+
+.counter-controls-checkout{
+  display: flex;
+  flex-direction: row;
+  width: 20px;
+  position: absolute;
+  left: 68%;
+  @include mixins.desktop{
+    left: 35%;
+  }
+
 }
 
 .paymentSuccess {
@@ -205,6 +226,19 @@ main {
 .pTagInCheckoutModal {
   font-size: 25pt;
   padding: 20px;
+}
+
+.checkoutDeleteBtn {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  font-size: 12pt;
+  position: absolute;
+  right: 10%;
+  @include mixins.desktop {
+    font-size: 13pt;
+    right: 58%;
+  }
 }
 
 @-webkit-keyframes animatetop {
