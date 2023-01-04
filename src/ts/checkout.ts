@@ -125,16 +125,16 @@ function createHTMLforCheckout(cartItems: CartItem[]) {
 }
 
 //modal för betalningsbekräftelse
-const div = document.createElement("div");
 const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
-let pTag = document.createElement("p");
+let pTag = document.createElement("p"); //ikon
+const paymentModal = document.createElement("div");
+const paymentSuccess = document.createElement("div");
+paymentSuccess.setAttribute("id", "paymentSuccess");
+paymentModal.setAttribute("id", "paymentModal");
+const paymentDiv = document.getElementById("payment");
 
-const paymentSuccess = document.getElementById("paymentSuccess");
-
-paymentSuccess?.append(div);
-div.append(pTag);
-div.append(h1);
+// const paymentSuccess = document.getElementById("paymentSuccess");
 
 const btn = document.getElementById("payButton") as HTMLButtonElement; //tar id från knappen
 
@@ -142,20 +142,25 @@ let payform = document.getElementById("payform") as HTMLButtonElement;
 payform.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  paymentDiv.append(paymentModal);
+  paymentModal.append(paymentSuccess);
+  paymentSuccess.append(pTag);
+  paymentSuccess.append(h1);
+
   btn.style.display = "block";
-  div.className = "modal-body";
   pTag.className = "pTagInCheckoutModal";
   h1.innerText = "Tack för ditt köp!";
   pTag.innerHTML = "<i class='fa-regular fa-circle-check'></i>";
   btnHome.setAttribute("id", "homeButton");
-  div.append(btnHome);
+  paymentSuccess.append(btnHome);
   btnHome.innerHTML = "<a href='./products.html'>Fortsätt handla</a>";
   clearCart();
 });
 
+//knapp för att stänga köp
 window.onclick = function (event) {
-  if (event.target == paymentSuccess) {
-    paymentSuccess.style.display = "none";
+  if (event.target == paymentModal) {
+    paymentModal.style.display = "none";
     location.href = "../index.html";
   }
 };
