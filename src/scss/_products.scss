@@ -91,7 +91,7 @@
   }
 }
 
-.product:hover{
+.product:hover {
   //border: 1px solid black;
   transform: scale(1.1);
   transition: 0.2s;
@@ -99,7 +99,7 @@
 }
 
 .productInModal__button,
-#backaKnapp {
+#returnButton {
   width: fit-content;
   border: none;
   background-color: white;
@@ -110,33 +110,33 @@
   height: 40px;
 }
 
-.checkoutDeleteBtn{
+.checkoutDeleteBtn {
   cursor: pointer;
   border: none;
   background-color: white;
   font-size: 12pt;
   position: absolute;
   right: 10%;
-  @include mixins.desktop{
+  @include mixins.desktop {
     font-size: 13pt;
     right: 57%;
   }
 }
 
-.modalDeleteBtn{
+.modalDeleteBtn {
   cursor: pointer;
   border: none;
   background-color: white;
   font-size: 12pt;
   position: absolute;
   right: 4%;
-  @include mixins.desktop{
+  @include mixins.desktop {
     font-size: 13pt;
     right: 7%;
   }
 }
 
-#backaKnapp {
+#returnButton {
   position: absolute;
   margin: 10px;
 }
@@ -155,10 +155,9 @@
   &__image {
     width: 100px;
     height: 100px;
-    @include mixins.desktop{
+    @include mixins.desktop {
       width: 200px;
       height: 200px;
-    
     }
   }
   &__article {
@@ -179,7 +178,7 @@
     font-weight: lighter;
     margin-bottom: 10px;
     margin-top: 0;
-    @include mixins.desktop{
+    @include mixins.desktop {
       font-size: 14pt;
     }
   }
@@ -187,7 +186,7 @@
     font-size: 16px;
     display: none;
   }
-  @include mixins.desktop{
+  @include mixins.desktop {
     height: 200px;
     margin-top: 10%;
     font-size: 14pt;
@@ -204,19 +203,19 @@
   height: 39px;
   position: absolute;
   left: 85%;
-  @include mixins.desktop{
+  @include mixins.desktop {
     width: 50px;
     height: 39px;
     left: 36%;
   }
 }
 
-.modal-counter-controls{
+.modal-counter-controls {
   display: flex;
   width: 15px;
   position: absolute;
   right: 25%;
-  @include mixins.desktop{
+  @include mixins.desktop {
     width: 50px;
     height: 39px;
     right: 13%;
@@ -252,12 +251,12 @@
   border-bottom: 1px solid black;
 }
 
-#filter{
+#filter {
   margin-left: 50px;
   margin-top: 20px;
 }
 
-.filterBtn{
+.filterBtn {
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;

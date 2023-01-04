@@ -4,6 +4,7 @@ import { createHTMLforModal } from "./modal";
 import { updateCart, getCartItems, getCartItem } from "./cart";
 import { CartItem } from "./models/CartItem";
 
+//Hittar rätt produkt
 function searchById() {
   const paramSearch: URLSearchParams = new URLSearchParams(
     window.location.search
@@ -20,7 +21,7 @@ function createHTMLForItem(products: Product[]) {
 
   for (let i = 0; i < products.length; i++) {
     if (id === products[i].id) {
-      //DIV
+      //div för item
       const container: HTMLDivElement = document.createElement("div");
       let img: HTMLImageElement = document.createElement("img");
 
@@ -30,7 +31,7 @@ function createHTMLForItem(products: Product[]) {
 
       container.appendChild(img);
 
-      //ASIDE
+      //aside för itemdetaljer
       const aside = document.createElement("aside");
       let h1 = document.createElement("h1");
       let artist = document.createElement("h4");
@@ -41,11 +42,13 @@ function createHTMLForItem(products: Product[]) {
       p.innerText = products[i].description;
       span.innerHTML += products[i].price + ":-";
 
-      //FORM
+      //formulär
       const quantityForm = document.createElement("form");
       const quantityOfProduct = document.createElement("input");
       quantityOfProduct.setAttribute("type", "number");
       quantityOfProduct.setAttribute("required", "true");
+
+      //formulärknapp
       const addInCartbutton = document.createElement("button");
       addInCartbutton.setAttribute("type", "submit");
       addInCartbutton.setAttribute("required", "true");
@@ -58,9 +61,8 @@ function createHTMLForItem(products: Product[]) {
       artist.className = "productDetails__artist";
       quantityOfProduct.className = "productDetails__input";
       aside.append(span);
+
       aside.append(addInCartbutton);
-      aside.append(quantityForm);
-      aside.appendChild(quantityForm);
       aside.appendChild(quantityOfProduct);
 
       const productDetailContainer = document.getElementById(
@@ -74,6 +76,7 @@ function createHTMLForItem(products: Product[]) {
 
       aside.appendChild(quantityForm);
 
+      //XXX
       quantityForm.addEventListener("submit", function (e) {
         e.preventDefault();
         let amountOfProduct: number = parseInt(quantityOfProduct.value);
@@ -91,33 +94,39 @@ function createHTMLForItem(products: Product[]) {
   }
 }
 
-let backButton = document.getElementById("backaKnapp") as HTMLButtonElement;
+createHTMLForItem(products);
+
+//backa-knapp
+let backButton = document.getElementById("returnButton") as HTMLButtonElement;
 backButton.addEventListener("click", backaWindow);
 
 function backaWindow() {
   history.back();
 }
 
-createHTMLForItem(products);
-
+//modal för varukorg
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");
 let closeBtn = document.getElementById("closeButton");
 
+//öppna modal
 btn.onclick = function () {
   modal.style.display = "block";
 };
 
+//stängningskryss för modal
 closeBtn.onclick = function () {
   modal.style.display = "none";
 };
 
+//funktionalitet för att kunna trycka utanför för att stänga – not working atm
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
 
+//hamburgermeny
 let burgerBtn = document.getElementById("burgerMenu");
 let burgerModal = document.getElementById("burgerModal");
 
@@ -125,6 +134,7 @@ burgerBtn.onclick = function () {
   burgerModal.style.display = "block";
 };
 
+//funktionalitet för att kunna trycka utanför för att stänga hamburgermenyn
 window.onclick = function (event) {
   if (event.target == burgerModal) {
     burgerModal.style.display = "none";
