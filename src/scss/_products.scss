@@ -29,11 +29,9 @@
   line-height: normal;
   margin-top: 20px;
   margin-bottom: 50px;
-  font-family: "korolev", "sans-serif";
   @include mixins.desktop {
     //width: 250px;
     margin: 20px;
-    font-family: "korolev", "sans-serif";
   }
 
   &__article {

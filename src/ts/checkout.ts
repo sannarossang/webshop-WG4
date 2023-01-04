@@ -140,14 +140,13 @@ const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
 let pTag = document.createElement("p");
 
-const modalId = document.getElementById("modalId") as HTMLElement;
+const paymentSuccess = document.getElementById("paymentSuccess");
 
-modalId?.append(div);
+paymentSuccess?.append(div);
 div.append(pTag);
 div.append(h1);
 
 //pop-up onlick
-const paymentSuccess = document.getElementById("paymentSuccess");
 const btn = document.getElementById("payButton") as HTMLButtonElement; //tar id från knappen
 
 let payform = document.getElementById("payform") as HTMLButtonElement;
