@@ -47,8 +47,8 @@
 
   &__title {
     font-size: 18px;
-    padding-top: 20px;
     margin-left: 10px;
+    margin-bottom: 0;
   }
 
   &__artist {
@@ -57,6 +57,7 @@
     color: rgb(165, 165, 165);
     font-weight: lighter;
     margin-bottom: 10px;
+    margin-top: 0;
   }
 
   &__price {
@@ -90,9 +91,15 @@
   }
 }
 
+.product:hover{
+  //border: 1px solid black;
+  transform: scale(1.1);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
 .productInModal__button,
-#backaKnapp,
-.checkoutDeleteBtn {
+#backaKnapp {
   width: fit-content;
   border: none;
   background-color: white;
@@ -101,6 +108,31 @@
   margin: 20px;
   font-size: 15pt;
   height: 40px;
+}
+
+.checkoutDeleteBtn{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  font-size: 12pt;
+  position: absolute;
+  right: 10%;
+  @include mixins.desktop{
+    font-size: 13pt;
+    right: 57%;
+  }
+}
+
+.modalDeleteBtn{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  font-size: 12pt;
+  position: absolute;
+  right: 5%;
+  @include mixins.desktop{
+    font-size: 13pt;
+  }
 }
 
 #backaKnapp {
@@ -124,19 +156,22 @@
   }
   &__title {
     font-size: 16px;
+    margin-bottom: 0;
+    width: 70%;
+    @include mixins.desktop {
+      width: 100%;
+    }
   }
   &__artist {
     font-size: 13px;
     color: rgb(165, 165, 165);
     font-weight: lighter;
     margin-bottom: 10px;
+    margin-top: 0;
   }
   &__description {
     font-size: 16px;
     display: none;
-    @include mixins.desktop {
-      //display: contents;
-    }
   }
 }
 
@@ -148,6 +183,18 @@
   width: 50px;
   display: flex;
   height: 39px;
+  position: absolute;
+  left: 75%;
+  @include mixins.desktop{
+    left: 36%;
+  }
+}
+
+.modal-counter-controls{
+  display: flex;
+  width: 50px;
+  position: absolute;
+  right: 12%;
 }
 
 .product__plusMinus {
@@ -168,15 +215,15 @@
   background-color: white;
   border: none;
   cursor: pointer;
+  margin: 0;
 }
 
 .increase {
-  border-bottom: 1px solid black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
   background-color: white;
   cursor: pointer;
+  margin: 0;
+  border-bottom: 1px solid black;
 }
 
 #filter{

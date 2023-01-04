@@ -139,12 +139,11 @@ header {
 
 #sumProducts {
   background-color: lightgray;
-  width: 100%;
   padding: 5px;
   text-align: center;
   margin: 0;
   @include mixins.desktop {
-    width: 577px;
+    //width: 577px;
     padding: 15px;
   }
 }
@@ -159,13 +158,14 @@ header {
   background-color: white;
 }
 
-#paymentBtn {
+#paymentBtn{
   background-color: rgb(153, 147, 153);
   border: none;
   cursor: pointer;
   font-size: 10pt;
   width: 100%;
   padding: 15px;
+  margin: 0;
   @include mixins.desktop {
     padding: 20px;
   }

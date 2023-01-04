@@ -1,12 +1,12 @@
 @use "mixins";
 
-* {
-  margin: 0;
-}
-
 #productDetailMain {
-  height: 30rem;
   text-align: start;
+  display: flex;
+  justify-content: center;
+  h1{
+    margin-bottom: 0;
+  }
 }
 
 #productDetailMain h1 {
@@ -17,19 +17,21 @@
 
 #productDetailContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 350px;
   margin-top: 70px;
-  height: 250px;
+  margin-bottom: 70px;
   text-align: start;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   .productdetail__image {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
   }
   @include mixins.desktop {
     width: 70%;
     margin-left: 15%;
     height: 400px;
+    flex-direction: row;
     .productdetail__image {
       width: 400px;
       height: 400px;
@@ -67,6 +69,7 @@ aside {
   color: rgb(165, 165, 165);
   font-weight: lighter;
   margin-bottom: 30px;
+  margin-top: 0;
 }
 
 .productDetails__input{

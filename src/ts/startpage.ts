@@ -1,5 +1,5 @@
 import { getCartItems } from "./cart";
-import { createHTMLforModal } from "./createhtml";
+import { createHTMLforModal } from "./modal";
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cartButton");

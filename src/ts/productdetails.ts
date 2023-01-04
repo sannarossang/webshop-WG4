@@ -1,8 +1,7 @@
 import { Product } from "./models/Products";
 import { products } from "./models/Products";
-import { createHTMLforModal } from "./createhtml";
-import { addToCart, getCartItems, getCustomerCartItem } from "./cart";
-import { clearCart, removeProductFromCart } from "./cart";
+import { createHTMLforModal } from "./modal";
+import { updateCart, getCartItems, getCartItem } from "./cart";
 import { CartItem } from "./models/CartItem";
 
 function searchById() {
@@ -78,16 +77,13 @@ function createHTMLForItem(products: Product[]) {
       quantityForm.addEventListener("submit", function (e) {
         e.preventDefault();
         let amountOfProduct: number = parseInt(quantityOfProduct.value);
-        let cartItem: CartItem = getCustomerCartItem(
-          getCartItems(),
-          products[i]
-        );
+        let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
         if (cartItem != null) {
           let increasedQty: number = cartItem.quantity + amountOfProduct;
           console.log(increasedQty);
-          addToCart(products[i], increasedQty);
+          updateCart(products[i], increasedQty);
         } else {
-          addToCart(products[i], amountOfProduct);
+          updateCart(products[i], amountOfProduct);
         }
         createHTMLforModal(getCartItems());
       });

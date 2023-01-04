@@ -3,7 +3,7 @@
 
 main {
   margin: 0;
-  height: 100vh;
+  min-height: 80vh;
 }
 
 #checkoutContainer {
@@ -31,6 +31,10 @@ main {
     flex-direction: column;
     width: fit-content;
 
+    h3{
+      margin: 0;
+    }
+
     p {
       width: 350px;
     }
@@ -52,6 +56,7 @@ main {
       padding: 8px;
       background-color: white;
       cursor: pointer;
+      margin-top: 0;
     }
   }
 
@@ -119,6 +124,10 @@ main {
   }
   &__title {
     font-size: 16px;
+    margin: 0;
+  }
+  &__artist{
+    margin: 0;
   }
   &__description {
     font-size: 16px;
@@ -217,5 +226,12 @@ main {
   to {
     top: 0;
     opacity: 1;
+  }
+}
+
+#sumProductsCheckout{
+  //margin: 0;
+  @include mixins.desktop{
+    margin: 0;
   }
 }
