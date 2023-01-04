@@ -235,3 +235,12 @@ main {
     margin: 0;
   }
 }
+
+#homeButton{
+  width: 20%;
+  cursor: pointer;
+}
+
+#homeButton:hover{
+  background-color: rgb(212, 212, 212);
+}

@@ -1,7 +1,7 @@
 @use "mixins";
 
 header {
-  background-color: rgb(153, 147, 153);
+  background-color: #967589;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,9 +9,8 @@ header {
   line-height: 40px;
 
   #logo {
-    width: 20%;
+    width: auto;
     @include mixins.desktop{
-      width: 30%;
     }
   }
 

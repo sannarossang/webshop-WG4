@@ -10,16 +10,17 @@
     }
 }
   
-.navbar a {
+nav a {
     float: left;
     font-size: 16px;
     color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-weight: bolder;
 }
   
-.dropdown {
+/*.dropdown {
     float: left;
     overflow: hidden;
 }
@@ -70,4 +71,4 @@
   
 .show {
     display: block;
-}
+} */
