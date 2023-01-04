@@ -9,9 +9,13 @@ header {
   line-height: 40px;
 
   #logo {
-    width: 20%;
+    img {
+      width: 150px;
+    }
     @include mixins.desktop{
-      width: 30%;
+      img {
+        width: 200px;
+      }
     }
   }
 
