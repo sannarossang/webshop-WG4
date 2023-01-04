@@ -35,6 +35,7 @@ function createHTMLforProducts(products: Product[]): void {
     divContainer.className = "product__divContainer";
 
     img.src = products[i].img;
+    img.alt = products[i].alttext;
     title.innerHTML = products[i].productname;
     artist.innerHTML = products[i].collection;
     description.innerHTML = products[i].description;

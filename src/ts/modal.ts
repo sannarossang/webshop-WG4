@@ -44,6 +44,7 @@ export function createHTMLforModal(cartItems: CartItem[]) {
     quantity.className = "product__quantity";
 
     img.src = cartItems[i].product.img;
+    img.alt = cartItems[i].product.alttext;
     title.innerHTML = cartItems[i].product.productname;
     artist.innerHTML = cartItems[i].product.collection;
     description.innerHTML = cartItems[i].product.description;
