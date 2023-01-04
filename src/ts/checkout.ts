@@ -138,7 +138,6 @@ function backaWindow() {
 const div = document.createElement("div");
 const h1 = document.createElement("h1");
 const btnHome = document.createElement("button");
-let span = document.createElement("span");
 let pTag = document.createElement("p");
 
 const modalId = document.getElementById("modalId") as HTMLElement;
@@ -160,9 +159,9 @@ payform.addEventListener("submit", (e) => {
   pTag.className = "pTagInCheckoutModal";
   h1.innerText = "Tack för ditt köp!";
   pTag.innerHTML = "<i class='fa-regular fa-circle-check'></i>";
-  div.appendChild(span);
+  btnHome.setAttribute("id", "homeButton");
   div.append(btnHome);
-  span.innerHTML = "<a href='./products.html'>Fortsätt handla</a>";
+  btnHome.innerHTML = "<a href='./products.html'>Fortsätt handla</a>";
   clearCart();
 });
 

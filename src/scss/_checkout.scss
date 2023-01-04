@@ -31,6 +31,10 @@ main {
     flex-direction: column;
     width: fit-content;
 
+    h3{
+      margin: 0;
+    }
+
     p {
       width: 350px;
     }
@@ -52,6 +56,7 @@ main {
       padding: 8px;
       background-color: white;
       cursor: pointer;
+      margin-top: 0;
     }
   }
 
@@ -176,6 +181,7 @@ main {
   border: 1px solid black;
   color: #333;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
   @include mixins.desktop {
     width: 50%;
     left: 25%;
@@ -189,7 +195,11 @@ main {
 }
 
 .modal-body button {
-  width: 30px;
+  width: auto;
+  padding: 2%;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 
 .pTagInCheckoutModal {
@@ -216,5 +226,12 @@ main {
   to {
     top: 0;
     opacity: 1;
+  }
+}
+
+#sumProductsCheckout{
+  //margin: 0;
+  @include mixins.desktop{
+    margin: 0;
   }
 }
