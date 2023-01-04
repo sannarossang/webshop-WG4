@@ -1,7 +1,7 @@
 @use "mixins";
 
 header {
-  background-color: #967589;
+  background-color: #937d8a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@ header {
   }
 
   #cartButton {
-    background-color: rgb(153, 147, 153);
+    background-color: #937d8a;
     border: none;
     font-size: 25pt;
     cursor: pointer;
@@ -68,7 +68,7 @@ header {
   position: absolute;
   top: 30px;
   left: 30px;
-  background-color: rgb(153, 147, 153);
+  background-color: #937d8a;
   font-size: 25pt;
   border: none;
   cursor: pointer;
@@ -171,7 +171,7 @@ header {
 }
 
 #paymentBtn{
-  background-color: rgb(153, 147, 153);
+  background-color: #937d8a;
   border: none;
   cursor: pointer;
   font-size: 10pt;
