@@ -83,7 +83,6 @@ function createHTMLForItem(products: Product[]) {
         let cartItem: CartItem = getCartItem(getCartItems(), products[i]);
         if (cartItem != null) {
           let increasedQty: number = cartItem.quantity + amountOfProduct;
-          console.log(increasedQty);
           updateCart(products[i], increasedQty);
         } else {
           updateCart(products[i], amountOfProduct);

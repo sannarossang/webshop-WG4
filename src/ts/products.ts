@@ -218,7 +218,6 @@ function showFilteredProducts(filteredList: Product[]) {
       let cartItem: CartItem = getCartItem(getCartItems(), filteredList[i]);
       if (cartItem != null) {
         let increasedQty: number = cartItem.quantity + 1;
-        console.log(increasedQty);
         updateCart(filteredList[i], increasedQty);
       } else {
         updateCart(filteredList[i], 1);

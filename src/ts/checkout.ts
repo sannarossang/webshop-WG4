@@ -135,8 +135,6 @@ paymentSuccess.setAttribute("id", "paymentSuccess");
 paymentModal.setAttribute("id", "paymentModal");
 const paymentDiv = document.getElementById("payment");
 
-// const paymentSuccess = document.getElementById("paymentSuccess");
-
 const btn = document.getElementById("payButton") as HTMLButtonElement; //tar id från knappen
 
 let payform = document.getElementById("payform") as HTMLButtonElement;

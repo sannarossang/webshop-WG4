@@ -12,16 +12,13 @@
 
 #productsContainer {
   display: flex;
-  //flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  //justify-content: space-around;
 
   @include mixins.desktop {
-    //justify-content: space-between;
     width: 90%;
   }
-  @include mixins.sannasdesktop{
+  @include mixins.sannasdesktop {
     width: 71%;
   }
 }
@@ -56,7 +53,7 @@
     font-size: 15px;
     margin-left: 10px;
     margin-bottom: 0;
-    @include mixins.desktop{
+    @include mixins.desktop {
       font-size: 18px;
     }
   }
@@ -68,7 +65,7 @@
     font-weight: lighter;
     margin-bottom: 10px;
     margin-top: 0;
-    @include mixins.desktop{
+    @include mixins.desktop {
       font-size: 13px;
     }
   }
@@ -97,7 +94,7 @@
     font-size: 15pt;
     cursor: pointer;
     margin-right: 10%;
-    @include mixins.desktop{
+    @include mixins.desktop {
     }
   }
   &__divContainer {
@@ -107,17 +104,15 @@
   }
 }
 
-.product__button:hover{
+.product__button:hover {
   color: rgb(197, 192, 184);
-  //transform: scale(1.2);
 }
 
-.product__button:active{
+.product__button:active {
   transform: translateY(4px);
 }
 
 .product:hover {
-  //border: 1px solid black;
   transform: scale(1.1);
   transition: 0.2s;
   cursor: pointer;
@@ -157,7 +152,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  //justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 20px;
   width: 92%;
@@ -202,7 +196,6 @@
     height: 150px;
     margin-top: 10%;
     font-size: 14pt;
-    //margin-bottom: 5px;
   }
 }
 
